@@ -1,0 +1,166 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'About Launchbox',
+  description:
+    'The story behind Launchbox — why we built a coworking space in DHA Phase 5, Lahore, who it is for, and how we run it.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <HeroText
+    tagline="About"
+    title="A space for people who actually do the work."
+    subtitle="Launchbox is a coworking space in DHA Phase 5, Lahore — built quietly, run with care, and priced for real people."
+  />
+
+  <!-- The story ******************* -->
+
+  <Content
+    title="Why we built it"
+    subtitle="We were the audience first."
+    isReversed={false}
+    image={{
+      src: '~/assets/images/space/brainstorming.jpg',
+      alt: 'The team behind Launchbox brainstorming in DHA Phase 5',
+    }}
+    items={[]}
+  >
+    <Fragment slot="content">
+      <p class="mb-4">
+        We started Launchbox because we couldn't find what we wanted as freelancers and remote workers in Lahore.
+        Cafés had unreliable Wi-Fi and a forced food bill. Home offices killed momentum every time the lights went
+        out. The available coworking spaces in the city felt either overpriced for funded startups or stitched
+        together as an afterthought.
+      </p>
+      <p class="mb-4">
+        We wanted a workspace that respected your time. Fast internet that holds up at 2 PM the same as 9 AM. Power
+        that doesn't blink when LESCO does. Meeting rooms you can actually book. A community of people who are
+        heads-down on real work, not networking events. And pricing that didn't require a funding round to afford.
+      </p>
+      <p>
+        So we built it. Launchbox opened in DHA Phase 5 with a simple promise: a professional space, run honestly,
+        priced fairly. Day passes for people testing the waters, monthly desks for full-time freelancers, private
+        cabins for early-stage teams. No deposits. No 12-month contracts. No upsells.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Numbers ******************* -->
+
+  <Stats
+    title="Where things stand"
+    subtitle="Launchbox by the numbers — updated as the community grows."
+    stats={[
+      { title: 'Members', amount: '50+' },
+      { title: 'Plans to choose from', amount: '4' },
+      { title: 'Internet uptime', amount: '99.9%' },
+      { title: 'Years in DHA Phase 5', amount: '2+' },
+    ]}
+  />
+
+  <!-- What we believe ******************* -->
+
+  <Features3
+    title="What we believe"
+    subtitle="The principles behind how we run the space."
+    columns={3}
+    items={[
+      {
+        title: 'Earn the stay, every month',
+        description:
+          'No deposits, no lock-in. If the space is not making your work better, you should be free to leave. We earn renewals through quality, not contracts.',
+        icon: 'tabler:hand-stop',
+      },
+      {
+        title: 'Affordable, not aspirational',
+        description:
+          'Pricing is set for freelancers and early-stage teams — not funded startups with deep pockets. Real people doing real work.',
+        icon: 'tabler:wallet',
+      },
+      {
+        title: 'Infrastructure first',
+        description:
+          'Beautiful interiors are easy. Reliable internet, backup power, and a chair that does not hurt at 5 PM are harder. We invest in the boring things.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Community over noise',
+        description:
+          'We do not throw networking events. Communities form quietly when serious people work near each other. We just provide the space.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Local, on purpose',
+        description:
+          'Built in Lahore, run by Lahoris. We know the city, the load-shedding patterns, the commute, the food options nearby. Not a global chain trying to localise.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Transparent pricing',
+        description:
+          'The price on the card is the price you pay. Internet, power, tea, kitchen, meeting rooms — all included. No fine print.',
+        icon: 'tabler:eye-check',
+      },
+    ]}
+    classes={{ container: 'max-w-6xl' }}
+  />
+
+  <!-- How a day looks ******************* -->
+
+  <Steps
+    title="A day at Launchbox"
+    tagline="if you've never coworked before"
+    isReversed={true}
+    items={[
+      {
+        title: 'Arrive in the morning',
+        description:
+          'Park, walk up to the first floor, drop your bag at any desk (or yours, if you have a dedicated one). The AC is already on, internet is already up.',
+        icon: 'tabler:sun',
+      },
+      {
+        title: 'Deep-work block',
+        description:
+          'The 9–noon stretch is the most focused window of the day. Headphones in, keyboards clicking, calls happening behind closed meeting-room doors.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Lunch in DHA',
+        description:
+          'Phase 5 is surrounded by food. Step out for a bite, eat at the pantry, or order in — riders know the building.',
+        icon: 'tabler:bowl',
+      },
+      {
+        title: 'Afternoon push, then home',
+        description:
+          'After lunch the space fills up with international calls. By 6, the day is winding down. You head home with the work actually done.',
+        icon: 'tabler:moon',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/relaxing.jpg',
+      alt: 'Members relaxing in the Launchbox lounge area',
+    }}
+  />
+
+  <!-- Closer ******************* -->
+
+  <CallToAction
+    title="Come see for yourself"
+    subtitle="A walkthrough is the fastest way to know if Launchbox fits how you work."
+    actions={[
+      { variant: 'primary', text: 'Book a free visit', href: '/book-visit' },
+      { target: '_blank', text: 'WhatsApp us', href: 'https://wa.me/923070555515' },
+    ]}
+  />
+</Layout>

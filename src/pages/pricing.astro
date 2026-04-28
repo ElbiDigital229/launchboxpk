@@ -1,0 +1,313 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Pricing',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    tagline="Pricing"
+    title="Simple pricing that scales with you."
+    subtitle="No hidden fees, no deposits, no lock-in. Pick a plan that fits how you work."
+  />
+
+  <!-- Pricing Widget ******************* -->
+
+  <Prices
+    title="Plans for every type of work"
+    subtitle="Pick the one that matches how you actually work."
+    prices={[
+      {
+        title: 'Day Pass',
+        subtitle: 'Best for occasional use or trying us out',
+        price: '1,500',
+        currency: 'PKR',
+        period: 'per day',
+        items: [
+          { description: 'Shared desk access for the day' },
+          { description: 'High-speed internet' },
+          { description: 'Backup power' },
+          { description: 'Tea & coffee' },
+          { description: 'Common area & kitchen access' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get a Day Pass',
+          href: 'https://wa.me/923070555515',
+        },
+      },
+      {
+        title: 'Flexible Desk',
+        subtitle: 'Best for freelancers and independent workers',
+        price: '15,000',
+        currency: 'PKR',
+        period: 'per month',
+        items: [
+          { description: 'Shared desk access (open seating)' },
+          { description: 'High-speed internet' },
+          { description: 'Backup power' },
+          { description: 'Tea & coffee' },
+          { description: 'Common area & kitchen access' },
+          { description: 'Community access' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Start with Flexible Desk',
+          href: 'https://wa.me/923070555515',
+        },
+      },
+      {
+        title: 'Dedicated Desk',
+        subtitle: 'Best for full-time freelancers and remote workers',
+        price: '22,500',
+        currency: 'PKR',
+        period: 'per month',
+        items: [
+          { description: 'Personal dedicated desk (always reserved)' },
+          { description: 'Storage space for your belongings' },
+          { description: 'High-speed internet' },
+          { description: 'Backup power' },
+          { description: 'Meeting room access (included hours)' },
+          { description: 'Tea & coffee' },
+          { description: 'Printing access' },
+          { description: 'Community access' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get a Dedicated Desk',
+          href: 'https://wa.me/923070555515',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Most Popular',
+      },
+      {
+        title: 'Private Cabin',
+        subtitle: 'Best for teams of 5+ people',
+        price: '20,000',
+        currency: 'PKR',
+        period: 'per person / mo · min 5 persons',
+        items: [
+          { description: 'Private enclosed cabin' },
+          { description: 'Minimum 5-person capacity' },
+          { description: '24/7 access' },
+          { description: 'Unlimited meeting room' },
+          { description: 'High-speed internet' },
+          { description: 'Backup power' },
+          { description: 'Storage space' },
+          { description: 'Tea & coffee' },
+          { description: 'Printing access' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get a Private Cabin',
+          href: 'https://wa.me/923070555515',
+        },
+      },
+    ]}
+  />
+
+  <!-- Universal Features ************** -->
+
+  <Features3
+    title="In every plan"
+    subtitle="What's included, always."
+    columns={3}
+    items={[
+      {
+        title: 'High-speed internet',
+        description: '150 Mbps fiber with backup. Speeds hold up at 9 AM and 2 PM alike.',
+        icon: 'tabler:wifi',
+      },
+      {
+        title: 'Backup power',
+        description: 'UPS plus generator. When LESCO breaks, your screen does not blink.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Tea & coffee',
+        description: 'Stocked pantry, complimentary for every member, every visit.',
+        icon: 'tabler:coffee',
+      },
+      {
+        title: 'Common areas & kitchen',
+        description: 'Lounge, breakout space, microwave, fridge — all yours to use.',
+        icon: 'tabler:armchair',
+      },
+      {
+        title: 'Printing access',
+        description: 'On-site printer when you need a hard copy without leaving the space.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Professional environment',
+        description: 'Quiet, focused, well-lit. The kind of space your client calls deserve.',
+        icon: 'tabler:building',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- No Surprises ******************* -->
+
+  <Features3
+    title="No surprises."
+    subtitle="What you see is what you pay."
+    columns={2}
+    items={[
+      {
+        title: 'No deposits',
+        description: 'Walk in, sign up, start working. No security amount held against your name. (Does not apply to private cabins.)',
+        icon: 'tabler:wallet-off',
+      },
+      {
+        title: 'No lock-in contracts',
+        description: 'Every plan is month-to-month. Stay because the space works, not because a clause says so.',
+        icon: 'tabler:contract',
+      },
+      {
+        title: 'No hidden fees',
+        description: 'The price on the card is the full price. Internet, power, tea, kitchen — all included.',
+        icon: 'tabler:eye-check',
+      },
+      {
+        title: 'Cancel anytime',
+        description: 'Pause, leave, change your mind. No exit fees, no penalty paperwork.',
+        icon: 'tabler:logout-2',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- Scenarios — who picks which plan ******** -->
+
+  <Steps
+    title="Who picks which plan"
+    tagline="real scenarios"
+    isReversed={true}
+    items={[
+      {
+        title: 'Ahmed — Solo Freelancer',
+        description:
+          'Freelance web developer in DHA Lahore with 3 international clients. Tired of unreliable Wi-Fi and family distractions at home. Picks the Dedicated Desk (PKR 22,500/mo) — saves time, earns more per hour, never misses a deadline.',
+        icon: 'tabler:user',
+      },
+      {
+        title: 'Fatima — 3-person Design Agency',
+        description:
+          'Wanted a private office for client meetings without the lock-in of a 1-year lease and PKR 50–60k rent + deposit + furniture. Picks the Private Cabin (PKR 100,000/mo for 5 seats) — private space, no deposit, scales with the team.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Usman — Visiting Lahore for a Week',
+        description:
+          'Remote worker travelling through Lahore who just needs a desk and reliable internet for a few days. Picks the Day Pass (PKR 1,500/day) — drop in, work, leave, no commitment.',
+        icon: 'tabler:plane-arrival',
+      },
+      {
+        title: 'Sara — Job-seeker preparing for interviews',
+        description:
+          'Needs a quiet professional space for video interviews and prep work without the cafe noise. Picks the Flexible Desk (PKR 15,000/mo) — open seating, full month, change desks each day.',
+        icon: 'tabler:briefcase',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/brainstorming.jpg',
+      alt: 'Launchbox members brainstorming together',
+    }}
+  />
+
+  <!-- How we treat members *********** -->
+
+  <Features3
+    title="How we treat members"
+    subtitle="We earn your stay. Every month."
+    columns={2}
+    items={[
+      {
+        title: 'Month-to-month billing',
+        description: 'Every plan is billed monthly. No annual contracts, no multi-month commitments.',
+        icon: 'tabler:calendar-month',
+      },
+      {
+        title: 'Cancel anytime',
+        description: 'Need to pause or leave? Just let us know. No exit fees, no penalties.',
+        icon: 'tabler:hand-stop',
+      },
+      {
+        title: 'Upgrade or downgrade freely',
+        description: 'Start with flexible desk and move to dedicated desk when ready. Or downgrade anytime.',
+        icon: 'tabler:arrows-up-down',
+      },
+      {
+        title: 'Try before you commit',
+        description: 'Book a free visit and see the space first. We want you confident before deciding.',
+        icon: 'tabler:door-enter',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Pricing questions."
+    subtitle="The most common things people ask before signing up."
+    columns={1}
+    items={[
+      {
+        title: 'How much does coworking cost at Launchbox?',
+        description:
+          'Day Pass is PKR 1,500/day, Flexible Desk is PKR 15,000/month, Dedicated Desk is PKR 22,500/month, and Private Cabin is PKR 20,000/person/month (minimum 5 persons). All plans include high-speed internet, backup power, tea and coffee, and access to common areas.',
+      },
+      {
+        title: 'Is there a contract or lock-in period?',
+        description:
+          'No. All plans are month-to-month. You can start, pause, or cancel anytime with no penalties or long-term commitments.',
+      },
+      {
+        title: 'Can I upgrade or switch plans later?',
+        description:
+          "Yes. You can move from flexible desk to dedicated desk or private cabin at any time, subject to availability. We'll adjust your plan from the next billing cycle.",
+      },
+      {
+        title: 'What is included in all plans?',
+        description:
+          'Every plan includes high-speed internet, backup power, tea and coffee, access to common areas and the kitchen, printing access, and a professional work environment.',
+      },
+      {
+        title: 'Can I try the space before committing?',
+        description:
+          'Yes. You can book a free visit to see the space, try the setup, and meet the community before choosing a plan.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Ready to get started?"
+    subtitle="Visit the space, pick a plan, and start working from day one."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Book a visit',
+        href: '/book-visit',
+      },
+      {
+        target: '_blank',
+        text: 'WhatsApp us',
+        href: 'https://wa.me/923070555515',
+      },
+    ]}
+  />
+</Layout>

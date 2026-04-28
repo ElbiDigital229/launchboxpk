@@ -1,0 +1,258 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Coworking in DHA Lahore — Launchbox',
+  description:
+    "A workspace in Lahore's most connected, best-powered, safest neighbourhood — built for freelancers, tech professionals, and startup teams who already live in DHA.",
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <Hero
+    tagline="The neighbourhood"
+    image={{
+      src: '~/assets/images/space/private-floor.jpg',
+      alt: 'Launchbox private floor for coworking in DHA Phase 5',
+    }}
+    actions={[
+      { variant: 'primary', text: 'Book a visit', href: '/book-visit' },
+      { text: 'View pricing', href: '/pricing' },
+    ]}
+  >
+    <Fragment slot="title">
+      Coworking in DHA Lahore, <span class="text-accent dark:text-white">where the city's professionals already work.</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      A workspace in Lahore's most connected, best-powered, safest neighbourhood — built for freelancers, tech
+      professionals, and startup teams who already live here.
+    </Fragment>
+  </Hero>
+
+  <!-- In plain words ******************* -->
+
+  <Content
+    title="In plain words"
+    subtitle="What a coworking space in DHA actually is."
+    isReversed={true}
+    image={{
+      src: '~/assets/images/space/shared-space.jpg',
+      alt: 'Inside the Launchbox shared coworking space in DHA Phase 5',
+    }}
+    items={[]}
+  >
+    <Fragment slot="content">
+      <p class="mb-4">
+        A coworking space in DHA Lahore is a shared professional workspace in Defence Housing Authority — one of
+        Lahore's most well-planned and secure neighbourhoods. It gives freelancers, remote workers, startups, and small
+        teams desks, high-speed internet, backup power, and meeting rooms without the long-term commitment or cost of a
+        private DHA office.
+      </p>
+      <p>
+        Launchbox in DHA Phase 5 starts at <span class="font-semibold">PKR 1,500/day</span>, with flexible desks from
+        <span class="font-semibold">PKR 15,000/mo</span>, dedicated desks from
+        <span class="font-semibold">PKR 22,500/mo</span>, and private cabins from
+        <span class="font-semibold">PKR 20,000/person/mo</span>.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Why DHA ******************* -->
+
+  <Features
+    title="Why DHA"
+    subtitle="Where Lahore's working professionals live. DHA isn't just a residential area — it's where a large concentration of Lahore's tech talent, business owners, and remote workers are based. Wide roads, reliable utilities, strong coverage. Working from DHA means fewer disruptions and more time on actual work."
+    columns={3}
+    items={[
+      {
+        title: 'Reliable infrastructure',
+        description:
+          "Some of Lahore's most consistent power and internet. Fewer outages mean fewer interruptions to client calls, uploads, and deadlines.",
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Connected to all of Lahore',
+        description:
+          "Whether you're commuting from Gulberg, Cantt, Model Town, or Johar Town — DHA sits centrally with direct main-road access. Ride-hailing pickups are fast here.",
+        icon: 'tabler:route',
+      },
+      {
+        title: 'A neighbourhood that works',
+        description:
+          'Lunch at a nearby cafe. Meeting at the space. Bank errand on the same street. DHA is built for people who move fast and need everything close.',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+  <!-- Work environment ******************* -->
+
+  <Content
+    title="The work environment"
+    subtitle="Quiet enough to focus. Connected enough to collaborate."
+    image={{
+      src: '~/assets/images/space/cafe.jpg',
+      alt: 'The Launchbox cafe area for breaks and informal meetings',
+    }}
+    items={[]}
+  >
+    <Fragment slot="content">
+      <p class="mb-4">
+        Launchbox sits inside DHA's professional corridor. The space is designed for output, not aesthetics. Clean
+        desks, fast internet, backup power, and meeting rooms that are always available when you need them.
+      </p>
+      <p>
+        Unlike cafes or home offices, Launchbox gives you a space that signals professionalism to your clients and keeps
+        you accountable to your own schedule. You show up, you work, you leave — with more done than you would anywhere
+        else.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Why Launchbox ******************* -->
+
+  <Features3
+    title="Why Launchbox"
+    subtitle="Built for the DHA crowd."
+    columns={2}
+    items={[
+      {
+        title: 'Priced for independent professionals',
+        description:
+          'DHA has expensive office rents. Launchbox gives you a professional-grade workspace starting at PKR 1,500/day — no deposits, no 12-month leases, no utility bills.',
+        icon: 'tabler:wallet',
+      },
+      {
+        title: 'Built around your schedule',
+        description:
+          "Early mornings, late evenings — the space adapts. Flexible plans mean you're not paying for hours you don't use.",
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Surrounded by builders',
+        description:
+          "The people here aren't just filling desks. They're freelancers with clients, founders shipping products, and remote workers hitting deadlines. Good company.",
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Zero setup, zero friction',
+        description:
+          'Walk in with your laptop. Internet is ready. Power is backed up. Tea is brewed. Everything works from day one.',
+        icon: 'tabler:plug-connected',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- Who works here ******************* -->
+
+  <Features3
+    title="Who works here"
+    subtitle="If you recognise yourself, this space was built for you."
+    columns={2}
+    items={[
+      {
+        title: 'Freelancers based in DHA',
+        description:
+          'You live in or near DHA and need a workspace that\'s a short commute away. Fast internet, quiet desk, no distractions.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Tech & creative professionals',
+        description:
+          'Developers, designers, writers, consultants who need a professional setup for deep work and the occasional client meeting.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'Early-stage startup teams',
+        description:
+          "A team of 2–5 that doesn't want to burn runway on a full office. A private cabin at Launchbox keeps overhead low while you build.",
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Remote workers with global clients',
+        description:
+          'You work with international teams across time zones. You need reliable internet and stable power — not the uncertainty of a home connection.',
+        icon: 'tabler:world',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- Mid CTA ******************* -->
+
+  <CallToAction
+    title="See plans & pricing"
+    subtitle="Day passes, flexible desks, dedicated desks, and private cabins — all in DHA Lahore."
+    actions={[
+      { variant: 'primary', text: 'View pricing', href: '/pricing' },
+      { text: 'Book a visit', href: '/book-visit' },
+    ]}
+  />
+
+  <!-- FAQs ******************* -->
+
+  <FAQs
+    title="Questions about DHA"
+    subtitle="Quick answers."
+    columns={1}
+    items={[
+      {
+        title: 'Is there a coworking space in DHA Lahore?',
+        description:
+          'Yes. Launchbox is in DHA Phase 5, Lahore. Day passes (PKR 1,500/day), flexible desks (PKR 15,000/mo), dedicated desks (PKR 22,500/mo), and private cabins (PKR 20,000/person/mo, min 5).',
+      },
+      {
+        title: 'How much does coworking cost in DHA Lahore?',
+        description:
+          'At Launchbox in DHA Phase 5: day passes PKR 1,500/day, flexible desks from PKR 15,000/mo, dedicated desks from PKR 22,500/mo, and private cabins from PKR 20,000/person/mo (min 5). All plans include high-speed internet, backup power, tea/coffee, and meeting rooms. No deposits.',
+      },
+      {
+        title: 'Why is DHA the best location for coworking?',
+        description:
+          "DHA Lahore has the most reliable power and internet infrastructure in the city, is one of the safest neighbourhoods, and is home to a large concentration of tech professionals and freelancers. Well-connected to Gulberg, Model Town, Johar Town, and Cantt.",
+      },
+      {
+        title: 'Where exactly is Launchbox?',
+        description: 'DHA Phase 5, near Packages Mall, Hussain Chowk, and Y-Block commercial area.',
+      },
+      {
+        title: 'Do I need a long-term contract?',
+        description: 'No. All plans are month-to-month. No deposits, no lock-in, no hidden fees.',
+      },
+      {
+        title: 'Can I work on weekends?',
+        description:
+          'Launchbox is open Monday to Saturday. Dedicated desk and private cabin members can arrange extended access.',
+      },
+      {
+        title: 'What internet speed do you offer?',
+        description:
+          'Dedicated high-speed fibre — not shared residential broadband. Supports video calls, large file uploads, and remote collaboration. Backup power keeps you online during load shedding.',
+      },
+      {
+        title: 'Can I visit before signing up?',
+        description: 'Yes. Book a free visit or message on WhatsApp. No pressure, no commitment.',
+      },
+    ]}
+  />
+
+  <!-- Final CTA ******************* -->
+
+  <CallToAction
+    title="Visit Launchbox in DHA Lahore"
+    subtitle="See the space, meet the community, and decide if it's right for you."
+    actions={[
+      { variant: 'primary', text: 'Book a visit', href: '/book-visit' },
+      { target: '_blank', text: 'WhatsApp us', href: 'https://wa.me/923070555515' },
+    ]}
+  />
+</Layout>

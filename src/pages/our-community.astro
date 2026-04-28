@@ -1,0 +1,231 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Our Community',
+  description:
+    'The freelancers, founders, remote workers, and small teams who already work at Launchbox in DHA Phase 5, Lahore.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <Hero
+    tagline="Our Community"
+    title="The people you'll be working alongside."
+    subtitle="Freelancers, founders, remote workers, and small teams — all heads-down on real work, all in DHA Phase 5. Quietly supportive, no forced networking."
+    actions={[
+      { variant: 'primary', text: 'Book a free visit', href: '/book-visit' },
+      { text: 'View pricing', href: '/pricing' },
+    ]}
+    image={{
+      src: '~/assets/images/space/brainstorming.jpg',
+      alt: 'Members brainstorming together at Launchbox in DHA Phase 5, Lahore',
+    }}
+  />
+
+  <!-- Features2 — Who you'll meet ************** -->
+
+  <Features2
+    title="Who you'll meet"
+    subtitle="A cross-section of Lahore's working professionals — from solo freelancers to small agency teams."
+    columns={3}
+    items={[
+      {
+        title: 'Freelance developers',
+        description:
+          'Building Shopify stores, SaaS dashboards, mobile apps for clients in the US, UK, and Gulf. They live in the meeting rooms when calls run long.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Designers & creatives',
+        description:
+          'Brand and product designers, illustrators, motion artists. Quiet workers who care about a clean desk and lighting that does not strain the eyes.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Remote employees',
+        description:
+          'On payroll for a company in another country. Async standups in the morning, focused work through the day, calls that need to look professional.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Startup founders',
+        description:
+          'Early-stage teams of 2–5 building products. Some bootstrap from a flexible desk, others run their first office out of the private cabin.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Content creators',
+        description:
+          'YouTubers, writers, video editors. People who need a consistent, well-lit space for recording and the kind of internet that does not stutter on uploads.',
+        icon: 'tabler:video',
+      },
+      {
+        title: 'Small agencies',
+        description:
+          'Design, dev, and marketing teams of 3–8 working on retainers. Private cabin members who use the meeting rooms for client reviews.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Consultants & advisors',
+        description:
+          'Independent consultants between client calls. Day pass or flexible desk regulars who value a professional backdrop on Zoom.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Job seekers',
+        description:
+          "Preparing for international remote interviews. They take video calls in the booths and use the space's structure to keep momentum.",
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Visiting professionals',
+        description:
+          'In Lahore for a week of client meetings or a quick break. Day passes give them a working spot without booking a co-living or hotel suite.',
+        icon: 'tabler:plane-arrival',
+      },
+    ]}
+  />
+
+  <!-- Content — How the community works ************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Quiet by default',
+        description:
+          'Mornings are for deep work. Calls happen in meeting rooms, not at the open desks. Headphones are encouraged but rarely needed.',
+        icon: 'tabler:volume-2',
+      },
+      {
+        title: 'No mandatory networking',
+        description:
+          'There are no forced "community events," icebreakers, or branded socials. Real connections form when serious people work near each other.',
+        icon: 'tabler:hand-stop',
+      },
+      {
+        title: 'Organic over the kettle',
+        description:
+          'The pantry is where conversations happen — by accident, between deep-work blocks, when someone asks what you are working on. That is the community.',
+        icon: 'tabler:coffee',
+      },
+      {
+        title: 'Respect for everyone\'s schedule',
+        description:
+          'Some members work mornings, some run on US-Pacific hours. The space adapts to all of it without judgment.',
+        icon: 'tabler:calendar',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/cafe.jpg',
+      alt: 'The Launchbox cafe area where community conversations happen',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">How the community works</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content — What members get out of it ************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Collaborators on demand',
+        description:
+          'Need a designer for a client project? Two desks down. The mix of skills in the room means quick, informal collaborations happen all the time.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Honest peer feedback',
+        description:
+          'Stuck on a pitch deck or product page? Members swap quick reads and gut checks. Not a paid critique, just the perks of being in good company.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Referrals & introductions',
+        description:
+          'When a freelancer is overbooked, the next gig often goes to the person sitting nearby. Trust compounds when you are around the same people every week.',
+        icon: 'tabler:share',
+      },
+      {
+        title: 'Shared knowledge',
+        description:
+          'Tax tricks, banking workflows for international payments, dealing with foreign clients — the kind of practical knowledge that does not show up in blog posts.',
+        icon: 'tabler:book',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/relaxing.jpg',
+      alt: 'Members relaxing in the Launchbox lounge between work blocks',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">What members get out of it</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonials ************** -->
+
+  <Testimonials
+    title="In their own words"
+    subtitle="Quotes from the community — what working at Launchbox actually feels like day to day."
+    testimonials={[
+      {
+        testimonial:
+          "The internet has not blinked once in three months. That sounds like a small thing until you have lost a client call to load-shedding. Worth every rupee.",
+        name: 'A freelance developer',
+        job: 'Dedicated Desk member',
+        image: {
+          src: '~/assets/images/space/person-in-private-room.jpg',
+          alt: 'A focused freelance developer at a Launchbox dedicated desk',
+        },
+      },
+      {
+        testimonial:
+          'My team grew from 3 to 6 in five months. We just told Launchbox and the cabin scaled with us. No new lease, no new deposit. That kind of flexibility is genuinely rare.',
+        name: 'A startup founder',
+        job: 'Private Cabin member',
+        image: {
+          src: '~/assets/images/space/private-cabins.jpg',
+          alt: 'A startup team in a Launchbox private cabin',
+        },
+      },
+      {
+        testimonial:
+          "Working from home was killing me. I needed a place where I felt like a professional again. The first week here, I shipped more than the previous month.",
+        name: 'A remote employee',
+        job: 'Flexible Desk member',
+        image: {
+          src: '~/assets/images/space/shared-space.jpg',
+          alt: 'A remote employee working from a Launchbox flexible desk',
+        },
+      },
+    ]}
+    callToAction={{
+      text: 'Come meet the community',
+      href: '/book-visit',
+      icon: 'tabler:chevron-right',
+    }}
+  />
+
+  <!-- Final CTA ************** -->
+
+  <CallToAction
+    title="Spend a day with the community."
+    subtitle="Book a free visit. Work alongside the people already here, and see if it fits."
+    actions={[
+      { variant: 'primary', text: 'Book a free visit', href: '/book-visit' },
+      { target: '_blank', text: 'WhatsApp us', href: 'https://wa.me/923070555515' },
+    ]}
+  />
+</Layout>

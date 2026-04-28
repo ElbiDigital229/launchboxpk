@@ -1,0 +1,487 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Coworking Space in Lahore — Launchbox DHA Phase 5',
+  description:
+    'Affordable coworking space in DHA Phase 5, Lahore with high-speed fibre, backup power, meeting rooms, and a community of freelancers, founders and remote workers.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <Hero
+    tagline="DHA Phase 5 · Lahore"
+    image={{
+      src: '~/assets/images/space/signage.jpg',
+      alt: 'Launchbox signage at the DHA Phase 5 entrance',
+    }}
+    actions={[
+      { variant: 'primary', text: 'Book a free visit', href: '/book-visit' },
+      { text: 'View pricing', href: '/pricing' },
+    ]}
+  >
+    <Fragment slot="title">
+      A coworking space in Lahore <span class="text-accent dark:text-white">built for people who actually ship.</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Affordable shared workspace in DHA Lahore with high-speed fibre, backup power, meeting rooms, and a community of
+      freelancers, founders and remote workers.
+    </Fragment>
+  </Hero>
+
+  <!-- Definition ******************* -->
+
+  <Content
+    title="In plain words"
+    subtitle="What a coworking space in Lahore actually is."
+    isReversed={true}
+    image={{
+      src: '~/assets/images/space/shared-space.jpg',
+      alt: 'Inside the Launchbox shared coworking space in DHA Phase 5',
+    }}
+    items={[]}
+  >
+    <Fragment slot="content">
+      <p class="mb-4">
+        A coworking space in Lahore is a shared professional workspace where freelancers, remote workers, startups, and
+        small teams rent flexible desks or private cabins instead of committing to traditional office leases. Lahore has
+        over 40 coworking spaces across DHA, Gulberg, Johar Town, and Model Town, with plans ranging from
+        <span class="font-semibold">PKR 1,500/day</span> for day passes to
+        <span class="font-semibold">PKR 22,500/month</span> for dedicated desks, and private cabins from
+        <span class="font-semibold">PKR 20,000/person/month</span>.
+      </p>
+      <p>
+        Coworking spaces in DHA Lahore — particularly in DHA Phase 5 near Packages Mall and Hussain Chowk — are the most
+        popular choice for tech freelancers and startup founders due to the area's security, reliable infrastructure,
+        and proximity to restaurants and banks. Launchbox, located in Y-Block DHA Phase 5, eliminates the overhead of
+        deposits, furniture, utilities, and long-term commitments while providing a professional environment designed
+        for focused work.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Personas ******************* -->
+
+  <Features3
+    title="Who it's for"
+    subtitle="Coworking isn't for everyone — but it's probably for you."
+    columns={3}
+    items={[
+      {
+        title: 'Freelancers',
+        description:
+          'You work for international or local clients and need fast internet, zero distractions, and a professional backdrop for video calls.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Early-stage startups',
+        description:
+          "A team of 2–5 that can't justify a full office lease. Scale up or down without burning runway on rent.",
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Remote workers',
+        description:
+          "Your company is abroad; you work from Lahore. Structured space with reliable power so your calls don't drop.",
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Small agencies',
+        description:
+          'Design, dev, or marketing agency that needs a clean, well-equipped place for the team to focus.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Content creators',
+        description:
+          'Editors, YouTubers, writers. A consistent, well-lit place for recording and deep focus without home distractions.',
+        icon: 'tabler:video',
+      },
+      {
+        title: 'Students & job seekers',
+        description:
+          'Prepping for remote interviews, certifications, or applications. A serious environment to match the work.',
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-6xl' }}
+  />
+
+  <!-- The shift ******************* -->
+
+  <Steps
+    title="The shift"
+    tagline="Lahore's workforce is changing."
+    isReversed={false}
+    items={[
+      {
+        title: '01 — Freelancing is rising fast',
+        description:
+          'Pakistan is one of the fastest-growing freelance markets. Thousands in Lahore need professional workspace without the overhead of a full office.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: '02 — Remote work is the new normal',
+        description:
+          'More companies hiring remote. But home has limits — unreliable internet, distractions, isolation. Coworking fixes all three.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: '03 — Traditional offices are too expensive',
+        description:
+          'Private offices mean deposits, long leases, and utility bills. Coworking gives you everything at a fraction of the cost. Plans from PKR 1,500/day.',
+        icon: 'tabler:moneybag',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/huddle-rooms.jpg',
+      alt: 'Launchbox huddle rooms for collaboration',
+    }}
+  />
+
+  <!-- Location ******************* -->
+
+  <Features3
+    title="The neighbourhood"
+    subtitle="Why DHA Lahore is the right location. One of the safest, best-connected neighbourhoods in the city — where most of Lahore's freelancers, founders, and agencies already live and work."
+    columns={3}
+    items={[
+      {
+        title: 'Easy to reach',
+        description:
+          "Connected to every major route in Lahore. Whether you're coming from Gulberg, Johar Town, or Model Town, getting here is straightforward.",
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Safe and professional',
+        description:
+          'One of the most well-maintained areas in Lahore. The kind of place where you and your clients feel comfortable.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Where professionals already are',
+        description:
+          'Many of Lahore\'s freelancers, agencies, and startup founders already live nearby. A coworking space here puts you in the centre of the action.',
+        icon: 'tabler:users',
+      },
+    ]}
+    classes={{ container: 'max-w-6xl' }}
+  />
+
+  <!-- Comparison table ******************* -->
+
+  <section class="relative not-prose scroll-mt-[72px]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-20">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-heading dark:text-slate-200">Coworking vs …</h2>
+        <p class="mt-3 text-xl text-muted dark:text-slate-400">
+          How it actually compares — coworking vs renting your own office vs working from a café.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm">
+        <table class="w-full text-left text-sm md:text-base">
+          <thead class="bg-gray-50 dark:bg-slate-800">
+            <tr>
+              <th class="p-4 font-semibold dark:text-slate-200">Feature</th>
+              <th class="p-4 font-semibold text-primary">Coworking</th>
+              <th class="p-4 font-semibold dark:text-slate-300">Traditional office</th>
+              <th class="p-4 font-semibold dark:text-slate-300">Café</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-slate-800">
+            <tr>
+              <td class="p-4 font-medium dark:text-slate-200">Monthly cost</td>
+              <td class="p-4 text-primary font-semibold">PKR 1,500/day – 22,500/mo</td>
+              <td class="p-4 text-muted dark:text-slate-400">PKR 50,000–150,000+</td>
+              <td class="p-4 text-muted dark:text-slate-400">PKR 5,000–10,000 (food)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium dark:text-slate-200">Internet speed</td>
+              <td class="p-4 text-primary font-semibold">Dedicated high-speed</td>
+              <td class="p-4 text-muted dark:text-slate-400">Self-managed</td>
+              <td class="p-4 text-muted dark:text-slate-400">Shared, unreliable</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium dark:text-slate-200">Backup power</td>
+              <td class="p-4 text-primary font-semibold">Included</td>
+              <td class="p-4 text-muted dark:text-slate-400">Your cost (UPS/genset)</td>
+              <td class="p-4 text-muted dark:text-slate-400">Usually none</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium dark:text-slate-200">Deposit</td>
+              <td class="p-4 text-primary font-semibold">None</td>
+              <td class="p-4 text-muted dark:text-slate-400">3–6 months advance</td>
+              <td class="p-4 text-muted dark:text-slate-400">None</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium dark:text-slate-200">Lock-in period</td>
+              <td class="p-4 text-primary font-semibold">Month-to-month</td>
+              <td class="p-4 text-muted dark:text-slate-400">1–3 year lease</td>
+              <td class="p-4 text-muted dark:text-slate-400">None</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium dark:text-slate-200">Meeting rooms</td>
+              <td class="p-4 text-primary font-semibold">Included</td>
+              <td class="p-4 text-muted dark:text-slate-400">Extra cost</td>
+              <td class="p-4 text-muted dark:text-slate-400">Not available</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium dark:text-slate-200">Community & networking</td>
+              <td class="p-4 text-primary font-semibold">Built-in</td>
+              <td class="p-4 text-muted dark:text-slate-400">Isolated</td>
+              <td class="p-4 text-muted dark:text-slate-400">Random</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium dark:text-slate-200">Furniture & setup</td>
+              <td class="p-4 text-primary font-semibold">Ready to use</td>
+              <td class="p-4 text-muted dark:text-slate-400">Buy everything yourself</td>
+              <td class="p-4 text-muted dark:text-slate-400">Uncomfortable long-term</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-6 text-center text-muted dark:text-slate-400">
+        Coworking gives you everything an office does — without the hassle.
+        <a href="/pricing" class="text-primary font-semibold hover:underline">Compare our plans →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing breakdown ******************* -->
+
+  <section class="relative not-prose scroll-mt-[72px] bg-blue-50 dark:bg-transparent">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 py-16 md:py-20">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-heading dark:text-slate-200">The real numbers</h2>
+        <p class="mt-3 text-xl text-muted dark:text-slate-400">Office vs coworking — what you'd actually pay.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-8 shadow-sm">
+          <h3 class="text-xl font-bold font-heading mb-5 dark:text-slate-200">Rent a small office in Lahore</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Rent (DHA, 1-room)</span><span class="font-semibold dark:text-slate-200">PKR 40,000–60,000</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Security deposit (3 mo)</span><span class="font-semibold dark:text-slate-200">PKR 120,000–180,000</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Electricity & gas</span><span class="font-semibold dark:text-slate-200">PKR 8,000–15,000</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Fibre internet</span><span class="font-semibold dark:text-slate-200">PKR 3,000–5,000</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">UPS / generator</span><span class="font-semibold dark:text-slate-200">PKR 5,000–10,000</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Furniture (one-time)</span><span class="font-semibold dark:text-slate-200">PKR 50,000–100,000</span></li>
+            <li class="flex justify-between"><span class="text-muted dark:text-slate-400">Cleaning & maintenance</span><span class="font-semibold dark:text-slate-200">PKR 5,000–8,000</span></li>
+          </ul>
+          <p class="mt-6 pt-4 border-t border-gray-200 dark:border-slate-700 text-lg font-bold dark:text-slate-200">
+            Monthly: <span class="text-red-600 dark:text-red-400">PKR 60,000–100,000+</span>
+          </p>
+        </div>
+
+        <div class="rounded-2xl border-2 border-primary bg-white dark:bg-slate-900 p-8 shadow-md relative">
+          <span class="absolute -top-3 left-6 inline-flex items-center px-3 h-7 rounded-full bg-primary text-white font-semibold uppercase tracking-wide text-xs">Save 50–80%</span>
+          <h3 class="text-xl font-bold font-heading mb-5 dark:text-slate-200">Coworking at Launchbox</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Day Pass</span><span class="font-semibold dark:text-slate-200">PKR 1,500/day</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Flexible Desk</span><span class="font-semibold dark:text-slate-200">PKR 15,000/mo</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Dedicated Desk</span><span class="font-semibold dark:text-slate-200">PKR 22,500/mo</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Private Cabin (min 5)</span><span class="font-semibold dark:text-slate-200">PKR 20,000/person/mo</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Deposit</span><span class="font-semibold text-primary">PKR 0</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Internet, power, tea</span><span class="font-semibold text-primary">Included</span></li>
+            <li class="flex justify-between border-b border-gray-100 dark:border-slate-800 pb-2"><span class="text-muted dark:text-slate-400">Meeting rooms</span><span class="font-semibold text-primary">Included</span></li>
+            <li class="flex justify-between"><span class="text-muted dark:text-slate-400">Furniture & setup</span><span class="font-semibold text-primary">Included</span></li>
+          </ul>
+          <p class="mt-6 pt-4 border-t border-gray-200 dark:border-slate-700 text-lg font-bold dark:text-slate-200">
+            Monthly: <span class="text-primary">PKR 15,000–100,000+</span>
+          </p>
+        </div>
+      </div>
+
+      <p class="mt-8 text-center font-semibold text-lg dark:text-slate-200">
+        Save 50–80% vs renting your own office.
+      </p>
+      <div class="mt-6 text-center">
+        <a href="/book-visit" class="inline-flex items-center rounded-full bg-primary px-6 py-3 font-semibold text-white shadow hover:opacity-90 transition">
+          Book a free visit
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid CTA ******************* -->
+
+  <CallToAction
+    title="Ready to stop overpaying for your workspace?"
+    subtitle="Visit Launchbox in DHA Phase 5. Free tour, zero commitment."
+    actions={[
+      { variant: 'primary', text: 'Book a free visit', href: '/book-visit' },
+      { target: '_blank', text: 'WhatsApp us', href: 'https://wa.me/923070555515' },
+    ]}
+  />
+
+  <!-- Why Launchbox ******************* -->
+
+  <Features
+    title="Why Launchbox"
+    subtitle="Not just another coworking space. Built with intention."
+    columns={3}
+    items={[
+      {
+        title: 'Affordable for real people',
+        description:
+          'Our pricing is designed for freelancers and early-stage teams — not funded startups with big budgets.',
+        icon: 'tabler:wallet',
+      },
+      {
+        title: 'Community-driven',
+        description:
+          'Not just desks and chairs. A community of builders, freelancers, and founders who grow together.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Designed for freelancers',
+        description:
+          'Fast internet, backup power, quiet work zones. Everything here is set up for people who need to focus and deliver.',
+        icon: 'tabler:focus-2',
+      },
+    ]}
+  />
+
+  <!-- Workspace plans ******************* -->
+
+  <Pricing
+    title="Workspace options"
+    subtitle="Pick a plan that matches how you work."
+    prices={[
+      {
+        title: 'Day Pass',
+        subtitle: 'Drop in anytime.',
+        price: '1,500',
+        currency: 'PKR',
+        period: 'per day',
+        items: [
+          { description: 'Full-day access' },
+          { description: 'High-speed internet' },
+          { description: 'Tea & coffee' },
+          { description: 'Community access' },
+        ],
+        callToAction: { text: 'See details', href: '/pricing' },
+      },
+      {
+        title: 'Flexible Desk',
+        subtitle: 'Flexible shared seating.',
+        price: '15,000',
+        currency: 'PKR',
+        period: 'per month',
+        items: [
+          { description: 'Shared desk access' },
+          { description: 'High-speed internet' },
+          { description: 'Tea & coffee' },
+          { description: 'Community access' },
+        ],
+        callToAction: { text: 'See details', href: '/pricing' },
+      },
+      {
+        title: 'Dedicated Desk',
+        subtitle: 'Your own reserved desk.',
+        price: '22,500',
+        currency: 'PKR',
+        period: 'per month',
+        items: [
+          { description: 'Personal dedicated desk' },
+          { description: 'Storage space' },
+          { description: 'Meeting room hours' },
+          { description: 'Backup power' },
+        ],
+        callToAction: { text: 'See details', href: '/pricing' },
+        hasRibbon: true,
+        ribbonTitle: 'Popular',
+      },
+      {
+        title: 'Private Cabin',
+        subtitle: 'Enclosed cabin for your team (min 5).',
+        price: '20,000',
+        currency: 'PKR',
+        period: 'per person / mo',
+        items: [
+          { description: 'Private enclosed cabin' },
+          { description: 'Minimum 5 people' },
+          { description: 'Unlimited meeting room' },
+          { description: '24/7 access' },
+        ],
+        callToAction: { text: 'See details', href: '/pricing' },
+      },
+    ]}
+  />
+
+  <!-- FAQs ******************* -->
+
+  <FAQs
+    title="Questions"
+    subtitle="Quick answers."
+    columns={1}
+    items={[
+      {
+        title: 'What is the best coworking space in Lahore?',
+        description:
+          'Launchbox is one of the best coworking spaces in Lahore, located in DHA Phase 5. Affordable flexible desks, dedicated desks, and private cabins with high-speed internet, backup power, meeting rooms, and a community of freelancers and founders.',
+      },
+      {
+        title: 'How much does coworking cost in Lahore?',
+        description:
+          'Between PKR 1,500/day and PKR 22,500/month depending on the type of workspace. Launchbox: day passes PKR 1,500/day, flexible desks PKR 15,000/mo, dedicated desks PKR 22,500/mo, private cabins PKR 20,000/person/mo (min 5).',
+      },
+      {
+        title: 'Is coworking cheaper than renting an office?',
+        description:
+          'Yes. A small office in DHA Lahore costs PKR 50,000–100,000+ per month all-in. Launchbox starts at PKR 1,500/day with everything included.',
+      },
+      {
+        title: 'Can I work from a café instead?',
+        description:
+          "You can, but cafés lack reliable internet, backup power, professional meeting rooms, and quiet environments. You'll also spend PKR 500–1,500 daily on food just to justify your seat.",
+      },
+      {
+        title: 'Where exactly is Launchbox?',
+        description:
+          'DHA Phase 5, Lahore, near Packages Mall, Hussain Chowk, and Y-Block commercial area. Easy reach from Gulberg, Johar Town, and Model Town.',
+      },
+      {
+        title: 'Do I need a long-term contract?',
+        description: 'No. All plans are month-to-month. No deposits, no lock-in, no hidden fees.',
+      },
+      {
+        title: 'Flexible desk vs dedicated desk?',
+        description:
+          'Flexible (PKR 15,000/mo) = any available desk in the shared area. Dedicated (PKR 22,500/mo) = your personal reserved desk, same spot every day, with storage.',
+      },
+      {
+        title: 'Is the internet reliable for video calls?',
+        description:
+          'Yes. Dedicated high-speed fibre — not shared residential broadband. Built for video calls and uploads. Backup power keeps you online during load shedding.',
+      },
+      {
+        title: 'Can I visit before signing up?',
+        description: 'Absolutely. Book a free visit or message us on WhatsApp.',
+      },
+    ]}
+  />
+
+  <!-- Final CTA ******************* -->
+
+  <CallToAction
+    title="Ready to see the space?"
+    subtitle="Book a free visit or message on WhatsApp. No commitment required."
+    actions={[
+      { variant: 'primary', text: 'Book a visit', href: '/book-visit' },
+      { target: '_blank', text: 'WhatsApp us', href: 'https://wa.me/923070555515' },
+    ]}
+  />
+</Layout>

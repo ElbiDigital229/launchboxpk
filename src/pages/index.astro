@@ -1,0 +1,535 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'Launchbox — Coworking space in DHA Phase 5, Lahore',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Budget friendly coworking space"
+    actions={[
+      { variant: 'primary', target: '_blank', text: 'Message Us', href: 'https://wa.me/923070555515' },
+      { text: 'View Plans', href: '/pricing' },
+    ]}
+    image={{
+      src: '~/assets/images/launchbox-hero.png',
+      alt: 'A Launchbox member working from the DHA Phase 5 coworking space',
+    }}
+  >
+    <Fragment slot="title">
+      You focus on your work. While we focus on the rest.
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      A focused, affordable coworking space in <span class="font-semibold">DHA Phase 5, Lahore</span> — built for freelancers, remote workers, and small teams who want to get more done.
+    </Fragment>
+  </Hero2>
+
+  <!-- Who it's for ******************* -->
+
+  <Features2
+    title="Who it's for"
+    subtitle="Built for people who need to get work done."
+    columns={3}
+    items={[
+      {
+        title: 'Freelancers',
+        description:
+          "You work on your own time, with your own clients. We give you a quiet, fast workspace where deadlines don't get derailed by load-shedding or slow internet. Day pass when you need it, monthly desk when you don't.",
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Remote Workers',
+        description:
+          'You answer to a team in another city or country. Show up to a desk that looks professional on video calls, with bandwidth that holds up across timezones. No more cafes. No more bedroom standups.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Agencies',
+        description:
+          "You're 5–10 people building something together. A private cabin gives you a real office without the deposit, lock-in, or furniture bill. Scale up when you grow, downgrade when you don't.",
+        icon: 'tabler:users-group',
+      },
+    ]}
+  />
+
+  <div class="-mt-8 mb-16 text-center">
+    <a
+      href="/book-visit"
+      class="inline-flex items-center rounded-full bg-primary px-6 py-3 font-semibold text-white shadow hover:opacity-90 transition"
+    >
+      Book a visit
+    </a>
+  </div>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="Why choose Launchbox?"
+    subtitle="The boring things done well. Real internet, real backup power, real desks, real people — in DHA Phase 5."
+    columns={2}
+    items={[
+      {
+        title: 'Internet that holds up — at 9 AM and at 2 PM',
+        description:
+          'Dedicated 150 Mbps fibre with a backup connection. Speeds stay consistent through the day, not just first thing in the morning. Built for video calls, large uploads, and remote teams across timezones.',
+        icon: 'tabler:wifi',
+      },
+      {
+        title: 'Backup power so your screen never blinks',
+        description:
+          'UPS plus generator covering the entire workspace. When LESCO takes a break, your work does not. No scrambling for an inverter mid-call. No counting battery minutes.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Honest, all-inclusive pricing',
+        description:
+          'Day pass at PKR 1,500. Monthly plans from PKR 15,000. The price on the card is the price you pay — internet, power, tea, kitchen and meeting rooms are all included. No deposit. No hidden fees.',
+        icon: 'tabler:wallet',
+      },
+      {
+        title: 'Month-to-month, never locked in',
+        description:
+          'Every plan is billed monthly. Pause, leave, upgrade, downgrade — whenever it suits you. We earn your stay through quality, not a 12-month contract.',
+        icon: 'tabler:calendar-month',
+      },
+      {
+        title: 'A community of people who actually ship',
+        description:
+          'Freelancers with international clients, founders building products, remote workers hitting deadlines. Heads-down, focused, and quietly supportive. The kind of company that rubs off.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Located where Lahore’s professionals already are',
+        description:
+          'DHA Phase 5, near Packages Mall and Hussain Chowk. Easy to reach from Gulberg, Cantt, Model Town and Johar Town. Cafés, banks and food on the same block.',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="Who works at Launchbox"
+    subtitle="Real members, real plans, real reasons they picked us. See if you recognise yourself."
+    isReversed
+    items={[
+      {
+        title: 'The day looks like:',
+        description:
+          'Walks in around 9:30, plugs into the same dedicated desk as yesterday, runs a quick speed test out of habit, takes the 10 AM client call from the meeting room, deep-works through lunch, and clocks out by 6 with the day’s deliverables actually shipped.',
+      },
+      {
+        title: 'Why Launchbox works:',
+        description: `Internet that holds up across timezones — calls with US/EU clients never drop. <br /> A professional backdrop that doesn’t reveal a bedroom or a café counter. <br /> Backup power that keeps deadlines on track during load-shedding. <br /> A monthly plan that flexes — no 12-month lease eating margin.`,
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/person-in-private-room.jpg',
+      alt: 'Freelancer working from a dedicated desk at Launchbox DHA Phase 5',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Freelancer with international clients<br /><span class="text-2xl">Dedicated Desk · PKR 22,500/mo</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: 'The day looks like:',
+        description: `Joins standup at 7 AM Pakistan time, then deep-works on a US-Pacific schedule. Meeting room booked for the late-night syncs so the open area stays quiet. Tea breaks are when overlap with home team ends.`,
+      },
+      {
+        title: 'Why Launchbox works:',
+        description: `Reliable bandwidth means video on, no apologies. <br /> A clean professional backdrop for video calls. <br /> Backup power for late-night deploys when LESCO is unpredictable. <br /> Quiet desks even at unusual hours.`,
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/meeting-pod.jpg',
+      alt: 'Remote worker on a video call at Launchbox',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Remote worker for an overseas team<br /><span class="text-2xl">Flexible Desk · PKR 15,000/mo</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'The day looks like:',
+        description: `Five-person agency in their own private cabin. Whiteboard up, monitors set up, projects pinned to the wall. Clients drop in for face-to-face reviews; the rest of the day is heads-down in the cabin.`,
+      },
+      {
+        title: 'Why Launchbox works:',
+        description: `A real office without a 12-month lease, deposit, or furniture bill. <br /> 24/7 access for crunch days. <br /> Unlimited meeting room access for client reviews. <br /> Scale up when you hire, downgrade if you contract — no penalty either way.`,
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/private-cabins.jpg',
+      alt: 'Small agency team working from a Launchbox private cabin',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Small agency or startup team<br /><span class="text-2xl">Private Cabin · from PKR 100,000/mo (5 seats)</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'The day looks like:',
+        description: `In Lahore for a week of client meetings. Books a Day Pass on arrival, walks in with a laptop, plugs into the open seating, and works the same as if it were home base. Repeats for the days they need it.`,
+      },
+      {
+        title: 'Why Launchbox works:',
+        description: `No commitment — pay only for the days you actually use. <br /> Walk-in friendly: WhatsApp message, show up, start working. <br /> A professional environment for video calls during the trip. <br /> Tea, coffee and food options on the block — no time wasted hunting for a working spot.`,
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/cafe.jpg',
+      alt: 'Visiting professional working from a Launchbox day-pass desk',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Visiting professional or job-seeker<br /><span class="text-2xl">Day Pass · PKR 1,500/day</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Video tour ******************* -->
+
+  <section class="relative not-prose scroll-mt-[72px]">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 py-16 md:py-20">
+      <div class="text-center mb-10">
+        <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-3">Walkthrough</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-heading dark:text-slate-200">
+          See the space in motion.
+        </h2>
+        <p class="mt-3 text-xl text-muted dark:text-slate-400">
+          A quick tour of Launchbox — the desks, the cabins, the meeting rooms, the people.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-gray-200 dark:border-slate-700 shadow-md aspect-video bg-black">
+        <iframe
+          class="w-full h-full"
+          src="https://www.youtube-nocookie.com/embed/1sd5_8bKw2s?modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&controls=1"
+          title="A walkthrough of Launchbox coworking space in DHA Phase 5, Lahore"
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials ******************* -->
+
+  <Testimonials
+    title="In their own words"
+    subtitle="Quotes from the Launchbox community — what working here actually feels like day to day."
+    testimonials={[
+      {
+        testimonial:
+          "The internet has not blinked once in three months. That sounds like a small thing until you have lost a client call to load-shedding. Worth every rupee.",
+        name: 'A freelance developer',
+        job: 'Dedicated Desk member',
+        image: {
+          src: '~/assets/images/space/person-in-private-room.jpg',
+          alt: 'A focused freelance developer at a Launchbox dedicated desk',
+        },
+      },
+      {
+        testimonial:
+          'My team grew from 3 to 6 in five months. We just told Launchbox and the cabin scaled with us. No new lease, no new deposit. That kind of flexibility is genuinely rare.',
+        name: 'A startup founder',
+        job: 'Private Cabin member',
+        image: {
+          src: '~/assets/images/space/private-cabins.jpg',
+          alt: 'A startup team in a Launchbox private cabin',
+        },
+      },
+      {
+        testimonial:
+          "Working from home was killing me. I needed a place where I felt like a professional again. The first week here, I shipped more than the previous month.",
+        name: 'A remote employee',
+        job: 'Flexible Desk member',
+        image: {
+          src: '~/assets/images/space/shared-space.jpg',
+          alt: 'A remote employee working from a Launchbox flexible desk',
+        },
+      },
+    ]}
+    callToAction={{
+      text: 'Meet the community',
+      href: '/our-community',
+      icon: 'tabler:chevron-right',
+    }}
+  />
+
+  <!-- Pricing Widget ******************* -->
+
+  <Pricing
+    title="Plans for every type of work"
+    subtitle="No deposits, no lock-in, no hidden fees. Pick the plan that matches how you actually work."
+    prices={[
+      {
+        title: 'Day Pass',
+        subtitle: 'Best for occasional use or trying us out',
+        price: '1,500',
+        currency: 'PKR',
+        period: 'per day',
+        items: [
+          { description: 'Shared desk access for the day' },
+          { description: 'High-speed internet' },
+          { description: 'Backup power' },
+          { description: 'Tea & coffee' },
+          { description: 'Common area & kitchen access' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get a Day Pass',
+          href: 'https://wa.me/923070555515',
+        },
+      },
+      {
+        title: 'Flexible Desk',
+        subtitle: 'Best for freelancers and independent workers',
+        price: '15,000',
+        currency: 'PKR',
+        period: 'per month',
+        items: [
+          { description: 'Shared desk access (open seating)' },
+          { description: 'High-speed internet' },
+          { description: 'Backup power' },
+          { description: 'Tea & coffee' },
+          { description: 'Common area & kitchen access' },
+          { description: 'Community access' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Start with Flexible Desk',
+          href: 'https://wa.me/923070555515',
+        },
+      },
+      {
+        title: 'Dedicated Desk',
+        subtitle: 'Best for full-time freelancers and remote workers',
+        price: '22,500',
+        currency: 'PKR',
+        period: 'per month',
+        items: [
+          { description: 'Personal dedicated desk (always reserved)' },
+          { description: 'Storage space for your belongings' },
+          { description: 'High-speed internet' },
+          { description: 'Backup power' },
+          { description: 'Meeting room access (included hours)' },
+          { description: 'Tea & coffee' },
+          { description: 'Printing access' },
+          { description: 'Community access' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get a Dedicated Desk',
+          href: 'https://wa.me/923070555515',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Most Popular',
+      },
+      {
+        title: 'Private Cabin',
+        subtitle: 'Best for teams of 5+ people',
+        price: '20,000',
+        currency: 'PKR',
+        period: 'per person / mo · min 5 persons',
+        items: [
+          { description: 'Private enclosed cabin' },
+          { description: 'Minimum 5-person capacity' },
+          { description: '24/7 access' },
+          { description: 'Unlimited meeting room' },
+          { description: 'High-speed internet' },
+          { description: 'Backup power' },
+          { description: 'Storage space' },
+          { description: 'Tea & coffee' },
+          { description: 'Printing access' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get a Private Cabin',
+          href: 'https://wa.me/923070555515',
+        },
+      },
+    ]}
+  />
+
+  <div class="-mt-8 mb-16 text-center">
+    <a
+      href="/pricing"
+      class="inline-flex items-center gap-2 font-semibold text-primary hover:underline"
+    >
+      View full pricing details <span aria-hidden="true">→</span>
+    </a>
+  </div>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="The things people ask before booking a visit. More answers on the FAQ page."
+    items={[
+      {
+        title: 'What is Launchbox?',
+        description:
+          'Launchbox is a coworking space in DHA Phase 5, Lahore. We offer day passes, flexible desks, dedicated desks, and private cabins for freelancers, remote workers, and small teams. Every plan includes high-speed internet, backup power, meeting room access, and a professional community.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How much does it cost?',
+        description:
+          'Day Pass: PKR 1,500/day. Flexible Desk: PKR 15,000/month. Dedicated Desk: PKR 22,500/month. Private Cabin: PKR 20,000/person/month (minimum 5 persons). All plans include internet, power, tea/coffee, and common area access. No hidden fees.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Is there a contract or lock-in?',
+        description:
+          'No. All plans are month-to-month. You can start, pause, or cancel anytime with no penalties or long-term commitments.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'What amenities do you offer?',
+        description:
+          'Every plan includes high-speed internet, backup power, tea and coffee, access to common areas and the kitchen, printing access, and a professional work environment. Dedicated desks and private cabins also include storage space and meeting room access.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Can I visit before joining?',
+        description:
+          'Yes. We encourage everyone to visit the space before committing. Book a free visit through the website or message us on WhatsApp to schedule a tour — no commitment, no sales pitch.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <div class="-mt-8 mb-16 text-center">
+    <a
+      href="/faq"
+      class="inline-flex items-center gap-2 font-semibold text-primary hover:underline"
+    >
+      View all FAQs <span aria-hidden="true">→</span>
+    </a>
+  </div>
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Reach out to us"
+    subtitle="Have questions? Want to see the space first? Pick whichever channel suits you — we answer all of them."
+    callToAction={{
+      text: 'Contact us',
+      href: '/contact',
+    }}
+    items={[
+      {
+        title: 'WhatsApp us',
+        description: '+92 307 0555515 — fastest reply, working hours.',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        title: 'Email us',
+        description: 'contact@launchboxpk.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Call us',
+        description: '+92 307 0555515',
+        icon: 'tabler:phone',
+      },
+      {
+        title: 'Visit us',
+        description: 'First Floor, 38-A CCA, Sector C, DHA Phase 5, Lahore.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Follow us',
+        description: '@launchboxpk on Instagram & Facebook.',
+        icon: 'tabler:brand-instagram',
+      },
+    ]}
+  />
+
+  <!-- BlogLatestPost Widget **************** -->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Notes from Launchbox"
+    information={`Focused reads on coworking, freelancing, and shipping work from Lahore — from the people who actually run the space.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+</Layout>

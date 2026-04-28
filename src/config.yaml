@@ -1,0 +1,72 @@
+site:
+  name: Launchbox
+  site: 'https://astrowind.vercel.app'
+  base: '/'
+  trailingSlash: false
+
+  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+
+# Default SEO metadata
+metadata:
+  title:
+    default: Launchbox — Coworking space in DHA Phase 5, Lahore
+    template: '%s | Launchbox'
+  description: "Affordable coworking space in DHA Phase 5, Lahore. Built for freelancers, remote teams, and small startups."
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Launchbox
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: '@arthelokyo'
+    site: '@arthelokyo'
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 6
+
+    post:
+      isEnabled: true
+      permalink: '/blog/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      robots:
+        index: true
+
+    category:
+      isEnabled: true
+      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      robots:
+        index: true
+
+    tag:
+      isEnabled: false
+      pathname: 'tag' # Tag routing disabled — no tag pages on the site
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null # or "G-XXXXXXXXXX"
+
+ui:
+  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

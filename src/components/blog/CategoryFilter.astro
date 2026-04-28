@@ -1,0 +1,46 @@
+---
+import { fetchPosts } from '~/utils/blog';
+import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
+
+export interface Props {
+  active?: string; // active category slug; falsy = "All posts"
+}
+
+const { active } = Astro.props as Props;
+
+const posts = await fetchPosts();
+const seen = new Map<string, { slug: string; title: string }>();
+for (const p of posts) {
+  if (p.category?.slug && !seen.has(p.category.slug)) {
+    seen.set(p.category.slug, { slug: p.category.slug, title: p.category.title });
+  }
+}
+const categories = Array.from(seen.values()).sort((a, b) => a.title.localeCompare(b.title));
+
+const baseChip =
+  'inline-flex items-center h-9 px-4 rounded-full border text-sm font-medium transition whitespace-nowrap';
+const activeChip = 'bg-primary text-white border-primary';
+const idleChip =
+  'border-gray-200 dark:border-slate-700 text-muted hover:text-primary hover:border-primary dark:text-slate-400';
+---
+
+<nav aria-label="Filter posts by category" class="mb-10 -mx-1 flex flex-wrap justify-center gap-2">
+  <a
+    href={getBlogPermalink()}
+    class:list={[baseChip, !active ? activeChip : idleChip]}
+    aria-current={!active ? 'page' : undefined}
+  >
+    All posts
+  </a>
+  {
+    categories.map((c) => (
+      <a
+        href={getPermalink(c.slug, 'category')}
+        class:list={[baseChip, active === c.slug ? activeChip : idleChip]}
+        aria-current={active === c.slug ? 'page' : undefined}
+      >
+        {c.title}
+      </a>
+    ))
+  }
+</nav>

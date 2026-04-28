@@ -1,0 +1,75 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Contact',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    tagline="Contact"
+    title="Reach out to us"
+    subtitle="Have questions? Feel free to contact us using the form below. We're here to help."
+  />
+
+  <ContactUs
+    id="form"
+    title="Drop us a message"
+    subtitle="Tell us a bit about how you work and what you're looking for. We'll get back the same working day, usually within a couple of hours."
+    inputs={[
+      { type: 'text', name: 'name', label: 'Name' },
+      { type: 'email', name: 'email', label: 'Email' },
+    ]}
+    textarea={{ label: 'Message' }}
+    disclaimer={{
+      label:
+        'By submitting this form you agree to be contacted at the email or phone number you provide. We never share your details.',
+    }}
+    description="Prefer chat? WhatsApp us at +92 307 0555515 — fastest way to get a tour booked."
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Other ways to get in touch"
+    subtitle="Pick whichever suits you. We answer all of them."
+    items={[
+      {
+        title: 'WhatsApp us',
+        description: '+92 307 0555515 — chat during working hours, fastest reply.',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        title: 'Call us',
+        description: '+92 307 0555515 — talk to a human, no IVR.',
+        icon: 'tabler:phone',
+      },
+      {
+        title: 'Email us',
+        description: 'contact@launchboxpk.com — for longer questions or attachments.',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Visit the space',
+        description: 'First Floor, 38-A CCA, Sector C, DHA Phase 5, Lahore 54000.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Follow us',
+        description: '@launchboxpk on Instagram and Facebook for behind-the-scenes.',
+        icon: 'tabler:brand-instagram',
+      },
+      {
+        title: 'Book a free visit',
+        description: 'Walk through the space, try a desk, no commitment, no sales pitch.',
+        icon: 'tabler:door-enter',
+      },
+    ]}
+  />
+</Layout>

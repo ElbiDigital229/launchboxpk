@@ -1,0 +1,138 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Services',
+  description:
+    'Workspace and meeting-room services at Launchbox in DHA Phase 5, Lahore — day passes, flexible desks, dedicated desks, private cabins, and meeting rooms.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <HeroText
+    tagline="Services"
+    title="Everything we offer, in one place."
+    subtitle="Workspace plans, meeting rooms, and add-ons — all in DHA Phase 5, Lahore. No deposits. No lock-in."
+  />
+
+  <!-- Workspace plans ******************* -->
+
+  <Features3
+    title="Workspace plans"
+    subtitle="Pick a plan that matches how you actually work."
+    columns={2}
+    items={[
+      {
+        title: 'Day Pass — PKR 1,500/day',
+        description:
+          'Drop in for the day. Shared desk, high-speed internet, backup power, tea & coffee, common areas. No commitment.',
+        icon: 'tabler:calendar-event',
+      },
+      {
+        title: 'Flexible Desk — PKR 15,000/mo',
+        description:
+          'Open-seating shared desk, monthly. Pick any available spot when you arrive. Includes everything in the day pass plus community access.',
+        icon: 'tabler:layout-grid',
+      },
+      {
+        title: 'Dedicated Desk — PKR 22,500/mo',
+        description:
+          'Your own desk, reserved every day. Storage for your monitor and notebook. Meeting room hours included.',
+        icon: 'tabler:armchair',
+      },
+      {
+        title: 'Private Cabin — PKR 20,000/person/mo',
+        description:
+          'Enclosed cabin for teams of 5+. 24/7 access, unlimited meeting room, private storage. Min PKR 100,000/mo.',
+        icon: 'tabler:door',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- Meeting rooms + add-ons ******************* -->
+
+  <Features3
+    title="Meeting rooms & add-ons"
+    subtitle="Bookable on the day. Members get included hours; non-members can rent by the hour."
+    columns={3}
+    items={[
+      {
+        title: 'Meeting room',
+        description:
+          'Bookable by the hour. Screen, table, chairs, good acoustics, professional video-call backdrop.',
+        icon: 'tabler:presentation',
+      },
+      {
+        title: 'Printing access',
+        description:
+          'On-site printer for hard copies, contracts, and forms. Available to all monthly members.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Storage space',
+        description:
+          'Locker for your monitor, notebook, and gear. Included with dedicated desks and private cabins.',
+        icon: 'tabler:lock',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- What's always included ******************* -->
+
+  <Features2
+    title="In every plan"
+    subtitle="What's included, every visit, every plan."
+    items={[
+      {
+        title: 'High-speed internet',
+        description: '150 Mbps fibre with backup. Dedicated, not shared with the whole building.',
+        icon: 'tabler:wifi',
+      },
+      {
+        title: 'Backup power',
+        description: 'UPS plus generator. Your screen does not blink when LESCO does.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Tea & coffee',
+        description: 'Stocked pantry, complimentary, every working day.',
+        icon: 'tabler:coffee',
+      },
+      {
+        title: 'Common areas & kitchen',
+        description: 'Lounge, breakout space, microwave, fridge, sink — fully kitted.',
+        icon: 'tabler:armchair',
+      },
+      {
+        title: 'Professional environment',
+        description: 'Quiet, well-lit, AC throughout. Your client calls deserve this backdrop.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Community',
+        description: 'Freelancers, founders, remote workers — all heads-down on real work.',
+        icon: 'tabler:users-group',
+      },
+    ]}
+  />
+
+  <!-- Closer ******************* -->
+
+  <CallToAction
+    title="Pick a service. Or come see them all."
+    subtitle="Walk through the space, try a desk, ask questions. We'll match you to the right plan."
+    actions={[
+      { variant: 'primary', text: 'View pricing', href: '/pricing' },
+      { text: 'Book a free visit', href: '/book-visit' },
+      { target: '_blank', text: 'WhatsApp us', href: 'https://wa.me/923070555515' },
+    ]}
+  />
+</Layout>

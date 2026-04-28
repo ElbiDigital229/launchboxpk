@@ -1,0 +1,55 @@
+---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+import Layout from '~/layouts/PageLayout.astro';
+import BlogGrid from '~/components/blog/Grid.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+import CategoryFilter from '~/components/blog/CategoryFilter.astro';
+import FeaturedPost from '~/components/blog/FeaturedPost.astro';
+
+import { blogListRobots, getStaticPathsBlogList, fetchPosts } from '~/utils/blog';
+
+export const prerender = true;
+
+export const getStaticPaths = (async ({ paginate }) => {
+  return await getStaticPathsBlogList({ paginate });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page } = Astro.props as Props;
+const currentPage = page.currentPage ?? 1;
+
+// Featured post: prefer an explicit `featured: true` flag, otherwise the
+// most recent post. Only surface on page 1; hide it from the grid below
+// so it doesn't double-render.
+const allPosts = await fetchPosts();
+const featured = currentPage === 1 ? allPosts.find((p) => p.featured) ?? allPosts[0] : null;
+const gridPosts = featured ? page.data.filter((p) => p.id !== featured.id) : page.data;
+
+const metadata = {
+  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  robots: {
+    index: blogListRobots?.index && currentPage === 1,
+    follow: blogListRobots?.follow,
+  },
+  openGraph: {
+    type: 'blog',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
+    <Headline
+      subtitle="Focused reads on coworking, freelancing, and shipping work from Lahore."
+    >
+      Notes from Launchbox
+    </Headline>
+    <CategoryFilter />
+    {featured && <FeaturedPost post={featured} />}
+    <BlogGrid posts={gridPosts} />
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </section>
+</Layout>

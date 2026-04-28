@@ -1,0 +1,159 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'FAQ',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    tagline="Frequently Asked"
+    title="Every question you had, answered plainly."
+    subtitle="Pricing, plans, what's included, where we are — no asterisks, no fine print, just the facts about coworking at Launchbox."
+  />
+
+  <!-- Coworking basics ******************* -->
+
+  <FAQs
+    title="Coworking basics"
+    columns={1}
+    items={[
+      {
+        title: 'What is a coworking space?',
+        description:
+          'A coworking space is a shared professional workspace where freelancers, remote workers, startups, and small teams work independently while sharing infrastructure like internet, desks, meeting rooms, and common areas. It offers the benefits of a full office without the cost or commitment of a traditional lease.',
+      },
+      {
+        title: 'How is coworking different from a cafe?',
+        description:
+          'Coworking spaces offer dedicated desks, reliable high-speed internet, backup power, meeting rooms, and a professional environment. Cafes have none of these guarantees. Coworking also gives you a consistent routine and a community of professionals — something a cafe cannot provide.',
+      },
+      {
+        title: 'Who uses coworking spaces?',
+        description:
+          'Freelancers, remote workers, startup founders, small agencies, consultants, and anyone who needs a professional workspace without renting a full office. At Launchbox, most members are freelancers and early-stage startup teams based in Lahore.',
+      },
+    ]}
+  />
+
+  <!-- About Launchbox ******************* -->
+
+  <FAQs
+    title="About Launchbox"
+    columns={1}
+    items={[
+      {
+        title: 'What is Launchbox?',
+        description:
+          'Launchbox is a coworking space located in DHA Lahore. It offers day passes, flexible desks, dedicated desks, and private cabins for freelancers, remote workers, and small teams. The space includes high-speed internet, backup power, meeting rooms, and a professional community.',
+      },
+      {
+        title: 'What amenities do you offer?',
+        description:
+          'Every plan includes high-speed internet, backup power, tea and coffee, access to common areas and the kitchen, printing access, and a professional work environment. Dedicated desks and private cabins also include storage space and meeting room access.',
+      },
+      {
+        title: 'What are your working hours?',
+        description:
+          'Launchbox is open Monday to Saturday, 9 AM to 9 PM. Members with private cabins can arrange extended or 24/7 access depending on their plan.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Pricing & plans ******************* -->
+
+  <FAQs
+    title="Pricing & plans"
+    columns={1}
+    items={[
+      {
+        title: 'How much does it cost?',
+        description:
+          'Day Pass: PKR 1,500/day. Flexible Desk: PKR 15,000/month. Dedicated Desk: PKR 22,500/month. Private Cabin: PKR 20,000/person/month (minimum 5 persons). All plans include internet, power, tea/coffee, and common area access. No hidden fees.',
+      },
+      {
+        title: 'Is there a contract or lock-in?',
+        description:
+          'No. All plans are month-to-month. You can start, pause, or cancel anytime with no penalties or long-term commitments.',
+      },
+      {
+        title: 'Can I upgrade or switch plans?',
+        description:
+          'Yes. You can move from a flexible desk to a dedicated desk or private cabin at any time, subject to availability. Your plan adjusts from the next billing cycle.',
+      },
+      {
+        title: 'What payment methods do you accept?',
+        description:
+          'Launchbox accepts bank transfer, JazzCash, EasyPaisa, and cash payments. Payment is due at the start of each month.',
+      },
+    ]}
+  />
+
+  <!-- Location & access ******************* -->
+
+  <FAQs
+    title="Location & access"
+    columns={1}
+    items={[
+      {
+        title: 'Where are you located?',
+        description:
+          'Launchbox is located in DHA, Lahore — one of the most well-connected and secure neighborhoods in the city. It is easily accessible from Gulberg, Model Town, Johar Town, and Cantt.',
+      },
+      {
+        title: 'Is there parking available?',
+        description:
+          'Yes. Parking is available near the space. DHA also has well-maintained roads and easy access for ride-hailing services like Careem and inDrive.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Booking & getting started ******************* -->
+
+  <FAQs
+    title="Booking & getting started"
+    columns={1}
+    items={[
+      {
+        title: 'Can I visit before joining?',
+        description:
+          'Yes. We encourage everyone to visit the space before committing. You can book a free visit through the website or message us on WhatsApp to schedule a tour.',
+      },
+      {
+        title: 'How do I book a visit?',
+        description:
+          "Fill out the form on the Book a Visit page or message us on WhatsApp. We'll confirm within a few hours.",
+      },
+      {
+        title: 'How do I sign up for a plan?',
+        description:
+          'Visit the space, choose a plan that works for you, and start the same day. There is no lengthy onboarding process — just pick a plan and begin working.',
+      },
+    ]}
+  />
+
+  <!-- Closer ******************* -->
+
+  <CallToAction
+    title="Still have questions?"
+    subtitle="Visit the space or message us on WhatsApp. We're happy to help."
+    actions={[
+      { variant: 'primary', text: 'Book a visit', href: '/book-visit' },
+      { target: '_blank', text: 'WhatsApp us', href: 'https://wa.me/923070555515' },
+    ]}
+  />
+</Layout>

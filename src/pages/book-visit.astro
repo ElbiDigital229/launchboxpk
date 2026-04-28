@@ -1,0 +1,201 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Book a Visit',
+  description:
+    'Walk through Launchbox in DHA Phase 5, Lahore. Try a desk, check the internet speed, meet the community. No commitment.',
+};
+
+const whatsappVisit =
+  "https://wa.me/923070555515?text=Hi%2C%20I%27d%20like%20to%20visit%20Launchbox%20coworking%20space.";
+const whatsappSchedule =
+  "https://wa.me/923070555515?text=Hi%2C%20can%20I%20schedule%20a%20visit%20to%20Launchbox%3F";
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <HeroText
+    tagline="No commitment · No sales pitch"
+    title="Come see the space before you decide."
+    subtitle="Walk through. Try a desk. Check the internet speed. Meet the people who work here. An honest look at where you could be working."
+  />
+
+  <!-- Three contact methods ******************* -->
+
+  <Features3
+    title="Get in touch"
+    subtitle="Pick whichever channel suits you. We answer all of them, fast."
+    columns={3}
+    items={[
+      {
+        title: 'WhatsApp message',
+        description: 'Fastest way — usually replies within an hour. Tap to start a chat.',
+        icon: 'tabler:brand-whatsapp',
+        callToAction: { text: 'WhatsApp us', href: whatsappVisit, target: '_blank' },
+      },
+      {
+        title: 'Call us',
+        description: '0307 0555515 · Mon–Sat, 9 AM–9 PM. Talk to a human, no IVR.',
+        icon: 'tabler:phone',
+        callToAction: { text: 'Call now', href: 'tel:+923070555515' },
+      },
+      {
+        title: 'Schedule a visit',
+        description: "Tell us a time — we'll confirm back. Pick the slot that works for you.",
+        icon: 'tabler:calendar-check',
+        callToAction: { text: 'Schedule on WhatsApp', href: whatsappSchedule, target: '_blank' },
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- What you get ******************* -->
+
+  <Features3
+    title="What you get out of the visit"
+    subtitle="A real, in-person look at the space. No commitment, no pressure to sign up."
+    columns={2}
+    items={[
+      {
+        title: 'See the workspace and amenities',
+        description: 'Walk through the open desks, dedicated desks, private cabins, meeting rooms, and pantry.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Test the internet speed and power backup',
+        description: 'Run a speed test. See what happens when the lights flicker. Verify what we promise on the site.',
+        icon: 'tabler:wifi',
+      },
+      {
+        title: 'Meet the people who work here',
+        description: 'Get a feel for the community — freelancers, founders, remote workers, all heads-down on real work.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Ask every question face to face',
+        description: 'Pricing, plans, timings, parking, payment methods — anything on your mind. No question too small.',
+        icon: 'tabler:message-circle',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- How it works ******************* -->
+
+  <Steps
+    title="How it works"
+    tagline="three steps"
+    isReversed={true}
+    items={[
+      {
+        title: '1. Message or call',
+        description: "WhatsApp or phone — whatever's easiest. Takes 30 seconds.",
+        icon: 'tabler:number-1',
+      },
+      {
+        title: '2. We confirm a time',
+        description: "We'll reply quickly with a time that works for you.",
+        icon: 'tabler:number-2',
+      },
+      {
+        title: '3. You visit the space',
+        description: 'Walk in, look around, try a desk. Decide at your pace.',
+        icon: 'tabler:number-3',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/space/signage.jpg',
+      alt: 'Welcome to Launchbox — DHA Phase 5 entrance signage',
+    }}
+  />
+
+  <!-- Where to find us ******************* -->
+
+  <Features2
+    title="Where to find us"
+    subtitle="DHA Phase 5, Lahore — well-connected, easy to reach by car or ride-hail."
+    items={[
+      {
+        title: 'Address',
+        description: 'First Floor, 38-A CCA, Sector C, DHA Phase 5, Lahore 54000.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Getting here',
+        description: 'Well-connected from Gulberg, Model Town, Johar Town, and Cantt. Careem / inDrive reach us easily.',
+        icon: 'tabler:route',
+      },
+      {
+        title: 'Open in Google Maps',
+        description: 'Directions, parking notes, and street view all available there.',
+        icon: 'tabler:external-link',
+      },
+      {
+        title: 'Phone',
+        description: '+92 307 0555515',
+        icon: 'tabler:phone',
+      },
+      {
+        title: 'Email',
+        description: 'contact@launchboxpk.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Hours',
+        description: 'Monday–Saturday, 9 AM–9 PM.',
+        icon: 'tabler:clock',
+      },
+    ]}
+  />
+
+  <!-- Map embed ******************* -->
+
+  <section class="relative not-prose scroll-mt-[72px]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10 md:py-14">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight font-heading dark:text-slate-200">Find us on the map</h2>
+        <p class="mt-2 text-muted dark:text-slate-400">First Floor, 38-A CCA, Sector C, DHA Phase 5, Lahore.</p>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-gray-200 dark:border-slate-700 shadow-sm">
+        <iframe
+          title="Launchbox location on Google Maps"
+          src="https://www.google.com/maps?q=38-A%20CCA%20Sector%20C%20DHA%20Phase%205%20Lahore&output=embed"
+          width="100%"
+          height="450"
+          style="border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="mt-4 text-center">
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Launchbox+38-A+CCA+Sector+C+DHA+Phase+5+Lahore"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 font-semibold text-primary hover:underline"
+        >
+          Open in Google Maps <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA ******************* -->
+
+  <CallToAction
+    title="Ready to swing by?"
+    subtitle="WhatsApp is the fastest way to lock in a time. We'll confirm within the hour during working hours."
+    actions={[
+      { variant: 'primary', target: '_blank', text: 'WhatsApp us', href: whatsappVisit },
+      { text: 'View pricing', href: '/pricing' },
+    ]}
+  />
+</Layout>

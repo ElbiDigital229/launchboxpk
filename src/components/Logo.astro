@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import { SITE } from 'astrowind:config';
+import logoLight from '~/assets/images/launchbox-logo.png';
+import logoDark from '~/assets/images/launchbox-logo-dark.png';
+---
+
+<Image
+  src={logoLight}
+  alt={SITE?.name || 'Launchbox'}
+  class="h-7 w-auto max-h-7 block dark:hidden"
+  loading="eager"
+  decoding="sync"
+  widths={[160, 320]}
+  sizes="160px"
+/>
+<Image
+  src={logoDark}
+  alt={SITE?.name || 'Launchbox'}
+  class="h-7 w-auto max-h-7 hidden dark:block"
+  loading="eager"
+  decoding="sync"
+  widths={[160, 320]}
+  sizes="160px"
+/>
