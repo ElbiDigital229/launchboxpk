@@ -3,8 +3,12 @@
     if (window.__lbAnalyticsBound) return;
     window.__lbAnalyticsBound = true;
 
+    window.dataLayer = window.dataLayer || [];
+    if (typeof window.gtag !== 'function') {
+      window.gtag = function () { window.dataLayer.push(arguments); };
+    }
+
     function track(name, params) {
-      if (typeof window.gtag !== 'function') return;
       window.gtag('event', name, params || {});
     }
 
