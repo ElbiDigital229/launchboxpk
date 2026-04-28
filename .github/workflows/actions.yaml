@@ -30,5 +30,19 @@ jobs:
       - name: Sync dist/ to S3
         run: aws s3 sync dist/ s3://launchboxpk.com --delete
 
+      - name: Update CloudFront URL-rewrite function
+        run: |
+          FUNCTION_NAME="launchboxpk-url-rewrite"
+          ETAG=$(aws cloudfront describe-function --name "$FUNCTION_NAME" --query 'ETag' --output text)
+          aws cloudfront update-function \
+            --name "$FUNCTION_NAME" \
+            --function-config '{"Comment":"Rewrite clean URLs to <path>/index.html for Astro dist","Runtime":"cloudfront-js-2.0"}' \
+            --function-code fileb://cloudfront-function.js \
+            --if-match "$ETAG"
+          ETAG=$(aws cloudfront describe-function --name "$FUNCTION_NAME" --query 'ETag' --output text)
+          aws cloudfront publish-function \
+            --name "$FUNCTION_NAME" \
+            --if-match "$ETAG"
+
       - name: Invalidate CloudFront cache
         run: aws cloudfront create-invalidation --distribution-id E4FC18X0B6JRG --paths "/*"
