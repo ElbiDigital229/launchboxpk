@@ -1,0 +1,42 @@
+<script is:inline>
+  (function () {
+    if (window.__lbAnalyticsBound) return;
+    window.__lbAnalyticsBound = true;
+
+    function track(name, params) {
+      if (typeof window.gtag !== 'function') return;
+      window.gtag('event', name, params || {});
+    }
+
+    function classify(anchor) {
+      var href = anchor.getAttribute('href') || '';
+      var text = (anchor.textContent || '').trim().slice(0, 80);
+
+      if (href.indexOf('tel:') === 0) {
+        return { name: 'phone_click', params: { link_url: href, link_text: text } };
+      }
+      if (href.indexOf('mailto:') === 0) {
+        return { name: 'mailto_click', params: { link_url: href, link_text: text } };
+      }
+      if (/wa\.me|api\.whatsapp\.com|whatsapp\.com\/send/i.test(href)) {
+        return { name: 'whatsapp_click', params: { link_url: href, link_text: text, page_path: location.pathname } };
+      }
+      if (/(^|\/)book-visit(\/|\?|#|$)/i.test(href)) {
+        return { name: 'book_visit_click', params: { link_url: href, link_text: text, page_path: location.pathname } };
+      }
+      return null;
+    }
+
+    document.addEventListener(
+      'click',
+      function (e) {
+        var t = e.target;
+        var anchor = t && t.closest ? t.closest('a') : null;
+        if (!anchor) return;
+        var evt = classify(anchor);
+        if (evt) track(evt.name, evt.params);
+      },
+      true
+    );
+  })();
+</script>
