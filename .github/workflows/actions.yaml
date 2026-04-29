@@ -27,8 +27,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Sync dist/ to S3
-        run: aws s3 sync dist/ s3://launchboxpk.com --delete
+      - name: Sync hashed assets (long cache, immutable)
+        run: aws s3 sync dist/_astro s3://launchboxpk.com/_astro --cache-control "public, max-age=31536000, immutable"
+
+      - name: Sync everything else (short cache)
+        run: aws s3 sync dist/ s3://launchboxpk.com --delete --exclude "_astro/*" --cache-control "public, max-age=300, must-revalidate"
 
       - name: Update CloudFront URL-rewrite function
         run: |

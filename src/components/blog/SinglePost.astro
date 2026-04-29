@@ -4,9 +4,11 @@ import { Icon } from 'astro-icon/components';
 import Image from '~/components/common/Image.astro';
 import PostTags from '~/components/blog/Tags.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
+import BlogPostSchema from '~/components/common/BlogPostSchema.astro';
 
 import { getPermalink } from '~/utils/permalinks';
 import { getFormattedDate } from '~/utils/utils';
+import { findImage } from '~/utils/images';
 
 import type { Post } from '~/types';
 
@@ -16,7 +18,16 @@ export interface Props {
 }
 
 const { post, url } = Astro.props;
+const resolvedImage = await findImage(post.image);
+const imageUrl =
+  typeof resolvedImage === 'string'
+    ? resolvedImage
+    : resolvedImage && (resolvedImage as { src: string }).src
+      ? new URL((resolvedImage as { src: string }).src, 'https://www.launchboxpk.com').toString()
+      : undefined;
 ---
+
+<BlogPostSchema post={post} url={url} imageUrl={imageUrl} />
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <article>

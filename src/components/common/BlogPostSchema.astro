@@ -1,0 +1,62 @@
+---
+import type { Post } from '~/types';
+import { getPermalink } from '~/utils/permalinks';
+
+export interface Props {
+  post: Post;
+  url: string | URL;
+  imageUrl?: string;
+}
+
+const { post, url, imageUrl } = Astro.props;
+const canonical = String(url);
+
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  headline: post.title,
+  description: post.excerpt,
+  image: imageUrl ? [imageUrl] : undefined,
+  datePublished: post.publishDate ? new Date(post.publishDate).toISOString() : undefined,
+  dateModified: post.updateDate
+    ? new Date(post.updateDate).toISOString()
+    : post.publishDate
+      ? new Date(post.publishDate).toISOString()
+      : undefined,
+  author: {
+    '@type': 'Organization',
+    name: post.author || 'Launchbox',
+    url: 'https://www.launchboxpk.com',
+  },
+  publisher: { '@id': 'https://www.launchboxpk.com/#organization' },
+  isPartOf: { '@id': 'https://www.launchboxpk.com/#website' },
+  inLanguage: 'en',
+};
+
+const breadcrumbItems: Array<{ name: string; item: string }> = [
+  { name: 'Home', item: 'https://www.launchboxpk.com' },
+  { name: 'Blog', item: 'https://www.launchboxpk.com/blog' },
+];
+if (post.category) {
+  breadcrumbItems.push({
+    name: post.category.title,
+    item: `https://www.launchboxpk.com${getPermalink(post.category.slug, 'category')}`,
+  });
+}
+breadcrumbItems.push({ name: post.title, item: canonical });
+
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((b, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: b.name,
+    item: b.item,
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(article)} is:inline />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} is:inline />

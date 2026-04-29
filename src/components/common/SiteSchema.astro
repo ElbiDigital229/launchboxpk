@@ -103,6 +103,40 @@ const schema = {
     ],
   },
 };
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://www.launchboxpk.com/#organization',
+  name: 'Launchbox',
+  url: 'https://www.launchboxpk.com',
+  logo: 'https://www.launchboxpk.com/og-image.png',
+  sameAs: [
+    'https://instagram.com/launchboxpk',
+    'https://facebook.com/launchboxpk',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+923070555515',
+    contactType: 'customer service',
+    email: 'contact@launchboxpk.com',
+    areaServed: 'PK',
+    availableLanguage: ['English', 'Urdu'],
+  },
+};
+
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://www.launchboxpk.com/#website',
+  url: 'https://www.launchboxpk.com',
+  name: 'Launchbox',
+  description: 'Coworking space in DHA Phase 5, Lahore',
+  publisher: { '@id': 'https://www.launchboxpk.com/#organization' },
+  inLanguage: 'en',
+};
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+<script type="application/ld+json" set:html={JSON.stringify(organization)} is:inline />
+<script type="application/ld+json" set:html={JSON.stringify(website)} is:inline />
