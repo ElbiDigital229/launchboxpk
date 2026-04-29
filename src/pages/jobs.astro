@@ -36,151 +36,258 @@ interface SourceResult {
 const jobs = (jobsData.jobs || []) as Job[];
 const sources = (jobsData.sources || []) as SourceResult[];
 
+// ---- City normalization --------------------------------------------------
+// Rozee.pk typically returns a single city ("Lahore", "Karachi"). Trim to first
+// part of the location string and title-case so "lahore" / "LHR" don't fragment.
+function titleCase(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+    .replace(/\b(Pk|Pakistan)\b/g, 'Pakistan');
+}
+function normalizeCity(loc: string): string {
+  const first = (loc || '').split(',')[0].trim();
+  if (!first) return '';
+  // Common abbreviations
+  const map: Record<string, string> = {
+    Lhr: 'Lahore',
+    Khi: 'Karachi',
+    Isb: 'Islamabad',
+    Rwp: 'Rawalpindi',
+    Fsd: 'Faisalabad',
+  };
+  const t = titleCase(first);
+  return map[t] || t;
+}
+
 // Sort by postedDate desc — fall back to original order if unparseable
 function dateMs(d: string | null) {
   if (!d) return 0;
   const t = Date.parse(d);
   return Number.isNaN(t) ? 0 : t;
 }
-const sortedJobs = [...jobs].sort((a, b) => dateMs(b.postedDate) - dateMs(a.postedDate));
 
-// Pre-compute filter options
-const uniqueSources = Array.from(new Set(jobs.map((j) => j.source))).sort();
-const uniqueTypes = Array.from(new Set(jobs.map((j) => j.type).filter(Boolean))).sort();
+// Decorate each job with normalized city — used for filtering and rendering.
+const decorated = jobs.map((j) => ({ ...j, city: normalizeCity(j.location) }));
+const sortedJobs = [...decorated].sort((a, b) => dateMs(b.postedDate) - dateMs(a.postedDate));
+
+// ---- Facets with counts --------------------------------------------------
+function bumpCount(map: Map<string, number>, key: string) {
+  if (!key) return;
+  map.set(key, (map.get(key) || 0) + 1);
+}
+
+const cityCount = new Map<string, number>();
+const modeCount = new Map<string, number>();
+const typeCount = new Map<string, number>();
+const sourceCount = new Map<string, number>();
+for (const j of decorated) {
+  bumpCount(cityCount, j.city);
+  bumpCount(modeCount, j.workMode);
+  bumpCount(typeCount, j.type);
+  bumpCount(sourceCount, j.source);
+}
+
+// Top 10 cities by job count (the long tail rarely has more than 1 each).
+const topCities = [...cityCount.entries()]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  .slice(0, 12);
+
+// Only show modes that actually exist in the data, and skip "unknown" — it's
+// noise for the user (Rozee.pk leaves work mode unset on most postings).
+const visibleModes = (['remote', 'hybrid', 'on-site'] as const)
+  .map((m) => ({ value: m, count: modeCount.get(m) || 0 }))
+  .filter((m) => m.count > 0);
+
+const visibleTypes = [...typeCount.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .map(([value, count]) => ({ value, count }));
+
+const visibleSources = [...sourceCount.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .map(([value, count]) => {
+    const meta = sources.find((s) => s.id === value);
+    return { value, count, label: meta?.label || value };
+  });
 
 const PER_PAGE = 20;
+
+// Mode → user-facing label (cards still store the canonical value).
+const MODE_LABEL: Record<string, string> = {
+  remote: 'Remote',
+  hybrid: 'Hybrid',
+  'on-site': 'On-site',
+};
 ---
 
 <Layout metadata={metadata}>
   <section class="mx-auto max-w-6xl px-4 py-10">
-    <div class="grid gap-8 md:grid-cols-[260px_1fr]">
+    <div class="grid gap-10 md:grid-cols-[240px_1fr]">
       <!-- Filters sidebar -->
-      <aside class="md:sticky md:top-24 md:self-start space-y-6">
+      <aside class="md:sticky md:top-24 md:self-start space-y-7">
         <!-- Search -->
-        <div>
-          <label for="jobs-search" class="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-slate-400 mb-2">Search</label>
-          <div class="relative">
-            <input
-              id="jobs-search"
-              type="search"
-              placeholder="Title, company, skill…"
-              class="w-full rounded-lg border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-800 pl-9 pr-3 py-2 text-sm placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              autocomplete="off"
-            />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- Filters heading + clear all -->
-        <div class="flex items-center justify-between border-t border-gray-200 dark:border-slate-700 pt-5">
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-700 dark:text-slate-200">Filters</h2>
-          <button
-            id="filters-clear"
-            type="button"
-            class="hidden text-xs font-medium text-primary hover:underline"
+        <div class="relative">
+          <input
+            id="jobs-search"
+            type="search"
+            placeholder="Search…"
+            class="w-full rounded-md border border-gray-200 dark:border-slate-700 bg-transparent pl-9 pr-3 py-2 text-sm placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-0"
+            autocomplete="off"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
           >
-            Clear all
-          </button>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
         </div>
 
-        <!-- Work mode -->
-        <div>
-          <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-slate-400 mb-2">Work mode</h3>
-          <div class="flex flex-wrap gap-1.5">
-            <button data-group="mode" data-value="all" class="filter-chip filter-active px-3 py-1 rounded-full text-xs font-medium border" type="button">All</button>
-            <button data-group="mode" data-value="remote" class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">Remote</button>
-            <button data-group="mode" data-value="hybrid" class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">Hybrid</button>
-            <button data-group="mode" data-value="on-site" class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">On-site</button>
-            <button data-group="mode" data-value="unknown" class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">Unspecified</button>
-          </div>
-        </div>
-
-        <!-- Job type -->
-        {uniqueTypes.length > 0 && (
+        <!-- City -->
+        {topCities.length > 0 && (
           <div>
-            <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-slate-400 mb-2">Type</h3>
-            <div class="flex flex-wrap gap-1.5">
-              <button data-group="type" data-value="all" class="filter-chip filter-active px-3 py-1 rounded-full text-xs font-medium border" type="button">All</button>
-              {uniqueTypes.map((t) => (
-                <button data-group="type" data-value={t} class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">{t}</button>
+            <h3 class="text-[13px] font-medium text-gray-500 dark:text-slate-400 mb-3">City</h3>
+            <ul class="space-y-1.5">
+              {topCities.map(([name, count]) => (
+                <li>
+                  <button
+                    type="button"
+                    class="filter-row group flex w-full items-center justify-between text-left text-sm text-gray-700 dark:text-slate-300 hover:text-primary transition-colors"
+                    data-group="city"
+                    data-value={name}
+                  >
+                    <span class="filter-label">{name}</span>
+                    <span class="text-xs tabular-nums text-gray-400 dark:text-slate-500">{count}</span>
+                  </button>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         )}
 
-        <!-- Source / portal -->
-        {uniqueSources.length > 0 && (
+        <!-- Setup -->
+        {visibleModes.length > 0 && (
           <div>
-            <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-slate-400 mb-2">Portal</h3>
-            <div class="flex flex-wrap gap-1.5">
-              <button data-group="source" data-value="all" class="filter-chip filter-active px-3 py-1 rounded-full text-xs font-medium border" type="button">All</button>
-              {uniqueSources.map((s) => {
-                const meta = sources.find((x) => x.id === s);
-                return (
-                  <button data-group="source" data-value={s} class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">
-                    {meta?.label || s}
+            <h3 class="text-[13px] font-medium text-gray-500 dark:text-slate-400 mb-3">Setup</h3>
+            <ul class="space-y-1.5">
+              {visibleModes.map(({ value, count }) => (
+                <li>
+                  <button
+                    type="button"
+                    class="filter-row group flex w-full items-center justify-between text-left text-sm text-gray-700 dark:text-slate-300 hover:text-primary transition-colors"
+                    data-group="mode"
+                    data-value={value}
+                  >
+                    <span class="filter-label">{MODE_LABEL[value] || value}</span>
+                    <span class="text-xs tabular-nums text-gray-400 dark:text-slate-500">{count}</span>
                   </button>
-                );
-              })}
-            </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Type -->
+        {visibleTypes.length > 0 && (
+          <div>
+            <h3 class="text-[13px] font-medium text-gray-500 dark:text-slate-400 mb-3">Type</h3>
+            <ul class="space-y-1.5">
+              {visibleTypes.map(({ value, count }) => (
+                <li>
+                  <button
+                    type="button"
+                    class="filter-row group flex w-full items-center justify-between text-left text-sm text-gray-700 dark:text-slate-300 hover:text-primary transition-colors"
+                    data-group="type"
+                    data-value={value}
+                  >
+                    <span class="filter-label">{value}</span>
+                    <span class="text-xs tabular-nums text-gray-400 dark:text-slate-500">{count}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Source -->
+        {visibleSources.length > 1 && (
+          <div>
+            <h3 class="text-[13px] font-medium text-gray-500 dark:text-slate-400 mb-3">Source</h3>
+            <ul class="space-y-1.5">
+              {visibleSources.map(({ value, count, label }) => (
+                <li>
+                  <button
+                    type="button"
+                    class="filter-row group flex w-full items-center justify-between text-left text-sm text-gray-700 dark:text-slate-300 hover:text-primary transition-colors"
+                    data-group="source"
+                    data-value={value}
+                  >
+                    <span class="filter-label">{label}</span>
+                    <span class="text-xs tabular-nums text-gray-400 dark:text-slate-500">{count}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </aside>
 
       <!-- Results -->
       <div class="min-w-0">
-        <p id="jobs-count" class="mb-4 text-sm text-gray-500 dark:text-slate-400" aria-live="polite"></p>
+        <!-- Active filter pills + count -->
+        <div class="flex flex-wrap items-center gap-2 mb-5 min-h-[28px]">
+          <span id="jobs-count" class="text-sm text-gray-500 dark:text-slate-400" aria-live="polite"></span>
+          <div id="active-filters" class="flex flex-wrap gap-1.5"></div>
+        </div>
 
-        <div id="jobs-list" class="grid gap-4">
+        <div id="jobs-list" class="divide-y divide-gray-100 dark:divide-slate-800">
           {sortedJobs.map((job) => (
             <article
-              class="job-card rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 transition hover:-translate-y-0.5 hover:shadow-lg"
+              class="job-card group py-5 first:pt-0 last:pb-0"
               data-mode={job.workMode}
               data-type={job.type}
               data-source={job.source}
+              data-city={job.city}
               data-search={[job.title, job.company, job.location, job.type, job.contractType, job.experience]
                 .filter(Boolean)
                 .join(' ')
                 .toLowerCase()}
             >
-              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+              <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
                 <div class="min-w-0 flex-1">
-                  <div class="flex items-center gap-2 flex-wrap">
-                    <h3 class="text-base md:text-lg font-semibold dark:text-white">{job.title}</h3>
-                    <span class="text-[10px] uppercase tracking-wider rounded-full bg-blue-50 dark:bg-blue-500/15 text-blue-700 dark:text-blue-300 px-2 py-0.5">
-                      {job.sourceLabel}
-                    </span>
-                  </div>
-                  <p class="mt-1 text-sm text-gray-600 dark:text-slate-400">
-                    <span class="font-medium">{job.company || 'Unknown company'}</span>
-                    {job.location && <> · {job.location}</>}
-                    {job.workMode !== 'unknown' && <> · <span class="capitalize">{job.workMode}</span></>}
+                  <h3 class="text-base font-medium dark:text-white leading-snug">
+                    <a
+                      href={job.url}
+                      target="_blank"
+                      rel="noopener nofollow"
+                      class="hover:text-primary transition-colors"
+                    >
+                      {job.title}
+                    </a>
+                  </h3>
+                  <p class="mt-1 text-sm text-gray-500 dark:text-slate-400">
+                    <span class="text-gray-700 dark:text-slate-300">{job.company || 'Unknown company'}</span>
+                    {job.city && <> · {job.city}</>}
+                    {job.workMode !== 'unknown' && <> · {MODE_LABEL[job.workMode] || job.workMode}</>}
+                    {job.type && <> · {job.type}</>}
+                    {job.experience && <> · {job.experience}</>}
                   </p>
-                  <div class="mt-2 flex flex-wrap gap-1.5 text-xs text-gray-500 dark:text-slate-400">
-                    {job.type && <span>· {job.type}</span>}
-                    {job.experience && <span>· {job.experience}</span>}
-                    {job.postedDate && <span>· Posted {job.postedDate}</span>}
-                  </div>
                 </div>
-                <div class="shrink-0">
+                <div class="shrink-0 flex items-center gap-3 text-sm">
+                  {job.postedDate && (
+                    <span class="text-xs text-gray-400 dark:text-slate-500 hidden md:inline">{job.postedDate}</span>
+                  )}
                   <a
                     href={job.url}
                     target="_blank"
                     rel="noopener nofollow"
-                    class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow hover:opacity-90 transition"
+                    class="text-primary font-medium hover:underline whitespace-nowrap"
                   >
-                    Apply on {job.sourceLabel}
-                    <span aria-hidden="true" class="ml-1">↗</span>
+                    Apply →
                   </a>
                 </div>
               </div>
@@ -188,17 +295,17 @@ const PER_PAGE = 20;
           ))}
         </div>
 
-        <p id="jobs-empty" class="hidden mt-12 text-center text-gray-500 dark:text-slate-400">
-          No jobs match your filters. Try clearing them or searching for something different.
+        <p id="jobs-empty" class="hidden mt-12 text-sm text-gray-500 dark:text-slate-400">
+          Nothing matches. Try fewer filters, or different words.
         </p>
 
         <!-- Pagination -->
-        <nav id="jobs-pagination" class="hidden mt-8 flex flex-wrap items-center justify-center gap-2" aria-label="Jobs pagination">
-          <button id="jobs-prev" type="button" class="rounded-lg border border-gray-300 dark:border-slate-700 px-3 py-1.5 text-sm hover:bg-gray-50 dark:hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+        <nav id="jobs-pagination" class="hidden mt-10 flex flex-wrap items-center justify-between gap-2" aria-label="Jobs pagination">
+          <button id="jobs-prev" type="button" class="text-sm text-gray-600 dark:text-slate-400 hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed" disabled>
             ← Previous
           </button>
-          <span id="jobs-page-info" class="text-sm text-gray-600 dark:text-slate-400">Page 1</span>
-          <button id="jobs-next" type="button" class="rounded-lg border border-gray-300 dark:border-slate-700 px-3 py-1.5 text-sm hover:bg-gray-50 dark:hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed">
+          <span id="jobs-page-info" class="text-xs text-gray-400 dark:text-slate-500"></span>
+          <button id="jobs-next" type="button" class="text-sm text-gray-600 dark:text-slate-400 hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed">
             Next →
           </button>
         </nav>
@@ -227,29 +334,56 @@ const PER_PAGE = 20;
       const cards = Array.from(document.querySelectorAll('.job-card'));
       const empty = document.getElementById('jobs-empty');
       const count = document.getElementById('jobs-count');
-      const clearBtn = document.getElementById('filters-clear');
+      const activePills = document.getElementById('active-filters');
       const pagination = document.getElementById('jobs-pagination');
       const prevBtn = document.getElementById('jobs-prev');
       const nextBtn = document.getElementById('jobs-next');
       const pageInfo = document.getElementById('jobs-page-info');
+      const FACETS = ['mode', 'type', 'source', 'city'];
 
-      const filters = { mode: 'all', type: 'all', source: 'all' };
+      // Multi-select state: Set per facet group.
+      const filters = {
+        mode: new Set(),
+        type: new Set(),
+        source: new Set(),
+        city: new Set(),
+      };
       let searchQuery = '';
       let page = 1;
       let visibleCards = cards;
 
+      // ---- URL state ----------------------------------------------------
+      function readUrl() {
+        const params = new URLSearchParams(location.search);
+        searchQuery = (params.get('q') || '').toLowerCase();
+        if (search) search.value = params.get('q') || '';
+        for (const k of FACETS) {
+          const v = params.get(k);
+          if (v) filters[k] = new Set(v.split(',').filter(Boolean));
+        }
+      }
+      function syncUrl() {
+        const params = new URLSearchParams();
+        if (searchQuery) params.set('q', searchQuery);
+        for (const k of FACETS) {
+          if (filters[k].size) params.set(k, [...filters[k]].join(','));
+        }
+        const qs = params.toString();
+        history.replaceState(null, '', qs ? '?' + qs : location.pathname);
+      }
+
+      // ---- Filtering ----------------------------------------------------
       function recompute() {
-        const q = searchQuery;
         visibleCards = cards.filter((card) => {
-          const text = card.dataset.search || '';
-          if (q && text.indexOf(q) === -1) return false;
-          if (filters.mode !== 'all' && card.dataset.mode !== filters.mode) return false;
-          if (filters.type !== 'all' && card.dataset.type !== filters.type) return false;
-          if (filters.source !== 'all' && card.dataset.source !== filters.source) return false;
+          if (searchQuery && (card.dataset.search || '').indexOf(searchQuery) === -1) return false;
+          for (const k of FACETS) {
+            if (filters[k].size && !filters[k].has(card.dataset[k])) return false;
+          }
           return true;
         });
         page = 1;
         render();
+        syncUrl();
       }
 
       function render() {
@@ -265,25 +399,71 @@ const PER_PAGE = 20;
         if (empty) empty.classList.toggle('hidden', total > 0);
 
         if (count) {
-          const filtersOn = filters.mode !== 'all' || filters.type !== 'all' || filters.source !== 'all' || !!searchQuery;
-          count.textContent =
-            total + ' job' + (total === 1 ? '' : 's') + (filtersOn ? ' match your filters' : ' available');
+          count.textContent = total === 1 ? '1 job' : total + ' jobs';
         }
 
-        if (clearBtn) {
-          const filtersOn = filters.mode !== 'all' || filters.type !== 'all' || filters.source !== 'all' || !!searchQuery;
-          clearBtn.classList.toggle('hidden', !filtersOn);
-        }
+        renderActivePills();
+        renderFilterRows();
 
         if (pagination) {
           pagination.classList.toggle('hidden', total <= PER_PAGE);
-          if (pageInfo) pageInfo.textContent = 'Page ' + page + ' of ' + totalPages;
+          if (pageInfo) pageInfo.textContent = page + ' of ' + totalPages;
           if (prevBtn) prevBtn.disabled = page <= 1;
           if (nextBtn) nextBtn.disabled = page >= totalPages;
         }
       }
 
-      // Search input
+      function renderActivePills() {
+        if (!activePills) return;
+        activePills.innerHTML = '';
+        const items = [];
+        if (searchQuery) items.push({ kind: 'q', value: searchQuery, label: '"' + searchQuery + '"' });
+        for (const k of FACETS) {
+          for (const v of filters[k]) items.push({ kind: k, value: v, label: prettyLabel(k, v) });
+        }
+        if (!items.length) return;
+        for (const it of items) {
+          const pill = document.createElement('button');
+          pill.type = 'button';
+          pill.className =
+            'inline-flex items-center gap-1 rounded-full border border-gray-200 dark:border-slate-700 px-2.5 py-0.5 text-xs text-gray-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-colors';
+          pill.dataset.kind = it.kind;
+          pill.dataset.value = it.value;
+          pill.innerHTML = it.label + ' <span aria-hidden="true" class="text-gray-400">×</span>';
+          pill.setAttribute('aria-label', 'Remove filter ' + it.label);
+          pill.addEventListener('click', () => {
+            if (it.kind === 'q') {
+              searchQuery = '';
+              if (search) search.value = '';
+            } else {
+              filters[it.kind].delete(it.value);
+            }
+            recompute();
+          });
+          activePills.appendChild(pill);
+        }
+      }
+
+      function prettyLabel(kind, value) {
+        if (kind === 'mode') {
+          const map = { remote: 'Remote', hybrid: 'Hybrid', 'on-site': 'On-site' };
+          return map[value] || value;
+        }
+        return value;
+      }
+
+      function renderFilterRows() {
+        document.querySelectorAll('.filter-row').forEach((btn) => {
+          const group = btn.dataset.group;
+          const value = btn.dataset.value;
+          const active = !!(group && value && filters[group] && filters[group].has(value));
+          btn.classList.toggle('filter-row-active', active);
+        });
+      }
+
+      // ---- Wire up ------------------------------------------------------
+      readUrl();
+
       if (search) {
         search.addEventListener('input', (e) => {
           searchQuery = (e.target.value || '').trim().toLowerCase();
@@ -291,36 +471,20 @@ const PER_PAGE = 20;
         });
       }
 
-      // Filter chips
-      document.querySelectorAll('.filter-chip').forEach((btn) => {
+      document.querySelectorAll('.filter-row').forEach((btn) => {
         btn.addEventListener('click', () => {
           const group = btn.dataset.group;
           const value = btn.dataset.value;
-          if (!group) return;
-          filters[group] = value;
-          document.querySelectorAll('.filter-chip[data-group="' + group + '"]').forEach((b) => {
-            b.classList.toggle('filter-active', b.dataset.value === value);
-          });
+          if (!group || !value || !filters[group]) return;
+          if (filters[group].has(value)) {
+            filters[group].delete(value);
+          } else {
+            filters[group].add(value);
+          }
           recompute();
         });
       });
 
-      // Clear all
-      if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-          filters.mode = 'all';
-          filters.type = 'all';
-          filters.source = 'all';
-          searchQuery = '';
-          if (search) search.value = '';
-          document.querySelectorAll('.filter-chip').forEach((b) => {
-            b.classList.toggle('filter-active', b.dataset.value === 'all');
-          });
-          recompute();
-        });
-      }
-
-      // Pagination
       if (prevBtn) {
         prevBtn.addEventListener('click', () => {
           if (page > 1) {
@@ -343,27 +507,23 @@ const PER_PAGE = 20;
   </script>
 
   <style>
-    .filter-chip {
-      border-color: rgb(229 231 235);
-      color: rgb(75 85 99);
-      background-color: white;
-      transition: all 0.15s ease;
+    .filter-row .filter-label {
+      position: relative;
+      display: inline-block;
     }
-    :global(.dark) .filter-chip {
-      border-color: rgb(51 65 85);
-      color: rgb(203 213 225);
-      background-color: rgb(15 23 42);
+    .filter-row.filter-row-active {
+      color: var(--aw-color-primary);
     }
-    .filter-chip:hover {
-      background-color: rgb(243 244 246);
-    }
-    :global(.dark) .filter-chip:hover {
-      background-color: rgb(30 41 59);
-    }
-    .filter-chip.filter-active {
-      background-color: var(--aw-color-primary);
-      color: white;
-      border-color: transparent;
+    .filter-row.filter-row-active .filter-label::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 50%;
+      width: 4px;
+      height: 4px;
+      background: var(--aw-color-primary);
+      border-radius: 9999px;
+      transform: translateY(-50%);
     }
   </style>
 </Layout>
