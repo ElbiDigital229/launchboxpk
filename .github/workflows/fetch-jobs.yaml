@@ -1,0 +1,38 @@
+name: Fetch jobs
+
+on:
+  schedule:
+    # Every 6 hours, on the hour
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {} # allows manual trigger from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run job scrapers
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: node scripts/fetch-jobs.mjs
+
+      - name: Commit jobs.json if changed
+        run: |
+          git config user.name "launchbox-bot"
+          git config user.email "bot@launchboxpk.com"
+          if git diff --quiet src/data/jobs.json; then
+            echo "No job changes."
+          else
+            git add src/data/jobs.json
+            git commit -m "chore(jobs): refresh from scrapers"
+            git push origin HEAD:main
+          fi

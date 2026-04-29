@@ -1,0 +1,392 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import jobsData from '~/data/jobs.json';
+
+const metadata = {
+  title: 'Pakistan Tech Jobs Board',
+  description:
+    'Curated tech jobs in Pakistan — engineering, design, product, data. Auto-refreshed from Rozee.pk and other portals every 6 hours.',
+};
+
+interface Job {
+  id: string;
+  source: string;
+  sourceLabel: string;
+  sourceId: string;
+  title: string;
+  company: string;
+  location: string;
+  workMode: string;
+  type: string;
+  experience: string | null;
+  contractType: string | null;
+  postedDate: string | null;
+  url: string;
+}
+
+interface SourceResult {
+  id: string;
+  label: string;
+  count: number;
+  error?: string;
+}
+
+const jobs = (jobsData.jobs || []) as Job[];
+const sources = (jobsData.sources || []) as SourceResult[];
+const fetchedAt = jobsData.fetchedAt as string | null;
+
+// Sort by postedDate desc — fall back to original order if unparseable
+function dateMs(d: string | null) {
+  if (!d) return 0;
+  const t = Date.parse(d);
+  return Number.isNaN(t) ? 0 : t;
+}
+const sortedJobs = [...jobs].sort((a, b) => dateMs(b.postedDate) - dateMs(a.postedDate));
+
+// Pre-compute filter options
+const uniqueSources = Array.from(new Set(jobs.map((j) => j.source))).sort();
+const uniqueTypes = Array.from(new Set(jobs.map((j) => j.type).filter(Boolean))).sort();
+
+const PER_PAGE = 20;
+
+// Friendly fetched-at label
+function formatFetched(iso: string | null) {
+  if (!iso) return null;
+  try {
+    return new Intl.DateTimeFormat('en-PK', {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+      timeZone: 'Asia/Karachi',
+    }).format(new Date(iso));
+  } catch {
+    return iso;
+  }
+}
+const fetchedLabel = formatFetched(fetchedAt);
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Pakistan · Tech"
+    title="Pakistan Tech Jobs Board"
+    subtitle="Curated tech roles across Pakistan — auto-refreshed every 6 hours from major job portals."
+  />
+
+  <!-- Status strip -->
+  <section class="mx-auto max-w-5xl px-4">
+    <p class="text-center text-sm text-gray-500 dark:text-slate-400">
+      {jobs.length > 0 ? (
+        <>
+          <span class="font-semibold text-gray-700 dark:text-slate-200">{jobs.length}</span> jobs from
+          {' '}{sources.filter((s) => s.count > 0).length} portal{sources.filter((s) => s.count > 0).length === 1 ? '' : 's'}
+          {fetchedLabel && <> · last updated {fetchedLabel} PKT</>}
+        </>
+      ) : (
+        <>No jobs yet. The scraper runs every 6 hours — first fetch will populate this page.</>
+      )}
+    </p>
+  </section>
+
+  <!-- Search + filters -->
+  <section class="mx-auto max-w-5xl px-4 py-6">
+    <div class="grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
+      <div class="relative">
+        <input
+          id="jobs-search"
+          type="search"
+          placeholder="Search jobs by title, company, or skill…"
+          class="w-full rounded-lg border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-800 pl-10 pr-4 py-2.5 text-sm placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+          autocomplete="off"
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+      <button
+        id="filters-clear"
+        type="button"
+        class="hidden rounded-lg border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-2 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700"
+      >
+        Clear filters
+      </button>
+    </div>
+
+    <div class="mt-4 flex flex-col gap-3">
+      <!-- Work mode -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-slate-400 mr-1">Work mode</span>
+        <button data-group="mode" data-value="all" class="filter-chip filter-active px-3 py-1 rounded-full text-xs font-medium border" type="button">All</button>
+        <button data-group="mode" data-value="remote" class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">Remote</button>
+        <button data-group="mode" data-value="hybrid" class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">Hybrid</button>
+        <button data-group="mode" data-value="on-site" class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">On-site</button>
+        <button data-group="mode" data-value="unknown" class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">Unspecified</button>
+      </div>
+
+      <!-- Job type -->
+      {uniqueTypes.length > 0 && (
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-slate-400 mr-1">Type</span>
+          <button data-group="type" data-value="all" class="filter-chip filter-active px-3 py-1 rounded-full text-xs font-medium border" type="button">All</button>
+          {uniqueTypes.map((t) => (
+            <button data-group="type" data-value={t} class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">{t}</button>
+          ))}
+        </div>
+      )}
+
+      <!-- Source / portal -->
+      {uniqueSources.length > 0 && (
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-slate-400 mr-1">Portal</span>
+          <button data-group="source" data-value="all" class="filter-chip filter-active px-3 py-1 rounded-full text-xs font-medium border" type="button">All</button>
+          {uniqueSources.map((s) => {
+            const meta = sources.find((x) => x.id === s);
+            return (
+              <button data-group="source" data-value={s} class="filter-chip px-3 py-1 rounded-full text-xs font-medium border" type="button">
+                {meta?.label || s}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+
+    <p id="jobs-count" class="mt-4 text-sm text-gray-500 dark:text-slate-400" aria-live="polite"></p>
+  </section>
+
+  <!-- Job cards -->
+  <section class="mx-auto max-w-5xl px-4 pb-8">
+    <div id="jobs-list" class="grid gap-4">
+      {sortedJobs.map((job) => (
+        <article
+          class="job-card rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 transition hover:-translate-y-0.5 hover:shadow-lg"
+          data-mode={job.workMode}
+          data-type={job.type}
+          data-source={job.source}
+          data-search={[job.title, job.company, job.location, job.type, job.contractType, job.experience]
+            .filter(Boolean)
+            .join(' ')
+            .toLowerCase()}
+        >
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-base md:text-lg font-semibold dark:text-white">{job.title}</h3>
+                <span class="text-[10px] uppercase tracking-wider rounded-full bg-blue-50 dark:bg-blue-500/15 text-blue-700 dark:text-blue-300 px-2 py-0.5">
+                  {job.sourceLabel}
+                </span>
+              </div>
+              <p class="mt-1 text-sm text-gray-600 dark:text-slate-400">
+                <span class="font-medium">{job.company || 'Unknown company'}</span>
+                {job.location && <> · {job.location}</>}
+                {job.workMode !== 'unknown' && <> · <span class="capitalize">{job.workMode}</span></>}
+              </p>
+              <div class="mt-2 flex flex-wrap gap-1.5 text-xs text-gray-500 dark:text-slate-400">
+                {job.type && <span>· {job.type}</span>}
+                {job.experience && <span>· {job.experience}</span>}
+                {job.postedDate && <span>· Posted {job.postedDate}</span>}
+              </div>
+            </div>
+            <div class="shrink-0">
+              <a
+                href={job.url}
+                target="_blank"
+                rel="noopener nofollow"
+                class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow hover:opacity-90 transition"
+              >
+                Apply on {job.sourceLabel}
+                <span aria-hidden="true" class="ml-1">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p id="jobs-empty" class="hidden mt-12 text-center text-gray-500 dark:text-slate-400">
+      No jobs match your filters. Try clearing them or searching for something different.
+    </p>
+
+    <!-- Pagination -->
+    <nav id="jobs-pagination" class="hidden mt-8 flex flex-wrap items-center justify-center gap-2" aria-label="Jobs pagination">
+      <button id="jobs-prev" type="button" class="rounded-lg border border-gray-300 dark:border-slate-700 px-3 py-1.5 text-sm hover:bg-gray-50 dark:hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+        ← Previous
+      </button>
+      <span id="jobs-page-info" class="text-sm text-gray-600 dark:text-slate-400">Page 1</span>
+      <button id="jobs-next" type="button" class="rounded-lg border border-gray-300 dark:border-slate-700 px-3 py-1.5 text-sm hover:bg-gray-50 dark:hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed">
+        Next →
+      </button>
+    </nav>
+  </section>
+
+  <!-- Hiring CTA -->
+  <CallToAction
+    title="Hiring? Post a job — free."
+    subtitle="WhatsApp us your job description and we'll list it within 24 hours. No fees, no friction. Built to help Pakistan tech teams find talent without the noise."
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'WhatsApp to post a job',
+        href: 'https://wa.me/923070555515?text=Hi%2C%20I%27d%20like%20to%20post%20a%20job%20on%20the%20Launchbox%20Jobs%20Board.',
+      },
+    ]}
+  />
+
+  <script is:inline define:vars={{ PER_PAGE }}>
+    (function () {
+      const search = document.getElementById('jobs-search');
+      const list = document.getElementById('jobs-list');
+      const cards = Array.from(document.querySelectorAll('.job-card'));
+      const empty = document.getElementById('jobs-empty');
+      const count = document.getElementById('jobs-count');
+      const clearBtn = document.getElementById('filters-clear');
+      const pagination = document.getElementById('jobs-pagination');
+      const prevBtn = document.getElementById('jobs-prev');
+      const nextBtn = document.getElementById('jobs-next');
+      const pageInfo = document.getElementById('jobs-page-info');
+
+      const filters = { mode: 'all', type: 'all', source: 'all' };
+      let searchQuery = '';
+      let page = 1;
+      let visibleCards = cards;
+
+      function recompute() {
+        const q = searchQuery;
+        visibleCards = cards.filter((card) => {
+          const text = card.dataset.search || '';
+          if (q && text.indexOf(q) === -1) return false;
+          if (filters.mode !== 'all' && card.dataset.mode !== filters.mode) return false;
+          if (filters.type !== 'all' && card.dataset.type !== filters.type) return false;
+          if (filters.source !== 'all' && card.dataset.source !== filters.source) return false;
+          return true;
+        });
+        page = 1;
+        render();
+      }
+
+      function render() {
+        const total = visibleCards.length;
+        const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+        if (page > totalPages) page = totalPages;
+        const start = (page - 1) * PER_PAGE;
+        const end = start + PER_PAGE;
+
+        cards.forEach((c) => (c.style.display = 'none'));
+        visibleCards.slice(start, end).forEach((c) => (c.style.display = ''));
+
+        if (empty) empty.classList.toggle('hidden', total > 0);
+
+        if (count) {
+          const filtersOn = filters.mode !== 'all' || filters.type !== 'all' || filters.source !== 'all' || !!searchQuery;
+          count.textContent =
+            total + ' job' + (total === 1 ? '' : 's') + (filtersOn ? ' match your filters' : ' available');
+        }
+
+        if (clearBtn) {
+          const filtersOn = filters.mode !== 'all' || filters.type !== 'all' || filters.source !== 'all' || !!searchQuery;
+          clearBtn.classList.toggle('hidden', !filtersOn);
+        }
+
+        if (pagination) {
+          pagination.classList.toggle('hidden', total <= PER_PAGE);
+          if (pageInfo) pageInfo.textContent = 'Page ' + page + ' of ' + totalPages;
+          if (prevBtn) prevBtn.disabled = page <= 1;
+          if (nextBtn) nextBtn.disabled = page >= totalPages;
+        }
+      }
+
+      // Search input
+      if (search) {
+        search.addEventListener('input', (e) => {
+          searchQuery = (e.target.value || '').trim().toLowerCase();
+          recompute();
+        });
+      }
+
+      // Filter chips
+      document.querySelectorAll('.filter-chip').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const group = btn.dataset.group;
+          const value = btn.dataset.value;
+          if (!group) return;
+          filters[group] = value;
+          document.querySelectorAll('.filter-chip[data-group="' + group + '"]').forEach((b) => {
+            b.classList.toggle('filter-active', b.dataset.value === value);
+          });
+          recompute();
+        });
+      });
+
+      // Clear all
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          filters.mode = 'all';
+          filters.type = 'all';
+          filters.source = 'all';
+          searchQuery = '';
+          if (search) search.value = '';
+          document.querySelectorAll('.filter-chip').forEach((b) => {
+            b.classList.toggle('filter-active', b.dataset.value === 'all');
+          });
+          recompute();
+        });
+      }
+
+      // Pagination
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (page > 1) {
+            page--;
+            render();
+            window.scrollTo({ top: list ? list.offsetTop - 100 : 0, behavior: 'smooth' });
+          }
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          page++;
+          render();
+          window.scrollTo({ top: list ? list.offsetTop - 100 : 0, behavior: 'smooth' });
+        });
+      }
+
+      recompute();
+    })();
+  </script>
+
+  <style>
+    .filter-chip {
+      border-color: rgb(229 231 235);
+      color: rgb(75 85 99);
+      background-color: white;
+      transition: all 0.15s ease;
+    }
+    :global(.dark) .filter-chip {
+      border-color: rgb(51 65 85);
+      color: rgb(203 213 225);
+      background-color: rgb(15 23 42);
+    }
+    .filter-chip:hover {
+      background-color: rgb(243 244 246);
+    }
+    :global(.dark) .filter-chip:hover {
+      background-color: rgb(30 41 59);
+    }
+    .filter-chip.filter-active {
+      background-color: var(--aw-color-primary);
+      color: white;
+      border-color: transparent;
+    }
+  </style>
+</Layout>

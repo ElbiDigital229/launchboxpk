@@ -15,6 +15,10 @@ export const headerData = {
       href: getPermalink('/pricing'),
     },
     {
+      text: 'Jobs',
+      href: getPermalink('/jobs'),
+    },
+    {
       text: 'Blogs',
       href: getBlogPermalink(),
     },
