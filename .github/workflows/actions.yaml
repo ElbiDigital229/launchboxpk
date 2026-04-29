@@ -4,10 +4,20 @@ on:
   push:
     branches:
       - main
+  # Also re-deploy after Fetch jobs commits a refreshed jobs.json.
+  # Pushes from the default GITHUB_TOKEN don't fire push triggers (anti-loop),
+  # so we chain explicitly here.
+  workflow_run:
+    workflows: ['Fetch jobs']
+    types: [completed]
+    branches: [main]
+  workflow_dispatch: {}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # When triggered by Fetch jobs, only deploy if that run actually succeeded.
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
 
