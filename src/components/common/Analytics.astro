@@ -1,6 +1,7 @@
 ---
 import { GoogleAnalytics } from '@astrolib/analytics';
 import { ANALYTICS } from 'astrowind:config';
+import FacebookPixel from '~/components/common/FacebookPixel.astro';
 ---
 
 {
@@ -11,3 +12,5 @@ import { ANALYTICS } from 'astrowind:config';
     />
   ) : null
 }
+
+<FacebookPixel />
