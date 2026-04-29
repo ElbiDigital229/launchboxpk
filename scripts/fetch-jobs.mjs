@@ -26,7 +26,16 @@ const SOURCES = [
     id: 'rozee.pk',
     label: 'Rozee.pk',
     actorId: 'RNckuFmfGdoi7fXbx',
-    input: {}, // actor uses its saved default input
+    // RozeePk Jobs Scraper expects { keyword, results_wanted }.
+    // Run once per keyword to cover the tech surface; results are deduped after.
+    searches: [
+      { keyword: 'developer', results_wanted: 50 },
+      { keyword: 'engineer', results_wanted: 50 },
+      { keyword: 'designer', results_wanted: 30 },
+      { keyword: 'product manager', results_wanted: 20 },
+      { keyword: 'data', results_wanted: 30 },
+      { keyword: 'devops', results_wanted: 20 },
+    ],
     transform: (item) => ({
       id: `rozee:${item.job_id}`,
       source: 'rozee.pk',
@@ -48,7 +57,7 @@ const SOURCES = [
   //   id: 'mustakbil.com',
   //   label: 'Mustakbil',
   //   actorId: '...',
-  //   input: {},
+  //   searches: [{ keyword: '...' }],
   //   transform: (item) => ({ ... }),
   // },
 ];
@@ -107,26 +116,47 @@ async function main() {
 
   for (const src of SOURCES) {
     console.log(`▶  ${src.id} (actor ${src.actorId})`);
-    try {
-      const items = await runActor(src.actorId, src.input);
-      const mapped = items
-        .map((item) => {
-          try {
-            return src.transform(item);
-          } catch (e) {
-            console.warn(`  ⚠ skipped item due to transform error: ${e.message}`);
-            return null;
-          }
-        })
-        .filter(Boolean)
-        .filter((j) => j.title && j.url);
-      console.log(`   ✓ ${mapped.length} jobs (raw: ${items.length})`);
-      sourceResults.push({ id: src.id, label: src.label, count: mapped.length, fetchedAt });
-      allJobs.push(...mapped);
-    } catch (err) {
-      console.error(`   ✗ ${src.id} failed: ${err.message}`);
-      sourceResults.push({ id: src.id, label: src.label, count: 0, error: err.message, fetchedAt });
+    const queries = Array.isArray(src.searches) && src.searches.length
+      ? src.searches
+      : [src.input || {}];
+    let rawTotal = 0;
+    const sourceJobs = [];
+    const errors = [];
+
+    for (const q of queries) {
+      const label = q.keyword ? `"${q.keyword}"` : '(default)';
+      try {
+        const items = await runActor(src.actorId, q);
+        rawTotal += items.length;
+        const mapped = items
+          .map((item) => {
+            try {
+              return src.transform(item);
+            } catch (e) {
+              console.warn(`  ⚠ skipped item due to transform error: ${e.message}`);
+              return null;
+            }
+          })
+          .filter(Boolean)
+          .filter((j) => j.title && j.url);
+        console.log(`   • ${label}: ${mapped.length} jobs (raw: ${items.length})`);
+        sourceJobs.push(...mapped);
+      } catch (err) {
+        console.error(`   ✗ ${label} failed: ${err.message}`);
+        errors.push(`${label}: ${err.message}`);
+      }
     }
+
+    const sourceDeduped = dedupe(sourceJobs);
+    console.log(`   ✓ ${src.id} total: ${sourceDeduped.length} unique jobs (raw: ${rawTotal})`);
+    sourceResults.push({
+      id: src.id,
+      label: src.label,
+      count: sourceDeduped.length,
+      ...(errors.length ? { error: errors.join('; ') } : {}),
+      fetchedAt,
+    });
+    allJobs.push(...sourceDeduped);
   }
 
   const jobs = dedupe(allJobs);
