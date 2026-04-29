@@ -16,6 +16,26 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+const faqEntities = (items || [])
+  .filter((it: { title?: string; description?: string }) => it && it.title && it.description)
+  .map((it: { title?: string; description?: string }) => ({
+    '@type': 'Question',
+    name: it.title,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: it.description,
+    },
+  }));
+
+const faqSchema =
+  faqEntities.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqEntities,
+      }
+    : null;
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
@@ -30,4 +50,5 @@ const {
       icon: 'flex-shrink-0 mt-1 w-6 h-6 text-primary',
     }}
   />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />}
 </WidgetWrapper>

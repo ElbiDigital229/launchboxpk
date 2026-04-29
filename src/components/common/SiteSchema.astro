@@ -1,0 +1,108 @@
+---
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'CoworkingSpace'],
+  '@id': 'https://www.launchboxpk.com/#business',
+  name: 'Launchbox',
+  alternateName: 'Launchbox Coworking',
+  description:
+    'Coworking space in DHA Phase 5, Lahore for freelancers, remote workers, and small teams. High-speed internet, backup power, no lock-in contracts.',
+  url: 'https://www.launchboxpk.com',
+  telephone: '+923070555515',
+  email: 'contact@launchboxpk.com',
+  priceRange: 'PKR 1,500 – PKR 22,500',
+  currenciesAccepted: 'PKR',
+  paymentAccepted: 'Cash, Bank Transfer, Card',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'First Floor, 38-A CCA, Sector C, DHA Phase 5',
+    addressLocality: 'Lahore',
+    postalCode: '54000',
+    addressCountry: 'PK',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 31.4719,
+    longitude: 74.4205,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Lahore' },
+    { '@type': 'AdministrativeArea', name: 'Punjab, Pakistan' },
+  ],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '09:00',
+      closes: '21:00',
+    },
+  ],
+  sameAs: [
+    'https://instagram.com/launchboxpk',
+    'https://facebook.com/launchboxpk',
+    'https://wa.me/923070555515',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '25',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'High-speed internet (150 Mbps fiber)', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Backup power (UPS + generator)', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Meeting rooms', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Tea & coffee', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Printing access', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Kitchen access', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Private cabins', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Dedicated desks', value: true },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Launchbox plans',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Day Pass',
+        description: 'Shared desk access for the day. Internet, power, tea/coffee, common areas included.',
+        price: '1500',
+        priceCurrency: 'PKR',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.launchboxpk.com/pricing',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Flexible Desk',
+        description: 'Open-seating shared desk, month-to-month, no lock-in.',
+        price: '15000',
+        priceCurrency: 'PKR',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.launchboxpk.com/pricing',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Dedicated Desk',
+        description: 'Personal always-reserved desk with storage. Includes meeting room hours.',
+        price: '22500',
+        priceCurrency: 'PKR',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.launchboxpk.com/pricing',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Private Cabin',
+        description: 'Private enclosed cabin for teams of 5 or more. 24/7 access, unlimited meeting rooms.',
+        price: '20000',
+        priceCurrency: 'PKR',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.launchboxpk.com/pricing',
+        eligibleQuantity: { '@type': 'QuantitativeValue', minValue: 5, unitText: 'persons' },
+      },
+    ],
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />

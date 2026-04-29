@@ -1,6 +1,6 @@
 site:
   name: Launchbox
-  site: 'https://astrowind.vercel.app'
+  site: 'https://www.launchboxpk.com'
   base: '/'
   trailingSlash: false
 
@@ -18,13 +18,11 @@ metadata:
   openGraph:
     site_name: Launchbox
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/launchbox-hero.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
     cardType: summary_large_image
 
 i18n:
