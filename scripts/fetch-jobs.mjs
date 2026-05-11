@@ -35,6 +35,7 @@ const SOURCES = [
       { keyword: 'product manager', results_wanted: 20 },
       { keyword: 'data', results_wanted: 30 },
       { keyword: 'devops', results_wanted: 20 },
+      { keyword: 'intern', results_wanted: 30 },
     ],
     transform: (item) => ({
       id: `rozee:${item.job_id}`,
@@ -74,7 +75,8 @@ function inferWorkMode(text) {
 
 function classifyType(text) {
   const s = String(text || '').toLowerCase();
-  if (/intern/.test(s)) return 'Internship';
+  // \b avoids matching "internal", "international", etc. as internships.
+  if (/\bintern(ship)?s?\b/.test(s)) return 'Internship';
   if (/contract|freelance/.test(s)) return 'Contract';
   if (/part[-\s]?time/.test(s)) return 'Part-time';
   return 'Full-time';
