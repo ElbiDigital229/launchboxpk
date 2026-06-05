@@ -1,0 +1,17 @@
+# --- Terraform ---------------------------------------------------------------
+# State can contain the resolved Anthropic API key in plaintext. Never commit it.
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/crash.log
+
+# tfvars often hold secrets. Pass the key via TF_VAR_anthropic_api_key instead.
+terraform/*.tfvars
+terraform/*.tfvars.json
+
+# Build artifact produced by archive_file (the zipped Lambda bundle).
+terraform/build/
+
+# CloudFront config backups written by the routing script.
+scripts/*.backup.json
