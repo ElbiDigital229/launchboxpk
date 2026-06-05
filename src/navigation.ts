@@ -15,12 +15,11 @@ export const headerData = {
       href: getPermalink('/pricing'),
     },
     {
-      text: 'Jobs',
-      href: getPermalink('/jobs'),
-    },
-    {
-      text: 'CV Optimizer',
-      href: getPermalink('/cv-optimizer'),
+      text: 'Tools',
+      links: [
+        { text: 'Jobs', href: getPermalink('/jobs') },
+        { text: 'CV Optimizer', href: getPermalink('/cv-optimizer') },
+      ],
     },
     {
       text: 'Blogs',
