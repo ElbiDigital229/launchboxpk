@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-06-08T20:26:11.118Z",
+  "fetchedAt": "2026-06-09T04:07:19.968Z",
   "sources": [
     {
       "id": "rozee.pk",
       "label": "Rozee.pk",
       "count": 0,
       "error": "\"developer\": Apify RNckuFmfGdoi7fXbx failed: 403 Forbidden — {\n  \"error\": {\n    \"type\": \"platform-feature-disabled\",\n    \"message\": \"Monthly usage hard limit exceeded\"\n  }\n}; \"engineer\": Apify RNckuFmfGdoi7fXbx failed: 403 Forbidden — {\n  \"error\": {\n    \"type\": \"platform-feature-disabled\",\n    \"message\": \"Monthly usage hard limit exceeded\"\n  }\n}; \"designer\": Apify RNckuFmfGdoi7fXbx failed: 403 Forbidden — {\n  \"error\": {\n    \"type\": \"platform-feature-disabled\",\n    \"message\": \"Monthly usage hard limit exceeded\"\n  }\n}; \"product manager\": Apify RNckuFmfGdoi7fXbx failed: 403 Forbidden — {\n  \"error\": {\n    \"type\": \"platform-feature-disabled\",\n    \"message\": \"Monthly usage hard limit exceeded\"\n  }\n}; \"data\": Apify RNckuFmfGdoi7fXbx failed: 403 Forbidden — {\n  \"error\": {\n    \"type\": \"platform-feature-disabled\",\n    \"message\": \"Monthly usage hard limit exceeded\"\n  }\n}; \"devops\": Apify RNckuFmfGdoi7fXbx failed: 403 Forbidden — {\n  \"error\": {\n    \"type\": \"platform-feature-disabled\",\n    \"message\": \"Monthly usage hard limit exceeded\"\n  }\n}",
-      "fetchedAt": "2026-06-08T20:26:11.118Z"
+      "fetchedAt": "2026-06-09T04:07:19.968Z"
     }
   ],
   "jobs": []
