@@ -224,6 +224,40 @@ const metadata = {
       color: #fff;
     }
 
+    /* Read-only recap on the final review step — deliberately styled NOT like
+       the clickable .choice cards: a tinted panel with a left accent rule,
+       no per-row borders, no hover, default cursor. */
+    #cvopt .summary {
+      display: flex;
+      flex-direction: column;
+      margin: 6px 0 20px;
+      padding: 4px 16px;
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+    }
+    #cvopt .summary-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 10px 0;
+      font-size: 15px;
+      color: var(--ink);
+      cursor: default;
+    }
+    #cvopt .summary-row + .summary-row {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    #cvopt .summary-row .tick {
+      color: var(--accent-strong);
+      font-weight: 700;
+      flex: none;
+    }
+    #cvopt .summary-row.is-empty,
+    #cvopt .summary-row.is-empty .tick {
+      color: var(--muted);
+    }
+
     #cvopt .drop {
       border: 2px dashed var(--rule);
       border-radius: 14px;
@@ -587,13 +621,13 @@ const metadata = {
       /* ---------------- Question flow ---------------- */
       const steps = [
         { type: 'intro' },
-        { id: 'name', type: 'text', q: "What's your full name?", placeholder: 'e.g. Rubab Afzal', required: true },
+        { id: 'name', type: 'text', q: "What's your full name?", placeholder: 'e.g. Zainab Ali', required: true },
         {
           id: 'role',
           type: 'text',
           q: 'What role are you targeting?',
           sub: 'The job title you want this CV to win an interview for.',
-          placeholder: 'e.g. HR Generalist',
+          placeholder: 'e.g. Digital Marketing Specialist',
           required: true,
         },
         {
@@ -603,7 +637,7 @@ const metadata = {
           sub: 'This sets how bold the achievements should sound — too big for your level can get you screened out.',
           options: ['Less than 1 year', '1–2 years', '3–5 years', '6+ years'],
         },
-        { id: 'location', type: 'text', q: 'Where are you based?', placeholder: 'e.g. DHA Phase 5, Lahore', required: true },
+        { id: 'location', type: 'text', q: 'Where are you based?', placeholder: 'e.g. Gulberg, Lahore', required: true },
         { id: 'workpref', type: 'choice', q: 'Preferred work setup?', options: ['Remote', 'Hybrid', 'On-site', 'No preference'] },
         { id: 'contact', type: 'contact', q: 'How can employers reach you?', sub: 'Email is recommended; the rest are optional.' },
         {
@@ -626,7 +660,7 @@ const metadata = {
           type: 'longtext',
           q: 'Tell us about your experience',
           sub: "If you didn't upload a CV, dump your roles here — company, title, dates, and what you did. Bullet points are fine.",
-          placeholder: 'e.g.\nElbi Digital — HR Generalist (2024–Present)\n- supported recruiting and onboarding\n- maintained HR records…',
+          placeholder: 'e.g.\nNova Studios — Digital Marketing Specialist (2022–Present)\n- ran paid social and email campaigns\n- grew organic traffic month over month…',
           optional: true,
         },
         {
@@ -634,7 +668,7 @@ const metadata = {
           type: 'longtext',
           q: 'Any real numbers or wins?',
           sub: "Only ones you can defend in an interview — hires made, ratings, %, headcount. We'll mark anything that looks unverified.",
-          placeholder: 'e.g. onboarded ~25 hires; Airbnb Superhost, 4.9 stars…',
+          placeholder: 'e.g. grew Instagram to 12k followers; cut cost-per-lead 30%; 4.9★ Upwork rating…',
           optional: true,
         },
         { id: 'review', type: 'review' },
@@ -736,10 +770,10 @@ const metadata = {
             <div class="kicker">READY</div>
             <h1 class="q">That's everything. Ready to build it?</h1>
             <p class="sub">We'll tailor a one-page CV for <b>${esc(a.role || 'your target role')}</b>, sized to your experience level, using only what you've given us.</p>
-            <div class="choices" style="margin-bottom:8px;">
-              <div class="choice" style="cursor:default"><span class="key">✓</span> Target: ${esc(a.role || '—')} · ${esc(a.seniority || '—')}</div>
-              <div class="choice" style="cursor:default"><span class="key">✓</span> ${esc(a.location || '—')} · ${esc(a.workpref || '—')}</div>
-              <div class="choice" style="cursor:default"><span class="key">${state.file ? '✓' : '–'}</span> CV upload: ${state.file ? esc(state.file.name) : 'none'}</div>
+            <div class="summary">
+              <div class="summary-row"><span class="tick">✓</span><span>Target: ${esc(a.role || '—')} · ${esc(a.seniority || '—')}</span></div>
+              <div class="summary-row"><span class="tick">✓</span><span>${esc(a.location || '—')} · ${esc(a.workpref || '—')}</span></div>
+              <div class="summary-row ${state.file ? '' : 'is-empty'}"><span class="tick">${state.file ? '✓' : '–'}</span><span>CV upload: ${state.file ? esc(state.file.name) : 'none'}</span></div>
             </div>
             <div class="nav"><button class="btn btn-primary" onclick="cvoptGenerate()">✨ Build my CV</button>
             <button class="btn-ghost" onclick="cvoptBack()">← Back</button></div>`;
