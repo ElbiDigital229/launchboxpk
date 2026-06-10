@@ -934,10 +934,18 @@ const metadata = {
       }
 
       /* Backend endpoint that builds the prompt + calls Claude server-side.
-         On launchboxpk this is served same-origin via a CloudFront /api/* behavior
-         that forwards to the API Gateway → Lambda. The API key lives only in the
-         Lambda env and never reaches the browser. */
-      const ENDPOINT = '/api/generate';
+         The site's real host is www.launchboxpk.com, served via CloudFront with an
+         /api/* behavior that forwards to API Gateway → Lambda. The API key lives only
+         in the Lambda env and never reaches the browser.
+
+         On www we call same-origin ('/api/generate') so there's no CORS round-trip.
+         Anywhere else (the apex launchboxpk.com — a masked Namecheap redirect that
+         can't reach CloudFront — or local dev) we call the absolute www URL. The
+         Lambda returns Access-Control-Allow-Origin: * so that cross-origin call works. */
+      const ENDPOINT =
+        location.hostname === 'www.launchboxpk.com'
+          ? '/api/generate'
+          : 'https://www.launchboxpk.com/api/generate';
 
       async function callClaude() {
         const payload = {
