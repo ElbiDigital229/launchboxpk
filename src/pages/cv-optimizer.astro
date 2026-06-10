@@ -934,18 +934,20 @@ const metadata = {
       }
 
       /* Backend endpoint that builds the prompt + calls Claude server-side.
-         The site's real host is www.launchboxpk.com, served via CloudFront with an
-         /api/* behavior that forwards to API Gateway → Lambda. The API key lives only
-         in the Lambda env and never reaches the browser.
+         The API key lives only in the Lambda env and never reaches the browser.
 
-         On www we call same-origin ('/api/generate') so there's no CORS round-trip.
-         Anywhere else (the apex launchboxpk.com — a masked Namecheap redirect that
-         can't reach CloudFront — or local dev) we call the absolute www URL. The
-         Lambda returns Access-Control-Allow-Origin: * so that cross-origin call works. */
-      const ENDPOINT =
-        location.hostname === 'www.launchboxpk.com'
-          ? '/api/generate'
-          : 'https://www.launchboxpk.com/api/generate';
+         We call the API Gateway (Lambda) DIRECTLY rather than the same-origin
+         CloudFront /api/* path. Why: the production CloudFront distribution has an
+         AWS WAF (AWSManagedRulesCommonRuleSet) whose SizeRestrictions_BODY rule
+         blocks any request body over 8KB — which silently 403s every CV *file
+         upload* (the base64 file easily exceeds 8KB) while letting typed answers
+         through. API Gateway has no such limit (10MB payload) and no WAF, so the
+         upload works. The Lambda returns Access-Control-Allow-Origin: * so this
+         cross-origin call is allowed. Bonus: this also works on the bare apex
+         launchboxpk.com (which can't reach CloudFront) and in local dev.
+         If the API is ever recreated, update this host from Terraform output
+         `api_generate_endpoint`. */
+      const ENDPOINT = 'https://l7690f2dzg.execute-api.us-east-1.amazonaws.com/api/generate';
 
       async function callClaude() {
         const payload = {
