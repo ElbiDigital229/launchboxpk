@@ -13,5 +13,6 @@ terraform/*.tfvars.json
 # Build artifact produced by archive_file (the zipped Lambda bundle).
 terraform/build/
 
-# CloudFront config backups written by the routing script.
+# CloudFront config dumps written by the routing script (backups + proposed configs).
 scripts/*.backup.json
+scripts/*.new.json
