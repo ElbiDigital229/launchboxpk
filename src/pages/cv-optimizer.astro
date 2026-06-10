@@ -1,0 +1,1077 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'CV Optimizer',
+  description:
+    'Build a clean, right-sized, ATS-friendly one-page CV tailored to the role you want — a free tool from Launchbox. No login, no sign-up.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!--
+    CV Optimizer — ported from the cv-tailor tool.
+    All styles are scoped under #cvopt and emitted is:global so they reach the
+    nodes the tool builds at runtime via innerHTML, without leaking into the
+    rest of the site. The script is is:inline so the tool's inline onclick
+    handlers resolve against global functions.
+    Only the QUESTION-FLOW chrome is re-skinned to Launchbox green (--accent).
+    The generated resume keeps its neutral, print-friendly styling on purpose.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <section class="cvopt-section">
+    <div id="cvopt">
+      <div id="cvopt-progress"></div>
+
+      <div class="wrap" id="cvopt-flow"></div>
+
+      <div id="cvopt-output">
+        <div class="flags" id="cvopt-flags" style="display:none;"></div>
+        <div class="out-bar">
+          <h2>Your tailored CV</h2>
+          <div class="out-actions">
+            <button class="btn-outline btn-sm" onclick="cvoptRestart()">↺ Start over</button>
+            <button class="btn btn-primary btn-sm" onclick="cvoptDownloadPDF()">↓ Download PDF</button>
+          </div>
+        </div>
+        <div class="sheet-scroll"><div class="resume" id="cvopt-resume"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <style is:global>
+    #cvopt {
+      position: relative;
+      overflow: hidden;
+      --bg: #f4f2ee;
+      --card: #ffffff;
+      --ink: #1c1c1e;
+      --muted: #6b6b70;
+      --accent: #1aa34a; /* Launchbox green */
+      --accent-soft: #e7f6ec;
+      --accent-strong: #178a3e;
+      --rule: #e3e0d9;
+      --ok: #1f9d63;
+      --warn: #b8860b;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+    #cvopt * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* progress */
+    #cvopt-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.4s ease;
+      z-index: 5;
+    }
+
+    #cvopt .wrap {
+      min-height: 62vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 20px 40px;
+    }
+
+    #cvopt .step {
+      width: 100%;
+      max-width: 620px;
+      animation: cvopt-rise 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    @keyframes cvopt-rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #cvopt .kicker {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #cvopt .kicker .num {
+      background: var(--accent);
+      color: #fff;
+      border-radius: 5px;
+      padding: 1px 7px;
+      font-size: 12px;
+    }
+    #cvopt h1.q {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    #cvopt .sub {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 26px;
+      line-height: 1.5;
+    }
+
+    #cvopt input[type='text'],
+    #cvopt input[type='email'],
+    #cvopt textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 19px;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid var(--rule);
+      padding: 10px 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    #cvopt input:focus,
+    #cvopt textarea:focus {
+      border-color: var(--accent);
+    }
+    #cvopt textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.5;
+    }
+    #cvopt ::placeholder {
+      color: #b7b4ad;
+    }
+
+    #cvopt .field-row {
+      margin-bottom: 16px;
+    }
+    #cvopt .field-row label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    #cvopt .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    #cvopt .choice {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1.5px solid var(--rule);
+      border-radius: 12px;
+      background: var(--card);
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    #cvopt .choice:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    #cvopt .choice.sel {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    #cvopt .choice .key {
+      width: 24px;
+      height: 24px;
+      border: 1.5px solid var(--muted);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      flex: none;
+    }
+    #cvopt .choice.sel .key {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Read-only recap on the final review step — deliberately styled NOT like
+       the clickable .choice cards: a tinted panel with a left accent rule,
+       no per-row borders, no hover, default cursor. */
+    #cvopt .summary {
+      display: flex;
+      flex-direction: column;
+      margin: 6px 0 20px;
+      padding: 4px 16px;
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+    }
+    #cvopt .summary-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 10px 0;
+      font-size: 15px;
+      color: var(--ink);
+      cursor: default;
+    }
+    #cvopt .summary-row + .summary-row {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    #cvopt .summary-row .tick {
+      color: var(--accent-strong);
+      font-weight: 700;
+      flex: none;
+    }
+    #cvopt .summary-row.is-empty,
+    #cvopt .summary-row.is-empty .tick {
+      color: var(--muted);
+    }
+
+    #cvopt .drop {
+      border: 2px dashed var(--rule);
+      border-radius: 14px;
+      padding: 34px 20px;
+      text-align: center;
+      background: var(--card);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    #cvopt .drop:hover,
+    #cvopt .drop.over {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    #cvopt .drop .ico {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+    #cvopt .drop .big {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    #cvopt .drop .small {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    #cvopt .filechip {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      color: var(--accent-strong);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    #cvopt .filechip button {
+      background: none;
+      border: none;
+      color: var(--accent-strong);
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    #cvopt .nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 30px;
+    }
+    #cvopt .btn {
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 11px;
+      padding: 13px 26px;
+      cursor: pointer;
+      transition: transform 0.1s, background 0.15s;
+    }
+    #cvopt .btn:active {
+      transform: translateY(1px);
+    }
+    #cvopt .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    #cvopt .btn-primary:hover {
+      background: var(--accent-strong);
+    }
+    #cvopt .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      padding: 13px 8px;
+    }
+    #cvopt .btn-ghost:hover {
+      color: var(--ink);
+    }
+    #cvopt .hint {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+    #cvopt .hint kbd {
+      background: #e9e6df;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 11px;
+    }
+    #cvopt .opt-tag {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* analyzing */
+    #cvopt .analyze {
+      text-align: center;
+    }
+    #cvopt .spinner {
+      width: 54px;
+      height: 54px;
+      border: 4px solid var(--rule);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      animation: cvopt-spin 1s linear infinite;
+    }
+    @keyframes cvopt-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    #cvopt .analyze h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    #cvopt .analyze .line {
+      font-size: 15px;
+      color: var(--muted);
+      height: 22px;
+      transition: opacity 0.3s;
+    }
+
+    /* output */
+    #cvopt-output {
+      display: none;
+      padding: 30px 16px 60px;
+    }
+    #cvopt .out-bar {
+      max-width: 8.5in;
+      margin: 0 auto 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    #cvopt .out-bar h2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    #cvopt .out-actions {
+      display: flex;
+      gap: 10px;
+    }
+    #cvopt .btn-sm {
+      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 9px;
+    }
+    #cvopt .btn-outline {
+      background: var(--card);
+      border: 1.5px solid var(--rule);
+      color: var(--ink);
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    #cvopt .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    #cvopt .flags {
+      max-width: 8.5in;
+      margin: 0 auto 18px;
+      background: #fff8e6;
+      border: 1px solid #f0dca0;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 13.5px;
+      color: #6b5800;
+    }
+    #cvopt .flags b {
+      display: block;
+      margin-bottom: 6px;
+      color: #8a7200;
+    }
+    #cvopt .flags ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    #cvopt .flags li {
+      margin-bottom: 3px;
+    }
+
+    /* resume sheet — intentionally neutral / print-friendly, NOT Launchbox-branded */
+    #cvopt .sheet-scroll {
+      overflow-x: auto;
+    }
+    #cvopt .resume {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      background: #fff;
+      padding: 0.5in 0.65in;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+      font-family: 'Rubik', sans-serif;
+      color: #222;
+    }
+    #cvopt .resume .rhead {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    #cvopt .resume .rname {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #1a1a1a;
+      line-height: 1.05;
+    }
+    #cvopt .resume .rrole {
+      font-size: 13px;
+      color: #444;
+      margin-top: 3px;
+    }
+    #cvopt .resume .rcontact {
+      font-size: 10.5px;
+      color: #333;
+      line-height: 1.7;
+      text-align: right;
+      min-width: 1.9in;
+    }
+    #cvopt .resume h3 {
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #1a1a1a;
+      margin: 14px 0 9px;
+    }
+    #cvopt .resume .rsummary {
+      font-size: 10.8px;
+      line-height: 1.5;
+      color: #333;
+      text-align: justify;
+    }
+    #cvopt .resume .rentry {
+      margin-bottom: 10px;
+    }
+    #cvopt .resume .rtop {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    #cvopt .resume .rtitle {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    #cvopt .resume .rdate {
+      font-size: 10.5px;
+      color: #888;
+      white-space: nowrap;
+    }
+    #cvopt .resume .rsub {
+      font-size: 10.5px;
+      color: #888;
+      margin-top: 1px;
+    }
+    #cvopt .resume ul {
+      list-style: none;
+      margin-top: 5px;
+    }
+    #cvopt .resume li {
+      font-size: 10.6px;
+      color: #333;
+      line-height: 1.45;
+      padding-left: 13px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+    #cvopt .resume li::before {
+      content: '•';
+      position: absolute;
+      left: 2px;
+      top: 0;
+      color: #333;
+    }
+    #cvopt .resume li b {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    #cvopt .resume .rcomp {
+      font-size: 10.6px;
+      line-height: 1.65;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    #cvopt .resume .rkv {
+      font-size: 10.6px;
+      line-height: 1.55;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    #cvopt .resume .rkv b {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    #cvopt .resume .recline {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+    #cvopt .resume .recline .t {
+      font-size: 11px;
+    }
+    #cvopt .resume .recline .t b {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    #cvopt .resume .recline .d {
+      font-size: 10.5px;
+      color: #888;
+    }
+    #cvopt .resume .rgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 46px;
+      row-gap: 7px;
+    }
+    #cvopt .resume .rgi {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+    }
+    #cvopt .resume .rgi .v {
+      color: #999;
+    }
+
+    #cvopt .err {
+      max-width: 620px;
+      margin: 20px auto 0;
+      background: #fde8e8;
+      border: 1px solid #f3b4b4;
+      color: #9b1c1c;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      /* ---------------- State ---------------- */
+      const state = { answers: {}, file: null, resume: null };
+
+      /* ---------------- Question flow ---------------- */
+      const steps = [
+        { type: 'intro' },
+        { id: 'name', type: 'text', q: "What's your full name?", placeholder: 'e.g. Zainab Ali', required: true },
+        {
+          id: 'role',
+          type: 'text',
+          q: 'What role are you targeting?',
+          sub: 'The job title you want this CV to win an interview for.',
+          placeholder: 'e.g. Digital Marketing Specialist',
+          required: true,
+        },
+        {
+          id: 'seniority',
+          type: 'choice',
+          q: 'How much relevant experience do you have?',
+          sub: 'This sets how bold the achievements should sound — too big for your level can get you screened out.',
+          options: ['Less than 1 year', '1–2 years', '3–5 years', '6+ years'],
+        },
+        { id: 'location', type: 'text', q: 'Where are you based?', placeholder: 'e.g. Gulberg, Lahore', required: true },
+        { id: 'workpref', type: 'choice', q: 'Preferred work setup?', options: ['Remote', 'Hybrid', 'On-site', 'No preference'] },
+        { id: 'contact', type: 'contact', q: 'How can employers reach you?', sub: 'Email is recommended; the rest are optional.' },
+        {
+          id: 'jd',
+          type: 'longtext',
+          q: 'Paste the job description (optional)',
+          sub: 'If you have a specific posting, paste it. The CV will mirror its real keywords where you actually have the experience.',
+          placeholder: 'Paste the full job description here…',
+          optional: true,
+        },
+        {
+          id: 'cv',
+          type: 'file',
+          q: 'Upload your current CV (optional)',
+          sub: "PDF works best. We'll read it and pull out your real experience.",
+          optional: true,
+        },
+        {
+          id: 'experience',
+          type: 'longtext',
+          q: 'Tell us about your experience',
+          sub: "If you didn't upload a CV, dump your roles here — company, title, dates, and what you did. Bullet points are fine.",
+          placeholder: 'e.g.\nNova Studios — Digital Marketing Specialist (2022–Present)\n- ran paid social and email campaigns\n- grew organic traffic month over month…',
+          optional: true,
+        },
+        {
+          id: 'numbers',
+          type: 'longtext',
+          q: 'Any real numbers or wins?',
+          sub: "Only ones you can defend in an interview — hires made, ratings, %, headcount. We'll mark anything that looks unverified.",
+          placeholder: 'e.g. grew Instagram to 12k followers; cut cost-per-lead 30%; 4.9★ Upwork rating…',
+          optional: true,
+        },
+        { id: 'review', type: 'review' },
+      ];
+
+      let idx = 0;
+      const flow = document.getElementById('cvopt-flow');
+
+      function setProgress() {
+        const pct = Math.round((idx / (steps.length - 1)) * 100);
+        document.getElementById('cvopt-progress').style.width = pct + '%';
+      }
+
+      function render() {
+        setProgress();
+        const s = steps[idx];
+        flow.innerHTML = '';
+        const el = document.createElement('div');
+        el.className = 'step';
+
+        if (s.type === 'intro') {
+          el.innerHTML = `
+            <div class="kicker">LAUNCHBOX · CV OPTIMIZER</div>
+            <h1 class="q">Let's build a CV that gets you the interview.</h1>
+            <p class="sub">A few quick questions, an optional upload of your current CV, and you'll get a clean, tailored one-page resume you can download as a PDF. Takes about 2 minutes.</p>
+            <div class="nav"><button class="btn btn-primary" onclick="cvoptNext()">Start →</button>
+            <span class="hint">press <kbd>Enter</kbd></span></div>`;
+        } else if (s.type === 'text') {
+          el.innerHTML = `
+            <div class="kicker"><span class="num">${idx}</span> ${s.required ? 'required' : ''}</div>
+            <h1 class="q">${s.q}</h1>${s.sub ? `<p class="sub">${s.sub}</p>` : ''}
+            <input id="inp" type="text" placeholder="${s.placeholder || ''}" value="${esc(state.answers[s.id] || '')}" />
+            <div class="nav"><button class="btn btn-primary" onclick="cvoptCommitText()">OK →</button>
+            ${idx > 1 ? '<button class="btn-ghost" onclick="cvoptBack()">← Back</button>' : ''}
+            <span class="hint">press <kbd>Enter</kbd></span></div>`;
+          setTimeout(() => {
+            const i = document.getElementById('inp');
+            i.focus();
+            i.onkeydown = (e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                cvoptCommitText();
+              }
+            };
+          }, 40);
+        } else if (s.type === 'longtext') {
+          el.innerHTML = `
+            <div class="kicker"><span class="num">${idx}</span> ${s.optional ? '<span class="opt-tag">optional</span>' : ''}</div>
+            <h1 class="q">${s.q}</h1>${s.sub ? `<p class="sub">${s.sub}</p>` : ''}
+            <textarea id="inp" placeholder="${s.placeholder || ''}">${esc(state.answers[s.id] || '')}</textarea>
+            <div class="nav"><button class="btn btn-primary" onclick="cvoptCommitText()">Continue →</button>
+            <button class="btn-ghost" onclick="cvoptBack()">← Back</button>
+            ${s.optional ? '<button class="btn-ghost" onclick="cvoptSkip()">Skip</button>' : ''}</div>`;
+          setTimeout(() => document.getElementById('inp').focus(), 40);
+        } else if (s.type === 'choice') {
+          const cur = state.answers[s.id];
+          const keys = ['A', 'B', 'C', 'D', 'E'];
+          el.innerHTML = `
+            <div class="kicker"><span class="num">${idx}</span></div>
+            <h1 class="q">${s.q}</h1>${s.sub ? `<p class="sub">${s.sub}</p>` : ''}
+            <div class="choices">${s.options
+              .map(
+                (o, i) => `
+              <div class="choice ${cur === o ? 'sel' : ''}" onclick="cvoptPick('${s.id}','${esc(o)}')">
+                <span class="key">${keys[i]}</span> ${o}</div>`
+              )
+              .join('')}</div>
+            <div class="nav">${idx > 1 ? '<button class="btn-ghost" onclick="cvoptBack()">← Back</button>' : ''}</div>`;
+        } else if (s.type === 'contact') {
+          const c = state.answers.contact || {};
+          el.innerHTML = `
+            <div class="kicker"><span class="num">${idx}</span></div>
+            <h1 class="q">${s.q}</h1>${s.sub ? `<p class="sub">${s.sub}</p>` : ''}
+            <div class="field-row"><label>Email</label><input id="c_email" type="email" placeholder="you@email.com" value="${esc(c.email || '')}"></div>
+            <div class="field-row"><label>Phone</label><input id="c_phone" type="text" placeholder="+92 …" value="${esc(c.phone || '')}"></div>
+            <div class="field-row"><label>LinkedIn / Portfolio</label><input id="c_link" type="text" placeholder="linkedin.com/in/…" value="${esc(c.linkedin || '')}"></div>
+            <div class="nav"><button class="btn btn-primary" onclick="cvoptCommitContact()">Continue →</button>
+            <button class="btn-ghost" onclick="cvoptBack()">← Back</button></div>`;
+          setTimeout(() => document.getElementById('c_email').focus(), 40);
+        } else if (s.type === 'file') {
+          const f = state.file;
+          el.innerHTML = `
+            <div class="kicker"><span class="num">${idx}</span> <span class="opt-tag">optional</span></div>
+            <h1 class="q">${s.q}</h1>${s.sub ? `<p class="sub">${s.sub}</p>` : ''}
+            <div class="drop" id="drop">
+              <div class="ico">📄</div>
+              <div class="big">Click to upload or drop a file</div>
+              <div class="small">PDF, TXT, or image · max ~10MB</div>
+            </div>
+            <input id="file" type="file" accept=".pdf,.txt,.md,.png,.jpg,.jpeg" style="display:none">
+            <div id="chip">${f ? `<div class="filechip">✓ ${esc(f.name)} <button onclick="cvoptClearFile()">✕</button></div>` : ''}</div>
+            <div class="nav"><button class="btn btn-primary" onclick="cvoptNext()">Continue →</button>
+            <button class="btn-ghost" onclick="cvoptBack()">← Back</button>
+            <button class="btn-ghost" onclick="cvoptClearFile(true)">Skip</button></div>`;
+          setTimeout(setupDrop, 40);
+        } else if (s.type === 'review') {
+          const a = state.answers;
+          el.innerHTML = `
+            <div class="kicker">READY</div>
+            <h1 class="q">That's everything. Ready to build it?</h1>
+            <p class="sub">We'll tailor a one-page CV for <b>${esc(a.role || 'your target role')}</b>, sized to your experience level, using only what you've given us.</p>
+            <div class="summary">
+              <div class="summary-row"><span class="tick">✓</span><span>Target: ${esc(a.role || '—')} · ${esc(a.seniority || '—')}</span></div>
+              <div class="summary-row"><span class="tick">✓</span><span>${esc(a.location || '—')} · ${esc(a.workpref || '—')}</span></div>
+              <div class="summary-row ${state.file ? '' : 'is-empty'}"><span class="tick">${state.file ? '✓' : '–'}</span><span>CV upload: ${state.file ? esc(state.file.name) : 'none'}</span></div>
+            </div>
+            <div class="nav"><button class="btn btn-primary" onclick="cvoptGenerate()">✨ Build my CV</button>
+            <button class="btn-ghost" onclick="cvoptBack()">← Back</button></div>`;
+        }
+
+        flow.appendChild(el);
+      }
+
+      /* ---------------- Helpers ---------------- */
+      function esc(s) {
+        return (s || '')
+          .toString()
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+      function next() {
+        idx = Math.min(idx + 1, steps.length - 1);
+        render();
+      }
+      function back() {
+        idx = Math.max(idx - 1, 0);
+        render();
+      }
+      function skip() {
+        const s = steps[idx];
+        state.answers[s.id] = '';
+        next();
+      }
+      function commitText() {
+        const s = steps[idx];
+        const v = document.getElementById('inp').value.trim();
+        if (s.required && !v) {
+          document.getElementById('inp').focus();
+          return;
+        }
+        state.answers[s.id] = v;
+        next();
+      }
+      function pick(id, val) {
+        state.answers[id] = val;
+        setTimeout(next, 180);
+      }
+      function commitContact() {
+        state.answers.contact = { email: val('c_email'), phone: val('c_phone'), linkedin: val('c_link') };
+        next();
+      }
+      function val(id) {
+        return document.getElementById(id).value.trim();
+      }
+
+      /* file upload */
+      function setupDrop() {
+        const drop = document.getElementById('drop'),
+          input = document.getElementById('file');
+        drop.onclick = () => input.click();
+        input.onchange = (e) => {
+          if (e.target.files[0]) readFile(e.target.files[0]);
+        };
+        ['dragover', 'dragenter'].forEach((ev) =>
+          drop.addEventListener(ev, (e) => {
+            e.preventDefault();
+            drop.classList.add('over');
+          })
+        );
+        ['dragleave', 'drop'].forEach((ev) =>
+          drop.addEventListener(ev, (e) => {
+            e.preventDefault();
+            drop.classList.remove('over');
+          })
+        );
+        drop.addEventListener('drop', (e) => {
+          if (e.dataTransfer.files[0]) readFile(e.dataTransfer.files[0]);
+        });
+      }
+      function readFile(file) {
+        const r = new FileReader();
+        r.onload = () => {
+          const b64 = r.result.split(',')[1];
+          state.file = { name: file.name, type: file.type, b64 };
+          document.getElementById('chip').innerHTML = `<div class="filechip">✓ ${esc(file.name)} <button onclick="cvoptClearFile()">✕</button></div>`;
+        };
+        r.readAsDataURL(file);
+      }
+      function clearFile(adv) {
+        state.file = null;
+        if (adv) {
+          next();
+          return;
+        }
+        const c = document.getElementById('chip');
+        if (c) c.innerHTML = '';
+      }
+
+      /* global Enter for intro */
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && steps[idx].type === 'intro') next();
+      });
+
+      /* ---------------- Generate ---------------- */
+      const analyzeLines = [
+        'Reading your background…',
+        'Matching to the target role…',
+        'Right-sizing your achievements…',
+        'Selecting keywords…',
+        'Laying out the page…',
+        'Almost there…',
+      ];
+
+      function showAnalyze() {
+        flow.innerHTML = `<div class="step analyze">
+          <div class="spinner"></div>
+          <h1>Building your CV</h1>
+          <div class="line" id="aline">${analyzeLines[0]}</div></div>`;
+        document.getElementById('cvopt-progress').style.width = '100%';
+        let i = 0;
+        const ln = document.getElementById('aline');
+        const t = setInterval(() => {
+          i++;
+          if (i < analyzeLines.length) {
+            ln.style.opacity = 0;
+            setTimeout(() => {
+              ln.textContent = analyzeLines[i];
+              ln.style.opacity = 1;
+            }, 250);
+          } else clearInterval(t);
+        }, 1100);
+        return t;
+      }
+
+      async function generate() {
+        const timer = showAnalyze();
+        try {
+          const data = await callClaude();
+          state.resume = data;
+          renderResume(data);
+          clearInterval(timer);
+          document.getElementById('cvopt-flow').style.display = 'none';
+          document.getElementById('cvopt-progress').style.width = '0%';
+          document.getElementById('cvopt-output').style.display = 'block';
+          document.getElementById('cvopt').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } catch (err) {
+          clearInterval(timer);
+          flow.innerHTML = `<div class="step">
+            <h1 class="q">Something went wrong building it.</h1>
+            <p class="sub">${esc(err.message || 'Please try again.')}</p>
+            <div class="nav"><button class="btn btn-primary" onclick="cvoptGenerate()">Try again</button>
+            <button class="btn-ghost" onclick="cvoptBackToReview()">← Back</button></div></div>`;
+        }
+      }
+
+      function backToReview() {
+        document.getElementById('cvopt-output').style.display = 'none';
+        idx = steps.length - 1;
+        document.getElementById('cvopt-flow').style.display = 'flex';
+        render();
+      }
+
+      /* Backend endpoint that builds the prompt + calls Claude server-side.
+         On launchboxpk this is served same-origin via a CloudFront /api/* behavior
+         that forwards to the API Gateway → Lambda. The API key lives only in the
+         Lambda env and never reaches the browser. */
+      const ENDPOINT = '/api/generate';
+
+      async function callClaude() {
+        const payload = {
+          answers: state.answers,
+          file: state.file ? { name: state.file.name, type: state.file.type, b64: state.file.b64 } : null,
+        };
+        const res = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          let msg = 'Generation service error (' + res.status + ').';
+          try {
+            const j = await res.json();
+            if (j && j.error) msg = j.error;
+          } catch (e) {}
+          throw new Error(msg);
+        }
+        const j = await res.json();
+        if (!j || !j.data) throw new Error('Could not read the generated CV. Please try again.');
+        return j.data;
+      }
+
+      /* ---------------- Render resume ---------------- */
+      function renderResume(d) {
+        const c = d.contact || {};
+        const contactLines = [c.phone, c.email, c.linkedin, c.location].filter(Boolean).map(esc).join('<br>');
+        let html = `<div class="rhead"><div>
+            <div class="rname">${esc(d.name || '')}</div>
+            <div class="rrole">${esc(d.title || '')}</div></div>
+            <div class="rcontact">${contactLines}</div></div>`;
+
+        if (d.summary) {
+          html += `<h3>Summary</h3><div class="rsummary">${esc(d.summary)}</div>`;
+        }
+
+        if (d.experience && d.experience.length) {
+          html += `<h3>Experience</h3>`;
+          d.experience.forEach((x) => {
+            html += `<div class="rentry"><div class="rtop">
+              <div class="rtitle">${esc(x.title || '')}</div>
+              <div class="rdate">${esc(x.dates || '')}</div></div>
+              <div class="rsub">${esc([x.org, x.location].filter(Boolean).join(' — '))}</div>
+              <ul>${(x.bullets || []).map((b) => `<li>${boldLead(b)}</li>`).join('')}</ul></div>`;
+          });
+        }
+
+        const hasComp =
+          (d.competencies && d.competencies.length) || (d.systems && d.systems.length) || (d.certifications && d.certifications.length);
+        if (hasComp) {
+          html += `<h3>Core Competencies &amp; Certifications</h3>`;
+          if (d.competencies && d.competencies.length) html += `<div class="rcomp">${d.competencies.map(esc).join(' &middot; ')}</div>`;
+          if (d.systems && d.systems.length) html += `<div class="rkv"><b>Systems &amp; Tools:</b> ${d.systems.map(esc).join(' &middot; ')}</div>`;
+          if (d.certifications && d.certifications.length)
+            html += `<div class="rkv"><b>Certifications:</b> ${d.certifications.map(esc).join(' &nbsp;|&nbsp; ')}</div>`;
+        }
+
+        if (d.education && d.education.length) {
+          html += `<h3>Education</h3>`;
+          d.education.forEach((e) => {
+            html += `<div class="recline"><div class="t"><b>${esc(e.degree || '')}</b>${e.school ? ' — ' + esc(e.school) : ''}</div>
+              <div class="d">${esc(e.year || '')}</div></div>`;
+          });
+        }
+
+        if (d.languages && d.languages.length) {
+          html += `<h3>Languages</h3><div class="rgrid">${d.languages
+            .map((l) => `<div class="rgi"><span>${esc(l.name || '')}</span><span class="v">${esc(l.level || '')}</span></div>`)
+            .join('')}</div>`;
+        }
+
+        document.getElementById('cvopt-resume').innerHTML = html;
+
+        // honesty gate — shown in the UI, intentionally excluded from the PDF
+        const f = document.getElementById('cvopt-flags');
+        if (d.review_flags && d.review_flags.length) {
+          f.style.display = 'block';
+          f.innerHTML = `<b>⚑ Before you send — verify these:</b><ul>${d.review_flags.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
+        } else f.style.display = 'none';
+      }
+
+      function boldLead(b) {
+        b = esc(b);
+        // bold the lead clause up to first em-dash, comma, or ~8 words
+        const m = b.match(/^(.{8,60}?)(\s—|,| across| with| for| on| as| to)/);
+        if (m) {
+          return `<b>${m[1]}</b>${b.slice(m[1].length)}`;
+        }
+        return b;
+      }
+
+      /* ---------------- PDF ---------------- */
+      async function downloadPDF() {
+        if (document.fonts && document.fonts.ready) await document.fonts.ready;
+        const el = document.getElementById('cvopt-resume');
+        const name = (state.resume && state.resume.name ? state.resume.name.replace(/\s+/g, '_') : 'CV') + '_CV.pdf';
+        html2pdf()
+          .set({
+            margin: 0,
+            filename: name,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+          })
+          .from(el)
+          .save();
+      }
+
+      function restart() {
+        state.answers = {};
+        state.file = null;
+        state.resume = null;
+        idx = 0;
+        document.getElementById('cvopt-output').style.display = 'none';
+        document.getElementById('cvopt-flow').style.display = 'flex';
+        render();
+      }
+
+      /* Expose the handlers the inline onclick attributes call. */
+      window.cvoptNext = next;
+      window.cvoptBack = back;
+      window.cvoptSkip = skip;
+      window.cvoptCommitText = commitText;
+      window.cvoptPick = pick;
+      window.cvoptCommitContact = commitContact;
+      window.cvoptClearFile = clearFile;
+      window.cvoptGenerate = generate;
+      window.cvoptBackToReview = backToReview;
+      window.cvoptDownloadPDF = downloadPDF;
+      window.cvoptRestart = restart;
+
+      /* boot */
+      render();
+    })();
+  </script>
+</Layout>

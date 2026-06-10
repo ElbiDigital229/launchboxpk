@@ -1,0 +1,11 @@
+{
+  "name": "cv-optimizer-generate-lambda",
+  "version": "1.0.0",
+  "description": "Launchbox CV Optimizer — server-side Claude call (POST /api/generate). Reuses cv-tailor _prompt.js verbatim.",
+  "main": "index.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -15,8 +15,11 @@ export const headerData = {
       href: getPermalink('/pricing'),
     },
     {
-      text: 'Jobs',
-      href: getPermalink('/jobs'),
+      text: 'Tools',
+      links: [
+        { text: 'Jobs', href: getPermalink('/jobs') },
+        { text: 'CV Optimizer', href: getPermalink('/cv-optimizer') },
+      ],
     },
     {
       text: 'Blogs',
@@ -69,7 +72,7 @@ export const footerData = {
       links: [
         { text: 'Job Finder', href: '#' },
         { text: 'Upwork Bidder', href: '#' },
-        { text: 'Resume Builder', href: '#' },
+        { text: 'CV Optimizer', href: getPermalink('/cv-optimizer') },
         { text: 'Company Registration', href: '#' },
       ],
     },
