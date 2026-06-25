@@ -1,12 +1,11 @@
 {
-  "fetchedAt": "2026-06-25T14:44:24.869Z",
+  "fetchedAt": "2026-06-25T20:10:18.389Z",
   "sources": [
     {
       "id": "rozee.pk",
       "label": "Rozee.pk",
       "count": 0,
-      "error": "\"engineer\": Apify RNckuFmfGdoi7fXbx failed: 502 Bad Gateway — <html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n</body>\r\n</html>\r\n",
-      "fetchedAt": "2026-06-25T14:44:24.869Z"
+      "fetchedAt": "2026-06-25T20:10:18.389Z"
     }
   ],
   "jobs": []
