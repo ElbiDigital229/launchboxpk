@@ -9,9 +9,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Launchbox — Coworking space in DHA Phase 5, Lahore
+    default: Launchbox — Coworking space in DHA Phase 5, Lahore for freelancers & remote teams
     template: '%s | Launchbox'
-  description: "Affordable coworking space in DHA Phase 5, Lahore. Built for freelancers, remote teams, and small startups."
+  description: "Coworking space in DHA Phase 5, Lahore, built for freelancers, remote workers and startup teams. 150 Mbps fibre, backup power, meeting rooms, no lock-in."
   robots:
     index: true
     follow: true

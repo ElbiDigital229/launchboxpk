@@ -5,25 +5,17 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'FAQ',
+  title: 'FAQ — Coworking in DHA Phase 5, Lahore',
+  description:
+    'Answers about coworking at Launchbox in DHA Phase 5, Lahore — pricing, plans, internet, backup power, meeting rooms, location, and how to join.',
 };
----
 
-<Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <HeroText
-    tagline="Frequently Asked"
-    title="Every question you had, answered plainly."
-    subtitle="Pricing, plans, what's included, where we are — no asterisks, no fine print, just the facts about coworking at Launchbox."
-  />
-
-  <!-- Coworking basics ******************* -->
-
-  <FAQs
-    title="Coworking basics"
-    columns={1}
-    items={[
+// Every Q&A on this page, grouped for display. The single source of truth for both
+// the rendered sections and the one consolidated FAQPage emitted below.
+const groups = [
+  {
+    title: 'Coworking basics',
+    items: [
       {
         title: 'What is a coworking space?',
         description:
@@ -39,52 +31,95 @@ const metadata = {
         description:
           'Freelancers, remote workers, startup founders, small agencies, consultants, and anyone who needs a professional workspace without renting a full office. At Launchbox, most members are freelancers and early-stage startup teams based in Lahore.',
       },
-    ]}
-  />
-
-  <!-- About Launchbox ******************* -->
-
-  <FAQs
-    title="About Launchbox"
-    columns={1}
-    items={[
+      {
+        title: 'Is coworking better than working from home?',
+        description:
+          'It depends on what is failing at home. If your internet drops during client calls, if load-shedding kills your working day, or if you struggle to separate work from home life, a coworking space solves all three. If you already have reliable power, fast internet, and a quiet room, working from home is cheaper. Most Launchbox members join because their home setup could not survive a client call.',
+      },
+      {
+        title: 'Is coworking cheaper than renting an office?',
+        description:
+          'Almost always, for small teams. A private office requires a security deposit, a lease, furniture, internet installation, a UPS or generator, and someone to manage it all. A coworking membership bundles every one of those into one monthly figure with no deposit and no lease. Renting your own office generally makes financial sense only once a team is large enough to fill it full-time.',
+      },
+      {
+        title: 'Do I need to be a freelancer to join Launchbox?',
+        description:
+          'No. Launchbox is built around freelancers, remote workers, and startup teams, but anyone who needs a professional place to work is welcome — consultants, visiting professionals, and people preparing for interviews or certifications all use the space.',
+      },
+    ],
+  },
+  {
+    title: 'About Launchbox',
+    items: [
       {
         title: 'What is Launchbox?',
         description:
-          'Launchbox is a coworking space located in DHA Lahore. It offers day passes, flexible desks, dedicated desks, and private cabins for freelancers, remote workers, and small teams. The space includes high-speed internet, backup power, meeting rooms, and a professional community.',
+          'Launchbox is a coworking space at First Floor, 38-A CCA, Sector C, DHA Phase 5, Lahore. It offers day passes, flexible desks, dedicated desks, and private cabins for freelancers, remote workers, and small teams, with 150 Mbps fibre internet, backup power, meeting rooms, and no lock-in contracts.',
+      },
+      {
+        title: 'Who is Launchbox for?',
+        description:
+          'Freelancers billing local or international clients, remote employees working for companies in another city or country, startup founders, and small agency teams of roughly 2 to 10 people. What members have in common is that their income depends on their internet staying up and their calls sounding professional.',
+      },
+      {
+        title: 'What makes Launchbox different from other coworking spaces in Lahore?',
+        description:
+          'Three things. Infrastructure first — 150 Mbps fibre with a backup connection, plus UPS and generator, so outages do not interrupt your work. No lock-in — month-to-month billing with no deposit, so we earn each renewal instead of enforcing it. And a focus on people doing real work rather than networking events, which keeps the space quiet enough to actually think in.',
       },
       {
         title: 'What amenities do you offer?',
         description:
-          'Every plan includes high-speed internet, backup power, tea and coffee, access to common areas and the kitchen, printing access, and a professional work environment. Dedicated desks and private cabins also include storage space and meeting room access.',
+          'Every plan includes 150 Mbps fibre internet, backup power, tea and coffee, access to common areas and the kitchen, printing access, and a professional work environment. Dedicated desks and private cabins also include storage space and meeting room access.',
       },
       {
         title: 'What are your working hours?',
         description:
-          'Launchbox is open Monday to Saturday, 9 AM to 9 PM. Members with private cabins can arrange extended or 24/7 access depending on their plan.',
+          'Launchbox is open Monday to Saturday, 9 AM to 9 PM, and closed on Sundays. Members with private cabins can arrange extended or 24/7 access depending on their plan.',
       },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-green-50 dark:bg-transparent"></div>
-    </Fragment>
-  </FAQs>
-
-  <!-- Pricing & plans ******************* -->
-
-  <FAQs
-    title="Pricing & plans"
-    columns={1}
-    items={[
       {
-        title: 'How much does it cost?',
+        title: 'Is Launchbox open on Sundays?',
         description:
-          'Day Pass: PKR 1,500/day. Flexible Desk: PKR 15,000/month. Dedicated Desk: PKR 22,500/month. Private Cabin: PKR 20,000/person/month (minimum 5 persons). All plans include internet, power, tea/coffee, and common area access. No hidden fees.',
+          'The space is closed on Sundays. Private cabin members with 24/7 access arrangements are the exception.',
+      },
+      {
+        title: 'Is Launchbox a local Pakistani business?',
+        description:
+          'Yes. Launchbox is built in Lahore and run by Lahoris — not a franchise of a global coworking chain. Pricing, policies, and the space itself are set locally.',
+      },
+    ],
+  },
+  {
+    title: 'Pricing & plans',
+    items: [
+      {
+        title: 'How much does coworking cost at Launchbox?',
+        description:
+          'Day Pass: PKR 1,500/day. Flexible Desk: PKR 15,000/month. Dedicated Desk: PKR 22,500/month. Private Cabin: PKR 20,000/person/month (minimum 5 persons). All plans include internet, power, tea and coffee, and common area access. No hidden fees.',
+      },
+      {
+        title: "What's included in the price?",
+        description:
+          'Every plan includes 150 Mbps fibre internet, backup power, tea and coffee, kitchen and common area access, and printing access. Dedicated desks add storage and meeting room hours. Private cabins add 24/7 access and unlimited meeting room use. There is nothing extra to buy to work normally.',
       },
       {
         title: 'Is there a contract or lock-in?',
         description:
           'No. All plans are month-to-month. You can start, pause, or cancel anytime with no penalties or long-term commitments.',
+      },
+      {
+        title: 'Do you take a security deposit?',
+        description:
+          'No. Launchbox does not take a security deposit on any plan. You pay for the month you are using and nothing up front.',
+      },
+      {
+        title: 'What is the difference between a flexible desk and a dedicated desk?',
+        description:
+          'A flexible desk (PKR 15,000/month) is open seating — you take any free desk on the day you come in. A dedicated desk (PKR 22,500/month) is a specific desk that is always yours, so you can leave a monitor or equipment set up, and it includes storage and meeting room hours. Choose flexible if you come in a few days a week, dedicated if the space is your main office.',
+      },
+      {
+        title: 'What is a private cabin and who is it for?',
+        description:
+          'A private cabin is an enclosed room for a team, priced at PKR 20,000 per person per month with a minimum of 5 people. It includes 24/7 access and unlimited meeting room use. Cabins suit agencies and funded startups who need to talk freely without disturbing the shared floor.',
       },
       {
         title: 'Can I upgrade or switch plans?',
@@ -93,45 +128,242 @@ const metadata = {
       },
       {
         title: 'What payment methods do you accept?',
-        description:
-          'Launchbox accepts bank transfer, JazzCash, EasyPaisa, and cash payments. Payment is due at the start of each month.',
+        description: 'Launchbox accepts bank transfer, JazzCash, EasyPaisa, and cash payments.',
       },
-    ]}
-  />
-
-  <!-- Location & access ******************* -->
-
-  <FAQs
-    title="Location & access"
-    columns={1}
-    items={[
       {
-        title: 'Where are you located?',
+        title: 'When is payment due?',
         description:
-          'Launchbox is located in DHA, Lahore — one of the most well-connected and secure neighborhoods in the city. It is easily accessible from Gulberg, Model Town, Johar Town, and Cantt.',
+          'Payment is due at the start of each billing month. Members are sent a reminder before their due date.',
+      },
+      {
+        title: 'Are there any hidden charges?',
+        description:
+          'No. The price on the card is the price you pay — internet, power, tea and coffee, common areas and printing are all included. There is no deposit, no joining fee, and no exit fee.',
+      },
+      {
+        title: 'Do you offer a free trial or a free visit?',
+        description:
+          'You can visit the space for free during business hours and see it before committing — no sales pitch. Book a visit through the website or message us on WhatsApp.',
+      },
+    ],
+  },
+  {
+    title: 'Internet, power & infrastructure',
+    items: [
+      {
+        title: 'How fast is the internet at Launchbox?',
+        description:
+          'The space runs on 150 Mbps fibre. It is provisioned for the whole floor to work simultaneously, including video calls, large uploads, and screen sharing.',
+      },
+      {
+        title: 'Do you have backup internet?',
+        description:
+          'Yes. Launchbox runs a backup ISP alongside the primary fibre connection, so a single provider outage does not stop the space working.',
+      },
+      {
+        title: 'What happens during load-shedding?',
+        description:
+          'Nothing changes for you. Launchbox runs UPS plus a generator, so power to desks and internet continues through LESCO outages. This is the single most common reason members join — a dropped client call costs more than a month of coworking.',
+      },
+      {
+        title: 'Do you have a UPS and a generator?',
+        description:
+          'Both. UPS covers the instant of a cut so nothing reboots, and the generator carries longer outages.',
+      },
+      {
+        title: 'Can I take Zoom or Google Meet calls?',
+        description:
+          'Yes. The space is quiet and professional enough for client calls, the bandwidth holds up for video, and meeting rooms are available when you need privacy or a neutral background.',
+      },
+      {
+        title: 'Is the internet fast enough for large file uploads?',
+        description:
+          'Yes. 150 Mbps fibre handles large design files, video, and code pushes. Members who deliver heavy files to international clients are a core part of who the space is built for.',
+      },
+      {
+        title: 'Will my work be interrupted by outages?',
+        description:
+          'Power and internet are both backed up — UPS and generator for electricity, a secondary ISP for connectivity. The point of the space is that outages become invisible to you.',
+      },
+    ],
+  },
+  {
+    title: 'Meeting rooms & facilities',
+    items: [
+      {
+        title: 'Do you have meeting rooms?',
+        description:
+          'Yes. Dedicated desk members get meeting room hours included, and private cabin members get unlimited use. Meeting rooms suit client calls, interviews, and team sessions.',
+      },
+      {
+        title: 'Can I host clients at Launchbox?',
+        description:
+          'Yes. Meeting rooms exist so you can bring a client into a professional setting rather than a cafe. The address in DHA Phase 5 is one members use on proposals and invoices.',
+      },
+      {
+        title: 'Is there a kitchen?',
+        description: 'Yes. Kitchen and common area access is included with every plan.',
+      },
+      {
+        title: 'Do you provide tea and coffee?',
+        description: 'Yes, tea and coffee are included with every plan at no extra cost.',
+      },
+      {
+        title: 'Can I print documents?',
+        description: 'Yes. Printing access is included with every plan.',
+      },
+      {
+        title: 'Is there storage for my things?',
+        description:
+          'Dedicated desk and private cabin members get storage space included, so you can leave equipment rather than carrying it in every day. Flexible desks are open seating and do not include fixed storage.',
+      },
+    ],
+  },
+  {
+    title: 'Working here day to day',
+    items: [
+      {
+        title: 'Is the space quiet enough to concentrate?',
+        description:
+          'Yes — deliberately. Launchbox does not run networking events on the floor. The space is built for people who are heads-down on real work, and community forms quietly when serious people work near each other.',
+      },
+      {
+        title: 'Can I work late?',
+        description:
+          'The space is open until 9 PM, Monday to Saturday. Private cabin members can arrange extended or 24/7 access.',
+      },
+      {
+        title: 'Can I leave my setup at my desk?',
+        description:
+          'On a dedicated desk, yes — it is always reserved for you and includes storage, so you can leave your equipment set up. Flexible desks are open seating, so you take a free desk each day and clear it when you leave.',
+      },
+      {
+        title: 'Is there a dress code?',
+        description: 'No. Launchbox is a workspace, not an office with a policy manual. Come as you would work.',
+      },
+      {
+        title: 'Can I start the same day I visit?',
+        description: 'Yes. There is no lengthy onboarding — visit, pick a plan, and start working the same day.',
+      },
+    ],
+  },
+  {
+    title: 'Location, parking & access',
+    items: [
+      {
+        title: 'Where is Launchbox located?',
+        description:
+          'Launchbox is at First Floor, 38-A CCA, Sector C, DHA Phase 5, Lahore 54000 — in the CCA commercial area of DHA Phase 5, one of the most well-connected and secure parts of the city.',
+      },
+      {
+        title: 'Which areas is Launchbox convenient for?',
+        description:
+          'DHA Phase 5 sits within easy reach of the other DHA phases, Cantt, Gulberg, Model Town, and Johar Town. Members commute from across Lahore because DHA roads stay usable and ride-hailing coverage is reliable.',
       },
       {
         title: 'Is there parking available?',
         description:
-          'Yes. Parking is available near the space. DHA also has well-maintained roads and easy access for ride-hailing services like Careem and inDrive.',
+          'Yes, parking is available near the space. DHA has well-maintained roads and straightforward access for ride-hailing services like Careem and inDrive.',
       },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-green-50 dark:bg-transparent"></div>
-    </Fragment>
-  </FAQs>
-
-  <!-- Booking & getting started ******************* -->
-
-  <FAQs
-    title="Booking & getting started"
-    columns={1}
-    items={[
+      {
+        title: 'Can I get there by Careem or inDrive?',
+        description:
+          'Yes. DHA Phase 5 CCA is a well-known pickup and drop-off area, and ride-hailing coverage is consistent throughout the day.',
+      },
+      {
+        title: 'Is DHA Phase 5 a good area to work from?',
+        description:
+          'It is one of the better parts of Lahore for it — secure, well-maintained roads, reliable ride-hailing, and plenty of food and banking nearby. The CCA commercial area is built for exactly this kind of use.',
+      },
+    ],
+  },
+  {
+    title: 'For freelancers',
+    items: [
+      {
+        title: 'Why do freelancers choose Launchbox?',
+        description:
+          'Because their income depends on infrastructure they cannot control at home. Backup power and a backup ISP mean a client call or a delivery deadline is never lost to load-shedding. Add a professional address, meeting rooms for client calls, and no lock-in, and the maths works out for most full-time freelancers.',
+      },
+      {
+        title: 'Is Launchbox good for freelancers who work irregular hours?',
+        description:
+          'Yes. A day pass at PKR 1,500 covers occasional use with no commitment, and a flexible desk at PKR 15,000/month covers regular use without tying you to a specific desk. Because there is no lock-in or deposit, a freelancer between contracts can stop and restart.',
+      },
+      {
+        title: 'Which plan is best for a freelancer?',
+        description:
+          'If you come in a few days a week, a flexible desk (PKR 15,000/month). If Launchbox is your main office and you want to leave a monitor set up, a dedicated desk (PKR 22,500/month). If you only need a place occasionally, day passes at PKR 1,500.',
+      },
+      {
+        title: 'Can I use the Launchbox address for my freelance business?',
+        description:
+          'Members use the DHA Phase 5 address for client-facing purposes such as proposals and meetings, and host clients in the meeting rooms. For questions about formal business registration use, message us on WhatsApp.',
+      },
+      {
+        title: 'Do freelancers working with international clients use Launchbox?',
+        description:
+          'Yes — a large share of members bill clients abroad. That is precisely why the space is built around connection reliability and call-quality: an overseas client does not care that LESCO cut the power.',
+      },
+    ],
+  },
+  {
+    title: 'For remote workers',
+    items: [
+      {
+        title: 'Why do remote workers choose Launchbox?',
+        description:
+          'Because they answer to a team in another city or country and cannot afford to look unreliable. A professional background on video, bandwidth that holds across timezones, and power that does not drop mid-standup are the whole point. It also separates work from home, which is what most people working remotely actually miss.',
+      },
+      {
+        title: 'Is Launchbox suitable for working with a team in another timezone?',
+        description:
+          'Yes. The space is open until 9 PM Monday to Saturday, which covers most overlap with European and US-morning schedules, and private cabin members can arrange extended access for later calls.',
+      },
+      {
+        title: 'Will my employer be able to tell I work from a coworking space?',
+        description:
+          'Only in that you will look more professional. Members take video calls from desks and meeting rooms with a clean background and stable connection — the opposite of a cafe or a bedroom standup.',
+      },
+      {
+        title: 'Is the internet reliable enough for a full remote job?',
+        description:
+          'Yes — 150 Mbps fibre with a backup ISP, plus UPS and generator. The infrastructure is specified so that a full working day never depends on a single provider or on LESCO.',
+      },
+    ],
+  },
+  {
+    title: 'For startups & small teams',
+    items: [
+      {
+        title: 'Why do startups choose Launchbox?',
+        description:
+          'Because a private cabin costs a fraction of setting up an office and takes a day rather than months. No lease, no deposit, no furniture, no internet installation, no generator to buy — and if the team grows or shrinks, the plan moves with it.',
+      },
+      {
+        title: 'Do you have space for teams?',
+        description:
+          'Yes. Private cabins take teams of 5 or more at PKR 20,000 per person per month, with 24/7 access and unlimited meeting room use. Smaller teams of 2 to 4 usually take dedicated desks together.',
+      },
+      {
+        title: 'Can my team grow or shrink without penalty?',
+        description:
+          'Yes. Billing is month-to-month with no lock-in, so team size changes take effect from the next cycle rather than triggering a lease renegotiation.',
+      },
+      {
+        title: 'Is a private cabin cheaper than renting an office in DHA?',
+        description:
+          'For most small teams, yes — once you count the deposit, lease, furniture, internet, backup power, and management a private office actually requires. A cabin bundles all of it into one per-person monthly figure with no capital outlay.',
+      },
+    ],
+  },
+  {
+    title: 'Booking & getting started',
+    items: [
       {
         title: 'Can I visit before joining?',
         description:
-          'Yes. We encourage everyone to visit the space before committing. You can book a free visit through the website or message us on WhatsApp to schedule a tour.',
+          'Yes. We encourage everyone to visit the space before committing. You can book a free visit through the website or message us on WhatsApp to schedule a tour. No sales pitch.',
       },
       {
         title: 'How do I book a visit?',
@@ -143,10 +375,59 @@ const metadata = {
         description:
           'Visit the space, choose a plan that works for you, and start the same day. There is no lengthy onboarding process — just pick a plan and begin working.',
       },
-    ]}
+      {
+        title: 'How quickly can I start working?',
+        description:
+          'Same day. Once you have picked a plan there is no waiting period, paperwork backlog, or deposit to clear.',
+      },
+      {
+        title: 'What if I want to cancel?',
+        description:
+          'Cancel anytime. Billing is month-to-month with no lock-in and no exit fee — you simply do not renew for the next cycle.',
+      },
+      {
+        title: 'How do I contact Launchbox?',
+        description:
+          'WhatsApp +92 307 0555515 is fastest. You can also call the same number, email contact@launchboxpk.com, or visit First Floor, 38-A CCA, Sector C, DHA Phase 5, Lahore during business hours.',
+      },
+    ],
+  },
+];
+
+// One FAQPage for this URL. Each FAQs widget below passes emitSchema={false} so the
+// page declares a single consolidated entity rather than one per section.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': 'https://www.launchboxpk.com/faq#faq',
+  mainEntity: groups
+    .flatMap((g) => g.items)
+    .map((it) => ({
+      '@type': 'Question',
+      name: it.title,
+      acceptedAnswer: { '@type': 'Answer', text: it.description },
+    })),
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Frequently Asked"
+    title="Every question you had, answered plainly."
+    subtitle="Pricing, plans, internet, power, meeting rooms, where we are — no asterisks, no fine print, just the facts about coworking at Launchbox in DHA Phase 5, Lahore."
   />
 
-  <!-- Closer ******************* -->
+  {
+    groups.map((group, i) => (
+      <FAQs title={group.title} columns={1} items={group.items} emitSchema={false}>
+        {i % 2 === 1 && (
+          <Fragment slot="bg">
+            <div class="absolute inset-0 bg-green-50 dark:bg-transparent" />
+          </Fragment>
+        )}
+      </FAQs>
+    ))
+  }
 
   <CallToAction
     title="Still have questions?"
@@ -156,4 +437,6 @@ const metadata = {
       { target: '_blank', text: 'WhatsApp us', href: 'https://wa.me/923070555515' },
     ]}
   />
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
 </Layout>

@@ -1,6 +1,6 @@
 # Launchbox
 
-> Coworking space in DHA Phase 5, Lahore — for freelancers, remote workers, startups, and small teams. High-speed internet, backup power, professional environment, no lock-in contracts.
+> Launchbox is the coworking space in DHA Phase 5, Lahore built specifically for freelancers, remote workers, startup founders, and small teams. 150 Mbps fibre, backup power through every outage, meeting rooms, and no lock-in contracts.
 
 ## Key facts
 
@@ -170,7 +170,7 @@ We wanted a workspace that respected your time. Fast internet that holds up at 2
 ### What we believe
 
 - Earn the stay, every month: No deposits, no lock-in. We earn renewals through quality, not contracts.
-- Affordable, not aspirational: Pricing is set for freelancers and early-stage teams — not funded startups with deep pockets.
+- Honest, not aspirational: One clear rate covering internet, power, meeting rooms and coffee — no deposits, no lock-in, no surprises.
 - Infrastructure first: Reliable internet, backup power, and a chair that does not hurt at 5 PM.
 - Community over noise: No networking events. Communities form quietly when serious people work near each other.
 - Local, on purpose: Built in Lahore, run by Lahoris. Not a global chain trying to localise.

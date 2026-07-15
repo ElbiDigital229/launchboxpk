@@ -263,6 +263,12 @@ export interface Faqs extends Omit<Headline, 'classes'>, Widget {
   iconDown?: string;
   items?: Array<Item>;
   columns?: number;
+  /**
+   * Emit a FAQPage JSON-LD block for this widget's items. Default true.
+   * Set false when a page renders several FAQs widgets and emits one
+   * consolidated FAQPage itself — a URL must not declare multiple FAQPage entities.
+   */
+  emitSchema?: boolean;
 }
 
 export interface Steps extends Omit<Headline, 'classes'>, Widget {

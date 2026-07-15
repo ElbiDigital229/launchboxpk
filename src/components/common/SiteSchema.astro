@@ -6,11 +6,11 @@ const schema = {
   name: 'Launchbox',
   alternateName: 'Launchbox Coworking',
   description:
-    'Coworking space in DHA Phase 5, Lahore for freelancers, remote workers, and small teams. High-speed internet, backup power, no lock-in contracts.',
+    'Coworking space in DHA Phase 5, Lahore built for freelancers, remote workers, and startup teams. 150 Mbps fibre internet, backup power, meeting rooms, no lock-in contracts.',
   url: 'https://www.launchboxpk.com',
   telephone: '+923070555515',
   email: 'contact@launchboxpk.com',
-  priceRange: 'PKR 1,500 – PKR 22,500',
+  priceRange: 'PKR 1,500 – PKR 100,000',
   currenciesAccepted: 'PKR',
   paymentAccepted: 'Cash, Bank Transfer, Card',
   address: {
@@ -25,10 +25,22 @@ const schema = {
     latitude: 31.4719,
     longitude: 74.4205,
   },
+  slogan: 'The coworking space in DHA Phase 5, Lahore built for freelancers, remote workers and startup teams.',
+  hasMap: 'https://www.google.com/maps/search/?api=1&query=Launchbox+38-A+CCA+Sector+C+DHA+Phase+5+Lahore',
   areaServed: [
     { '@type': 'City', name: 'Lahore' },
     { '@type': 'AdministrativeArea', name: 'Punjab, Pakistan' },
+    { '@type': 'Place', name: 'DHA Phase 5, Lahore' },
+    { '@type': 'Place', name: 'DHA Lahore' },
+    { '@type': 'Place', name: 'Cantt, Lahore' },
   ],
+  audience: [
+    { '@type': 'Audience', audienceType: 'Freelancers' },
+    { '@type': 'Audience', audienceType: 'Remote workers' },
+    { '@type': 'Audience', audienceType: 'Startup founders' },
+    { '@type': 'Audience', audienceType: 'Small teams and agencies' },
+  ],
+  knowsAbout: ['Coworking', 'Freelancing in Pakistan', 'Remote work', 'Shared office space', 'Startup workspace'],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -37,18 +49,10 @@ const schema = {
       closes: '21:00',
     },
   ],
-  sameAs: [
-    'https://instagram.com/launchboxpk',
-    'https://facebook.com/launchboxpk',
-    'https://wa.me/923070555515',
-  ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '25',
-    bestRating: '5',
-    worstRating: '1',
-  },
+  sameAs: ['https://instagram.com/launchboxpk', 'https://facebook.com/launchboxpk', 'https://wa.me/923070555515'],
+  // NOTE: aggregateRating deliberately omitted. Google disallows self-serving review
+  // markup for the business hosting it — the 5.0/25 rating is served via the Google
+  // Business Profile instead, where it is eligible for rich results.
   amenityFeature: [
     { '@type': 'LocationFeatureSpecification', name: 'High-speed internet (150 Mbps fiber)', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Backup power (UPS + generator)', value: true },
@@ -111,10 +115,7 @@ const organization = {
   name: 'Launchbox',
   url: 'https://www.launchboxpk.com',
   logo: 'https://www.launchboxpk.com/og-image.png',
-  sameAs: [
-    'https://instagram.com/launchboxpk',
-    'https://facebook.com/launchboxpk',
-  ],
+  sameAs: ['https://instagram.com/launchboxpk', 'https://facebook.com/launchboxpk'],
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+923070555515',
@@ -131,7 +132,7 @@ const website = {
   '@id': 'https://www.launchboxpk.com/#website',
   url: 'https://www.launchboxpk.com',
   name: 'Launchbox',
-  description: 'Coworking space in DHA Phase 5, Lahore',
+  description: 'Coworking space in DHA Phase 5, Lahore for freelancers, remote workers and startup teams',
   publisher: { '@id': 'https://www.launchboxpk.com/#organization' },
   inLanguage: 'en',
 };

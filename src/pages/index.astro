@@ -17,7 +17,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 const metadata = {
-  title: 'Launchbox — Coworking space in DHA Phase 5, Lahore',
+  title: 'Launchbox — Coworking space in DHA Phase 5, Lahore for freelancers & remote teams',
   ignoreTitleTemplate: true,
 };
 ---
@@ -30,7 +30,7 @@ const metadata = {
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
-    tagline="Budget friendly coworking space"
+    tagline="Coworking for freelancers, remote workers & startups"
     actions={[
       { variant: 'primary', target: '_blank', text: 'Message Us', href: 'https://wa.me/923070555515' },
       { text: 'View Plans', href: '/pricing' },
@@ -40,12 +40,12 @@ const metadata = {
       alt: 'A Launchbox member working from the DHA Phase 5 coworking space',
     }}
   >
-    <Fragment slot="title">
-      You focus on your work. While we focus on the rest.
-    </Fragment>
+    <Fragment slot="title"> Where Lahore's freelancers and remote teams actually get work done. </Fragment>
 
     <Fragment slot="subtitle">
-      A focused, affordable coworking space in <span class="font-semibold">DHA Phase 5, Lahore</span> — built for freelancers, remote workers, and small teams who want to get more done.
+      Launchbox is the coworking space in <span class="font-semibold">DHA Phase 5, Lahore</span> built for freelancers, remote
+      workers, and startup teams — 150 Mbps fibre, backup power that never drops a client call, meeting rooms, and no lock-in
+      contracts.
     </Fragment>
   </Hero2>
 
@@ -269,7 +269,9 @@ const metadata = {
           A quick tour of Launchbox — the desks, the cabins, the meeting rooms, the people.
         </p>
       </div>
-      <div class="overflow-hidden rounded-2xl border border-gray-200 dark:border-slate-700 shadow-md aspect-video bg-black">
+      <div
+        class="overflow-hidden rounded-2xl border border-gray-200 dark:border-slate-700 shadow-md aspect-video bg-black"
+      >
         <iframe
           class="w-full h-full"
           src="https://www.youtube-nocookie.com/embed/1sd5_8bKw2s?modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&controls=1"
@@ -277,8 +279,7 @@ const metadata = {
           frameborder="0"
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
+          allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -291,7 +292,7 @@ const metadata = {
     testimonials={[
       {
         testimonial:
-          "The internet has not blinked once in three months. That sounds like a small thing until you have lost a client call to load-shedding. Worth every rupee.",
+          'The internet has not blinked once in three months. That sounds like a small thing until you have lost a client call to load-shedding. Worth every rupee.',
         name: 'A freelance developer',
         job: 'Dedicated Desk member',
         image: {
@@ -311,7 +312,7 @@ const metadata = {
       },
       {
         testimonial:
-          "Working from home was killing me. I needed a place where I felt like a professional again. The first week here, I shipped more than the previous month.",
+          'Working from home was killing me. I needed a place where I felt like a professional again. The first week here, I shipped more than the previous month.',
         name: 'A remote employee',
         job: 'Flexible Desk member',
         image: {
@@ -423,10 +424,7 @@ const metadata = {
   />
 
   <div class="-mt-8 mb-16 text-center">
-    <a
-      href="/pricing"
-      class="inline-flex items-center gap-2 font-semibold text-primary hover:underline"
-    >
+    <a href="/pricing" class="inline-flex items-center gap-2 font-semibold text-primary hover:underline">
       View full pricing details <span aria-hidden="true">→</span>
     </a>
   </div>
@@ -475,10 +473,7 @@ const metadata = {
   </FAQs>
 
   <div class="-mt-8 mb-16 text-center">
-    <a
-      href="/faq"
-      class="inline-flex items-center gap-2 font-semibold text-primary hover:underline"
-    >
+    <a href="/faq" class="inline-flex items-center gap-2 font-semibold text-primary hover:underline">
       View all FAQs <span aria-hidden="true">→</span>
     </a>
   </div>

@@ -10,6 +10,7 @@ const {
   tagline = '',
   items = [],
   columns = 2,
+  emitSchema = true,
 
   id,
   isDark = false,
@@ -29,7 +30,7 @@ const faqEntities = (items || [])
   }));
 
 const faqSchema =
-  faqEntities.length > 0
+  emitSchema && faqEntities.length > 0
     ? {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
