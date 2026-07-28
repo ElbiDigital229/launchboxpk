@@ -1,12 +1,15 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
   title: 'Contact',
 };
+
+const whatsappHref =
+  'https://wa.me/923070555515?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Launchbox%20coworking%20space.';
 ---
 
 <Layout metadata={metadata}>
@@ -14,24 +17,28 @@ const metadata = {
 
   <HeroText
     tagline="Contact"
-    title="Reach out to us"
-    subtitle="Have questions? Feel free to contact us using the form below. We're here to help."
+    title="Message us on WhatsApp"
+    subtitle="It's the fastest way to reach us — most messages get a reply within the hour, Mon–Sat 9–9."
   />
 
-  <ContactUs
-    id="form"
-    title="Drop us a message"
-    subtitle="Tell us a bit about how you work and what you're looking for. We'll get back the same working day, usually within a couple of hours."
-    inputs={[
-      { type: 'text', name: 'name', label: 'Name' },
-      { type: 'email', name: 'email', label: 'Email' },
+  <!-- WhatsApp CTA ******************* -->
+
+  <CallToAction
+    id="whatsapp"
+    title="Chat with us now"
+    subtitle="Tell us how you work and what you're looking for. We'll answer your questions and book you a walkthrough — no form to fill in, no waiting on email."
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'WhatsApp +92 307 0555515',
+        href: whatsappHref,
+      },
+      {
+        text: 'Book a visit',
+        href: '/book-visit',
+      },
     ]}
-    textarea={{ label: 'Message' }}
-    disclaimer={{
-      label:
-        'By submitting this form you agree to be contacted at the email or phone number you provide. We never share your details.',
-    }}
-    description="Prefer chat? WhatsApp us at +92 307 0555515 — fastest way to get a tour booked."
   />
 
   <!-- Features2 Widget ************** -->
@@ -40,11 +47,6 @@ const metadata = {
     title="Other ways to get in touch"
     subtitle="Pick whichever suits you. We answer all of them."
     items={[
-      {
-        title: 'WhatsApp us',
-        description: '+92 307 0555515 — chat during working hours, fastest reply.',
-        icon: 'tabler:brand-whatsapp',
-      },
       {
         title: 'Call us',
         description: '+92 307 0555515 — talk to a human, no IVR.',
