@@ -8,8 +8,36 @@
       window.gtag = function () { window.dataLayer.push(arguments); };
     }
 
+    // Meta standard-event mapping. WhatsApp and Book-a-visit deliberately share
+    // one event so the campaign has the volume to optimise; email/phone are kept
+    // separate so weaker intent doesn't dilute it.
+    var FB_MAP = {
+      whatsapp_click: { ev: 'Lead', label: 'WhatsApp' },
+      book_visit_click: { ev: 'Lead', label: 'Book a visit' },
+      mailto_click: { ev: 'Contact', label: 'Email' },
+      phone_click: { ev: 'Contact', label: 'Phone' },
+    };
+
     function track(name, params) {
       window.gtag('event', name, params || {});
+
+      // Guarded: the pixel is in <head> and this runs at end of <body>, so a
+      // blocker can strip one without the other. An unguarded call would throw
+      // here and take GA4 tracking down with it.
+      var fb = FB_MAP[name];
+      if (fb && typeof window.fbq === 'function') {
+        window.fbq(
+          'track',
+          fb.ev,
+          {
+            content_name: fb.label,
+            content_category: (params && params.page_path) || location.pathname,
+          },
+          // Dedup key for the Conversions API — server-side events sent with the
+          // same eventID get matched instead of double-counted.
+          { eventID: 'lb-' + Date.now() + '-' + Math.random().toString(36).slice(2) }
+        );
+      }
     }
 
     function classify(anchor) {
