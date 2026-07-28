@@ -22,6 +22,17 @@ const PIXEL_ID = '1023886808844947';
 
   fbq('init', PIXEL_ID);
   fbq('track', 'PageView');
+
+  // The site runs Astro's ClientRouter, so navigations swap the DOM without
+  // re-running this script — PageView fired once per session, not once per page.
+  // 'astro:after-swap' fires only on navigation; 'astro:page-load' would also
+  // fire on the initial load and double-count the first view of every session.
+  if (!window.__lbFbqSpaBound) {
+    window.__lbFbqSpaBound = true;
+    document.addEventListener('astro:after-swap', function () {
+      fbq('track', 'PageView');
+    });
+  }
 </script>
 
 <noscript>
