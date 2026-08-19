@@ -1,11 +1,11 @@
 {
-  "fetchedAt": "2026-08-19T06:53:21.026Z",
+  "fetchedAt": "2026-08-19T12:57:11.232Z",
   "sources": [
     {
       "id": "rozee.pk",
       "label": "Rozee.pk",
       "count": 184,
-      "fetchedAt": "2026-08-19T06:53:21.026Z"
+      "fetchedAt": "2026-08-19T12:57:11.232Z"
     }
   ],
   "jobs": [
@@ -580,6 +580,21 @@
       "url": "https://www.rozee.pk/aura-digital-frontend-developer-jobs-1866298"
     },
     {
+      "id": "rozee:1869958",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1869958",
+      "title": "NOW HIRING – USA ENERGY CAMPAIGN PROFESSIONALS | Sales Agents, Sales Closers, Te",
+      "company": "Paradigm Vox",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "1 Year",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Aug 19, 2026",
+      "url": "https://www.rozee.pk/paradigm-vox-now-hiring-usa-energy-campaign-professionals-sales-agents-sales-closers-te-lahore-jobs-1869958"
+    },
+    {
       "id": "rozee:1867974",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -625,36 +640,6 @@
       "url": "https://www.rozee.pk/website-developer-karachi-jobs-1869826"
     },
     {
-      "id": "rozee:1869958",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1869958",
-      "title": "NOW HIRING – USA ENERGY CAMPAIGN PROFESSIONALS | Sales Agents, Sales Closers, Te",
-      "company": "Paradigm Vox",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "1 Year",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Aug 19, 2026",
-      "url": "https://www.rozee.pk/paradigm-vox-now-hiring-usa-energy-campaign-professionals-sales-agents-sales-closers-te-lahore-jobs-1869958"
-    },
-    {
-      "id": "rozee:1868240",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1868240",
-      "title": "Amazon Product Hunter",
-      "company": "Burq Commerce",
-      "location": "Multan",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "1 Year",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Aug 17, 2026",
-      "url": "https://www.rozee.pk/burq-commerce-amazon-product-hunter-multan-jobs-1868240"
-    },
-    {
       "id": "rozee:1864902",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -698,6 +683,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Aug 14, 2026",
       "url": "https://www.rozee.pk/agentic-servicenow-developer-lahore-jobs-1869139"
+    },
+    {
+      "id": "rozee:1868240",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1868240",
+      "title": "Amazon Product Hunter",
+      "company": "Burq Commerce",
+      "location": "Multan",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "1 Year",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Aug 17, 2026",
+      "url": "https://www.rozee.pk/burq-commerce-amazon-product-hunter-multan-jobs-1868240"
     },
     {
       "id": "rozee:1869440",
@@ -955,36 +955,6 @@
       "url": "https://www.rozee.pk/al-shams-recruiting-agency-sales-engineer-all-cities-jobs-1868697"
     },
     {
-      "id": "rozee:1865300",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1865300",
-      "title": "IT Helpdesk Engineer",
-      "company": "Protaxhelp Pvt Ltd",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Jul 24, 2026",
-      "url": "https://www.rozee.pk/protaxhelp-pvt-ltd-it-helpdesk-engineer-jobs-1865300"
-    },
-    {
-      "id": "rozee:1865298",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1865298",
-      "title": "IT Helpdesk Engineer",
-      "company": "Protaxhelp Pvt Ltd",
-      "location": "Islamabad",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Jul 24, 2026",
-      "url": "https://www.rozee.pk/protaxhelp-pvt-ltd-it-helpdesk-engineer-jobs-1865298"
-    },
-    {
       "id": "rozee:1869133",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1013,6 +983,36 @@
       "contractType": "Full Time/Permanent",
       "postedDate": "Aug 06, 2026",
       "url": "https://www.rozee.pk/hm-enterprises-mechanical-engineer-jobs-1867516"
+    },
+    {
+      "id": "rozee:1865300",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1865300",
+      "title": "IT Helpdesk Engineer",
+      "company": "Protaxhelp Pvt Ltd",
+      "location": "All Cities",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Jul 24, 2026",
+      "url": "https://www.rozee.pk/protaxhelp-pvt-ltd-it-helpdesk-engineer-jobs-1865300"
+    },
+    {
+      "id": "rozee:1865298",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1865298",
+      "title": "IT Helpdesk Engineer",
+      "company": "Protaxhelp Pvt Ltd",
+      "location": "Islamabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Jul 24, 2026",
+      "url": "https://www.rozee.pk/protaxhelp-pvt-ltd-it-helpdesk-engineer-jobs-1865298"
     },
     {
       "id": "rozee:1868615",
@@ -1600,21 +1600,6 @@
       "url": "https://www.rozee.pk/elev8-marketing-junior-graphic-designer-amazon-ecommerce-multan-jobs-1867639"
     },
     {
-      "id": "rozee:1869570",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1869570",
-      "title": "Graphic Designer | UI Designer | 2D Animation Specialist",
-      "company": "Naseeb Enterprise Inc",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Aug 17, 2026",
-      "url": "https://www.rozee.pk/graphic-designer-ui-designer-2d-animation-specialist-jobs-1869570"
-    },
-    {
       "id": "rozee:1870006",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1643,6 +1628,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Aug 19, 2026",
       "url": "https://www.rozee.pk/graphic-designer-lahore-jobs-1870005"
+    },
+    {
+      "id": "rozee:1869570",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1869570",
+      "title": "Graphic Designer | UI Designer | 2D Animation Specialist",
+      "company": "Naseeb Enterprise Inc",
+      "location": "All Cities",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Aug 17, 2026",
+      "url": "https://www.rozee.pk/graphic-designer-ui-designer-2d-animation-specialist-jobs-1869570"
     },
     {
       "id": "rozee:1868023",
@@ -1840,6 +1840,21 @@
       "url": "https://www.rozee.pk/mehar-g-social-media-post-designer-sialkot-jobs-1864862"
     },
     {
+      "id": "rozee:1862493",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1862493",
+      "title": "Graphic Designer",
+      "company": "RozeeGPT Demo",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Aug 19, 2026",
+      "url": "https://www.rozee.pk/rozeegpt-demo-graphic-designer-jobs-1862493"
+    },
+    {
       "id": "rozee:1866402",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1943,21 +1958,6 @@
       "contractType": "Full Time/Permanent",
       "postedDate": "Jul 31, 2026",
       "url": "https://www.rozee.pk/rsf-soft-graphic-designer-intern-jobs-1866954"
-    },
-    {
-      "id": "rozee:1867341",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1867341",
-      "title": "Junior Graphic Designer",
-      "company": "Frontrun SEO",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Aug 02, 2026",
-      "url": "https://www.rozee.pk/frontrun-seo-junior-graphic-designer-lahore-jobs-1867341"
     },
     {
       "id": "rozee:1864580",
@@ -2425,6 +2425,21 @@
       "url": "https://www.rozee.pk/billing-mate-medical-billing-coding-executive-jobs-1866509"
     },
     {
+      "id": "rozee:1870128",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1870128",
+      "title": "Amazon PPC Expert",
+      "company": "Ampzio",
+      "location": "Multiple Cities",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Aug 19, 2026",
+      "url": "https://www.rozee.pk/ampzio-amazon-ppc-expert-jobs-1870128"
+    },
+    {
       "id": "rozee:1864361",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2515,21 +2530,6 @@
       "url": "https://www.rozee.pk/kohistan-group-paid-media-digital-advertising-specialist-jobs-1865006"
     },
     {
-      "id": "rozee:1866936",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1866936",
-      "title": "ASSISTANT MANAGER OPERATIONS",
-      "company": "MAF BIS Credit Information Services Pvt. Ltd.",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "1 Year",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Jul 31, 2026",
-      "url": "https://www.rozee.pk/maf-bis-credit-information-services-pvt-ltd-assistan-manager-operations-jobs-1866936"
-    },
-    {
       "id": "rozee:1868970",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2545,6 +2545,21 @@
       "url": "https://www.rozee.pk/optima-technology-zone-pvt-ltd-performance-marketer-jobs-1868970"
     },
     {
+      "id": "rozee:1866936",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1866936",
+      "title": "ASSISTANT MANAGER OPERATIONS",
+      "company": "MAF BIS Credit Information Services Pvt. Ltd.",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "1 Year",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Jul 31, 2026",
+      "url": "https://www.rozee.pk/maf-bis-credit-information-services-pvt-ltd-assistan-manager-operations-jobs-1866936"
+    },
+    {
       "id": "rozee:1869744",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2558,21 +2573,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Aug 18, 2026",
       "url": "https://www.rozee.pk/female-executive-assistant-to-ceo-karachi-jobs-1869744"
-    },
-    {
-      "id": "rozee:1869870",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1869870",
-      "title": "Female Front Desk / Receptionist & IT",
-      "company": "Hire Hub",
-      "location": "Gujranwala",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "1 Year",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Aug 18, 2026",
-      "url": "https://www.rozee.pk/hire-hub-female-front-desk-receptionist-it-jobs-1869870"
     },
     {
       "id": "rozee:1869152",
