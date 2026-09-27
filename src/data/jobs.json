@@ -1,11 +1,11 @@
 {
-  "fetchedAt": "2026-09-27T04:50:27.477Z",
+  "fetchedAt": "2026-09-27T11:47:55.292Z",
   "sources": [
     {
       "id": "rozee.pk",
       "label": "Rozee.pk",
-      "count": 193,
-      "fetchedAt": "2026-09-27T04:50:27.477Z"
+      "count": 194,
+      "fetchedAt": "2026-09-27T11:47:55.292Z"
     }
   ],
   "jobs": [
@@ -160,21 +160,6 @@
       "url": "https://www.rozee.pk/superb-developer-senior-mern-stack-developer-jobs-1878957"
     },
     {
-      "id": "rozee:1880721",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1880721",
-      "title": "SEO & Digital Marketing Intern – Al Rehman Garden Phase 5",
-      "company": "Rankdrill",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Internship",
-      "experience": "Fresh",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Sep 24, 2026",
-      "url": "https://www.rozee.pk/rankdrill-seo-digital-marketing-intern-%e2%80%93-al-rehman-garden-phase-5-jobs-1880721"
-    },
-    {
       "id": "rozee:1879903",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -190,21 +175,6 @@
       "url": "https://www.rozee.pk/growth-specialist-b2b-saas-sales-developer-tools-lahore-jobs-1879903"
     },
     {
-      "id": "rozee:1879898",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1879898",
-      "title": "MERN Full Stack Developer",
-      "company": "Walee Financial Services",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 24, 2026",
-      "url": "https://www.rozee.pk/mern-full-stack-developer-lahore-jobs-1879898"
-    },
-    {
       "id": "rozee:1886393",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -218,6 +188,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 27, 2026",
       "url": "https://www.rozee.pk/full-stack-developer-karachi-jobs-1886393"
+    },
+    {
+      "id": "rozee:1879898",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1879898",
+      "title": "MERN Full Stack Developer",
+      "company": "Walee Financial Services",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 24, 2026",
+      "url": "https://www.rozee.pk/mern-full-stack-developer-lahore-jobs-1879898"
     },
     {
       "id": "rozee:1881289",
@@ -250,19 +235,19 @@
       "url": "https://www.rozee.pk/propeluxe-elite-web-or-aosftware-developer-markerter-and-product-manaager-hiring-jobs-1879023"
     },
     {
-      "id": "rozee:1876936",
+      "id": "rozee:1880721",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1876936",
-      "title": "Front-End Web Developer (Shopify & CRO)",
-      "company": "Hiregummy",
-      "location": "All Cities",
+      "sourceId": "1880721",
+      "title": "SEO & Digital Marketing Intern – Al Rehman Garden Phase 5",
+      "company": "Rankdrill",
+      "location": "Lahore",
       "workMode": "unknown",
-      "type": "Contract",
-      "experience": "2 Years",
-      "contractType": "Contract",
-      "postedDate": "Sep 22, 2026",
-      "url": "https://www.rozee.pk/front-end-web-developer-shopify-cro-jobs-1876936"
+      "type": "Internship",
+      "experience": "Fresh",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Sep 24, 2026",
+      "url": "https://www.rozee.pk/rankdrill-seo-digital-marketing-intern-%e2%80%93-al-rehman-garden-phase-5-jobs-1880721"
     },
     {
       "id": "rozee:1872483",
@@ -280,6 +265,21 @@
       "url": "https://www.rozee.pk/blizin-technologies-web-developer-lahore-jobs-1872483"
     },
     {
+      "id": "rozee:1876936",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1876936",
+      "title": "Front-End Web Developer (Shopify & CRO)",
+      "company": "Hiregummy",
+      "location": "All Cities",
+      "workMode": "unknown",
+      "type": "Contract",
+      "experience": "2 Years",
+      "contractType": "Contract",
+      "postedDate": "Sep 22, 2026",
+      "url": "https://www.rozee.pk/front-end-web-developer-shopify-cro-jobs-1876936"
+    },
+    {
       "id": "rozee:1885678",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -293,21 +293,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 27, 2026",
       "url": "https://www.rozee.pk/flutter-mobile-developer-karachi-jobs-1885678"
-    },
-    {
-      "id": "rozee:1879840",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1879840",
-      "title": "Unity Developer",
-      "company": "Technovez",
-      "location": "Multan",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 24, 2026",
-      "url": "https://www.rozee.pk/unity-developer-multan-jobs-1879840"
     },
     {
       "id": "rozee:1886538",
@@ -325,19 +310,19 @@
       "url": "https://www.rozee.pk/senior-android-developer-tj-1878966-lahore-jobs-1886538"
     },
     {
-      "id": "rozee:1872098",
+      "id": "rozee:1879840",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1872098",
-      "title": "Amazon Account Manager",
-      "company": "Ecom Managers",
-      "location": "Jhelum",
+      "sourceId": "1879840",
+      "title": "Unity Developer",
+      "company": "Technovez",
+      "location": "Multan",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "1 Year",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Sep 01, 2026",
-      "url": "https://www.rozee.pk/ecom-managers-amazon-account-manager-jhelum-jobs-1872098"
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 24, 2026",
+      "url": "https://www.rozee.pk/unity-developer-multan-jobs-1879840"
     },
     {
       "id": "rozee:1880304",
@@ -370,21 +355,6 @@
       "url": "https://www.rozee.pk/senior-software-developer-hyderabad-jobs-1885062"
     },
     {
-      "id": "rozee:1880186",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1880186",
-      "title": "Senior Full Stack Developer (Laravel + Angular + AI-Assisted Development)",
-      "company": "CrecenTech Systems Private Limited",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 24, 2026",
-      "url": "https://www.rozee.pk/senior-full-stack-developer-laravel-angular-ai-assisted-development-lahore-jobs-1880186"
-    },
-    {
       "id": "rozee:1882651",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -398,6 +368,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 25, 2026",
       "url": "https://www.rozee.pk/senior-full-stack-developer-laravel-angular-ai-assisted-development-lahore-jobs-1882651"
+    },
+    {
+      "id": "rozee:1880186",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1880186",
+      "title": "Senior Full Stack Developer (Laravel + Angular + AI-Assisted Development)",
+      "company": "CrecenTech Systems Private Limited",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 24, 2026",
+      "url": "https://www.rozee.pk/senior-full-stack-developer-laravel-angular-ai-assisted-development-lahore-jobs-1880186"
     },
     {
       "id": "rozee:1879829",
@@ -415,19 +400,19 @@
       "url": "https://www.rozee.pk/react-native-developer-lahore-jobs-1879829"
     },
     {
-      "id": "rozee:1880174",
+      "id": "rozee:1872098",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1880174",
-      "title": "WordPress Website Developer",
-      "company": "Zetech Solutions",
-      "location": "Karachi",
+      "sourceId": "1872098",
+      "title": "Amazon Account Manager",
+      "company": "Ecom Managers",
+      "location": "Jhelum",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 24, 2026",
-      "url": "https://www.rozee.pk/wordpress-website-developer-karachi-jobs-1880174"
+      "experience": "1 Year",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Sep 01, 2026",
+      "url": "https://www.rozee.pk/ecom-managers-amazon-account-manager-jhelum-jobs-1872098"
     },
     {
       "id": "rozee:1881894",
@@ -443,6 +428,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 25, 2026",
       "url": "https://www.rozee.pk/design-developer-lahore-jobs-1881894"
+    },
+    {
+      "id": "rozee:1880174",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1880174",
+      "title": "WordPress Website Developer",
+      "company": "Zetech Solutions",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 24, 2026",
+      "url": "https://www.rozee.pk/wordpress-website-developer-karachi-jobs-1880174"
     },
     {
       "id": "rozee:1885139",
@@ -580,36 +580,6 @@
       "url": "https://www.rozee.pk/junior-software-developer-islamabad-jobs-1874613"
     },
     {
-      "id": "rozee:1885157",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1885157",
-      "title": "Senior Full Stack Developer",
-      "company": "Weekday",
-      "location": "Hyderabad",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/senior-full-stack-developer-hyderabad-jobs-1885157"
-    },
-    {
-      "id": "rozee:1885110",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1885110",
-      "title": "Senior Software Developer (PHP)",
-      "company": "Contour Software",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "6 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/senior-software-developer-php-karachi-jobs-1885110"
-    },
-    {
       "id": "rozee:1885071",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -653,6 +623,36 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 26, 2026",
       "url": "https://www.rozee.pk/associate-unity-game-developer-rawalpindi-jobs-1885032"
+    },
+    {
+      "id": "rozee:1885157",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1885157",
+      "title": "Senior Full Stack Developer",
+      "company": "Weekday",
+      "location": "Hyderabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/senior-full-stack-developer-hyderabad-jobs-1885157"
+    },
+    {
+      "id": "rozee:1885110",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1885110",
+      "title": "Senior Software Developer (PHP)",
+      "company": "Contour Software",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "6 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/senior-software-developer-php-karachi-jobs-1885110"
     },
     {
       "id": "rozee:1876841",
@@ -700,21 +700,6 @@
       "url": "https://www.rozee.pk/business-developer-intern-islamabad-jobs-1878237"
     },
     {
-      "id": "rozee:1872058",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1872058",
-      "title": "Anti-Fraud (Risk) Officer",
-      "company": "Device Now Private Ltd.",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "1 Year",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Aug 31, 2026",
-      "url": "https://www.rozee.pk/device-now-private-ltd-anti-fraud-officer-jobs-1872058"
-    },
-    {
       "id": "rozee:1882837",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -728,21 +713,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 25, 2026",
       "url": "https://www.rozee.pk/growth-specialist-b2b-saas-sales-developer-tools-lahore-jobs-1882837"
-    },
-    {
-      "id": "rozee:1886535",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1886535",
-      "title": "Full Stack PHP Developer",
-      "company": "Digitz Pvt Ltd.",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 27, 2026",
-      "url": "https://www.rozee.pk/full-stack-php-developer-karachi-jobs-1886535"
     },
     {
       "id": "rozee:1882305",
@@ -760,6 +730,36 @@
       "url": "https://www.rozee.pk/ai-developer-islamabad-jobs-1882305"
     },
     {
+      "id": "rozee:1886535",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1886535",
+      "title": "Full Stack PHP Developer",
+      "company": "Digitz Pvt Ltd.",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 27, 2026",
+      "url": "https://www.rozee.pk/full-stack-php-developer-karachi-jobs-1886535"
+    },
+    {
+      "id": "rozee:1884239",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1884239",
+      "title": "Frontend Developer",
+      "company": "Bitrupt",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/frontend-developer-karachi-jobs-1884239"
+    },
+    {
       "id": "rozee:1880235",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -773,21 +773,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 24, 2026",
       "url": "https://www.rozee.pk/quality-control-engineer-karachi-jobs-1880235"
-    },
-    {
-      "id": "rozee:1885098",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1885098",
-      "title": "Product Support Engineer - Lahore",
-      "company": "US Mobile",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/product-support-engineer-lahore-lahore-jobs-1885098"
     },
     {
       "id": "rozee:1885075",
@@ -820,6 +805,21 @@
       "url": "https://www.rozee.pk/devsecops-product-security-engineer-hyderabad-jobs-1885022"
     },
     {
+      "id": "rozee:1885098",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1885098",
+      "title": "Product Support Engineer - Lahore",
+      "company": "US Mobile",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/product-support-engineer-lahore-lahore-jobs-1885098"
+    },
+    {
       "id": "rozee:1877923",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -833,21 +833,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 23, 2026",
       "url": "https://www.rozee.pk/structure-engineer-real-estate-karachi-jobs-1877923"
-    },
-    {
-      "id": "rozee:1883325",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1883325",
-      "title": "Application Security Engineer (Web & Mobile)",
-      "company": "Avaib",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/application-security-engineer-web-mobile-karachi-jobs-1883325"
     },
     {
       "id": "rozee:1885041",
@@ -910,6 +895,21 @@
       "url": "https://www.rozee.pk/engineer-new-product-development-hyderabad-jobs-1885408"
     },
     {
+      "id": "rozee:1883325",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1883325",
+      "title": "Application Security Engineer (Web & Mobile)",
+      "company": "Avaib",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/application-security-engineer-web-mobile-karachi-jobs-1883325"
+    },
+    {
       "id": "rozee:1883194",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -955,6 +955,21 @@
       "url": "https://www.rozee.pk/lead-full-stack-engineer-%e2%80%93-ai-product-development-islamabad-jobs-1878913"
     },
     {
+      "id": "rozee:1883248",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1883248",
+      "title": "AI Product Engineer - Internal Apps",
+      "company": "KnowledgeCity",
+      "location": "All Cities",
+      "workMode": "unknown",
+      "type": "Internship",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/ai-product-engineer-internal-apps-jobs-1883248"
+    },
+    {
       "id": "rozee:1886014",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -983,21 +998,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 24, 2026",
       "url": "https://www.rozee.pk/system-support-engineer-%e2%80%93-it-support-saas-platforms-lahore-jobs-1879046"
-    },
-    {
-      "id": "rozee:1883248",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1883248",
-      "title": "AI Product Engineer - Internal Apps",
-      "company": "KnowledgeCity",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Internship",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/ai-product-engineer-internal-apps-jobs-1883248"
     },
     {
       "id": "rozee:1880706",
@@ -1165,21 +1165,6 @@
       "url": "https://www.rozee.pk/lead-full-stack-engineer-%e2%80%93-ai-product-development-jobs-1878909"
     },
     {
-      "id": "rozee:1877070",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1877070",
-      "title": "Surveyor",
-      "company": "Munck Civil Engineering",
-      "location": "Faisalabad",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Sep 23, 2026",
-      "url": "https://www.rozee.pk/munck-civil-engineering-surveyor-jobs-1877070"
-    },
-    {
       "id": "rozee:1882849",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1210,36 +1195,6 @@
       "url": "https://www.rozee.pk/product-support-engineer-karachi-karachi-jobs-1882227"
     },
     {
-      "id": "rozee:1885091",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1885091",
-      "title": "Sales Engineer/Sr. Sales Engineer Aftermarket",
-      "company": "Atlas Copco",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "Temporary",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/sales-engineersr-sales-engineer-aftermarket-jobs-1885091"
-    },
-    {
-      "id": "rozee:1881168",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1881168",
-      "title": "Junior Energy Audit Engineer (Technical)",
-      "company": "SGS",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Contract",
-      "experience": "2 Years",
-      "contractType": "Contract",
-      "postedDate": "Sep 25, 2026",
-      "url": "https://www.rozee.pk/junior-energy-audit-engineer-technical-karachi-jobs-1881168"
-    },
-    {
       "id": "rozee:1884617",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1255,19 +1210,34 @@
       "url": "https://www.rozee.pk/mechanical-engineer-karachi-jobs-1884617"
     },
     {
-      "id": "rozee:1872049",
+      "id": "rozee:1885091",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1872049",
-      "title": "Engineer PEC Card Required",
-      "company": "Saz Recruit",
+      "sourceId": "1885091",
+      "title": "Sales Engineer/Sr. Sales Engineer Aftermarket",
+      "company": "Atlas Copco",
       "location": "All Cities",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "Fresh",
+      "experience": "2 Years",
+      "contractType": "Temporary",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/sales-engineersr-sales-engineer-aftermarket-jobs-1885091"
+    },
+    {
+      "id": "rozee:1877070",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1877070",
+      "title": "Surveyor",
+      "company": "Munck Civil Engineering",
+      "location": "Faisalabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
       "contractType": "Full Time/Permanent",
-      "postedDate": "Aug 31, 2026",
-      "url": "https://www.rozee.pk/saz-recruit-engineer-pec-card-required-jobs-1872049"
+      "postedDate": "Sep 23, 2026",
+      "url": "https://www.rozee.pk/munck-civil-engineering-surveyor-jobs-1877070"
     },
     {
       "id": "rozee:1881392",
@@ -1285,21 +1255,6 @@
       "url": "https://www.rozee.pk/lead-full-stack-engineer-%e2%80%93-ai-product-development-lahore-jobs-1881392"
     },
     {
-      "id": "rozee:1882681",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1882681",
-      "title": "Lead Full-Stack Engineer – AI Product Development",
-      "company": "NorthBay Solutions",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "6 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 25, 2026",
-      "url": "https://www.rozee.pk/lead-full-stack-engineer-%e2%80%93-ai-product-development-karachi-jobs-1882681"
-    },
-    {
       "id": "rozee:1882408",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1315,6 +1270,36 @@
       "url": "https://www.rozee.pk/lead-full-stack-engineer-%e2%80%93-ai-product-development-islamabad-jobs-1882408"
     },
     {
+      "id": "rozee:1882681",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1882681",
+      "title": "Lead Full-Stack Engineer – AI Product Development",
+      "company": "NorthBay Solutions",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "6 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 25, 2026",
+      "url": "https://www.rozee.pk/lead-full-stack-engineer-%e2%80%93-ai-product-development-karachi-jobs-1882681"
+    },
+    {
+      "id": "rozee:1872049",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1872049",
+      "title": "Engineer PEC Card Required",
+      "company": "Saz Recruit",
+      "location": "All Cities",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "Fresh",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Aug 31, 2026",
+      "url": "https://www.rozee.pk/saz-recruit-engineer-pec-card-required-jobs-1872049"
+    },
+    {
       "id": "rozee:1880685",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1328,6 +1313,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 24, 2026",
       "url": "https://www.rozee.pk/sales-service-engineer-%e2%80%93-blood-gas-analyzer-karachi-jobs-1880685"
+    },
+    {
+      "id": "rozee:1881168",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1881168",
+      "title": "Junior Energy Audit Engineer (Technical)",
+      "company": "SGS",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Contract",
+      "experience": "2 Years",
+      "contractType": "Contract",
+      "postedDate": "Sep 25, 2026",
+      "url": "https://www.rozee.pk/junior-energy-audit-engineer-technical-karachi-jobs-1881168"
     },
     {
       "id": "rozee:1878963",
@@ -1465,6 +1465,21 @@
       "url": "https://www.rozee.pk/software-product-qa-automation-engineer-karachi-jobs-1886264"
     },
     {
+      "id": "rozee:1874916",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1874916",
+      "title": "Deployment Engineer",
+      "company": "AI Product Team",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Sep 16, 2026",
+      "url": "https://www.rozee.pk/ai-product-team-deployment-engineer-karachi-jobs-1874916"
+    },
+    {
       "id": "rozee:1882307",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1493,21 +1508,6 @@
       "contractType": "Full Time/Permanent",
       "postedDate": "Sep 14, 2026",
       "url": "https://www.rozee.pk/milwa-trading-sales-engineer-lahore-jobs-1874620"
-    },
-    {
-      "id": "rozee:1874916",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1874916",
-      "title": "Deployment Engineer",
-      "company": "AI Product Team",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Sep 16, 2026",
-      "url": "https://www.rozee.pk/ai-product-team-deployment-engineer-karachi-jobs-1874916"
     },
     {
       "id": "rozee:1884829",
@@ -1645,21 +1645,6 @@
       "url": "https://www.rozee.pk/shopify-designer-faisalabad-jobs-1886592"
     },
     {
-      "id": "rozee:1884784",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1884784",
-      "title": "I&C CADD DESIGNER /E&I DESIGNER",
-      "company": "ILF Consulting Engineers in Pakistan",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/ic-cadd-designer-ei-designer-karachi-jobs-1884784"
-    },
-    {
       "id": "rozee:1881981",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1673,6 +1658,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 25, 2026",
       "url": "https://www.rozee.pk/graphic-designer-karachi-jobs-1881981"
+    },
+    {
+      "id": "rozee:1884784",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1884784",
+      "title": "I&C CADD DESIGNER /E&I DESIGNER",
+      "company": "ILF Consulting Engineers in Pakistan",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/ic-cadd-designer-ei-designer-karachi-jobs-1884784"
     },
     {
       "id": "rozee:1880071",
@@ -1705,21 +1705,6 @@
       "url": "https://www.rozee.pk/2d-designer-with-architecture-interior-details-management-lahore-jobs-1882149"
     },
     {
-      "id": "rozee:1884598",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1884598",
-      "title": "Brand & Visual Designer",
-      "company": "Devowise",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/brand-visual-designer-jobs-1884598"
-    },
-    {
       "id": "rozee:1882461",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1733,6 +1718,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 25, 2026",
       "url": "https://www.rozee.pk/were-hiring-%e2%80%94-junior-graphic-designer-karachi-jobs-1882461"
+    },
+    {
+      "id": "rozee:1884598",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1884598",
+      "title": "Brand & Visual Designer",
+      "company": "Devowise",
+      "location": "All Cities",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/brand-visual-designer-jobs-1884598"
     },
     {
       "id": "rozee:1877975",
@@ -1840,6 +1840,21 @@
       "url": "https://www.rozee.pk/technical-fashion-designer-clo-3d-faisalabad-jobs-1885770"
     },
     {
+      "id": "rozee:1886400",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1886400",
+      "title": "Graphic Designer Lahore",
+      "company": "GT Estates",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 27, 2026",
+      "url": "https://www.rozee.pk/graphic-designer-lahore-lahore-jobs-1886400"
+    },
+    {
       "id": "rozee:1886618",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1855,19 +1870,19 @@
       "url": "https://www.rozee.pk/graphic-designer-expert-gujranwala-jobs-1886618"
     },
     {
-      "id": "rozee:1886400",
+      "id": "rozee:1879936",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1886400",
-      "title": "Graphic Designer Lahore",
-      "company": "GT Estates",
+      "sourceId": "1879936",
+      "title": "Senior Product Designer (Furniture Industry)",
+      "company": "AlHaadi Mobilya (SMC-PVT) Ltd",
       "location": "Lahore",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "2 Years",
+      "experience": "3 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Sep 27, 2026",
-      "url": "https://www.rozee.pk/graphic-designer-lahore-lahore-jobs-1886400"
+      "postedDate": "Sep 24, 2026",
+      "url": "https://www.rozee.pk/senior-product-designer-furniture-industry-lahore-jobs-1879936"
     },
     {
       "id": "rozee:1885021",
@@ -1885,21 +1900,6 @@
       "url": "https://www.rozee.pk/website-designer-karachi-jobs-1885021"
     },
     {
-      "id": "rozee:1884803",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1884803",
-      "title": "Graphic Designer",
-      "company": "Plutus21",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Contract",
-      "experience": "5 Years",
-      "contractType": "Contract",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/graphic-designer-karachi-jobs-1884803"
-    },
-    {
       "id": "rozee:1883093",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1915,19 +1915,19 @@
       "url": "https://www.rozee.pk/designer-karachi-jobs-1883093"
     },
     {
-      "id": "rozee:1879936",
+      "id": "rozee:1884803",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1879936",
-      "title": "Senior Product Designer (Furniture Industry)",
-      "company": "AlHaadi Mobilya (SMC-PVT) Ltd",
-      "location": "Lahore",
+      "sourceId": "1884803",
+      "title": "Graphic Designer",
+      "company": "Plutus21",
+      "location": "Karachi",
       "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 24, 2026",
-      "url": "https://www.rozee.pk/senior-product-designer-furniture-industry-lahore-jobs-1879936"
+      "type": "Contract",
+      "experience": "5 Years",
+      "contractType": "Contract",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/graphic-designer-karachi-jobs-1884803"
     },
     {
       "id": "rozee:1881222",
@@ -2050,21 +2050,6 @@
       "url": "https://www.rozee.pk/ai-product-manager-karachi-jobs-1884603"
     },
     {
-      "id": "rozee:1884762",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1884762",
-      "title": "Pharma Product Manager / Factory Manager / Quality Control Manager (Pharm-D)",
-      "company": "Work Together",
-      "location": "Gujranwala",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/pharma-product-manager-factory-manager-quality-control-manager-pharm-d-gujranwala-jobs-1884762"
-    },
-    {
       "id": "rozee:1884788",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2078,6 +2063,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 26, 2026",
       "url": "https://www.rozee.pk/associate-product-manager-karachi-jobs-1884788"
+    },
+    {
+      "id": "rozee:1884762",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1884762",
+      "title": "Pharma Product Manager / Factory Manager / Quality Control Manager (Pharm-D)",
+      "company": "Work Together",
+      "location": "Gujranwala",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/pharma-product-manager-factory-manager-quality-control-manager-pharm-d-gujranwala-jobs-1884762"
     },
     {
       "id": "rozee:1884109",
@@ -2200,21 +2200,6 @@
       "url": "https://www.rozee.pk/product-manager-internship-remote-jobs-1885406"
     },
     {
-      "id": "rozee:1882613",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1882613",
-      "title": "Product Manager Wealth Solution",
-      "company": "Standard Chartered",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 25, 2026",
-      "url": "https://www.rozee.pk/product-manager-wealth-solution-karachi-jobs-1882613"
-    },
-    {
       "id": "rozee:1874543",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2228,6 +2213,21 @@
       "contractType": "Full Time/Permanent",
       "postedDate": "Sep 15, 2026",
       "url": "https://www.rozee.pk/product-manager-alternate-digital-channels-karachi-jobs-1874543"
+    },
+    {
+      "id": "rozee:1882613",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1882613",
+      "title": "Product Manager Wealth Solution",
+      "company": "Standard Chartered",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 25, 2026",
+      "url": "https://www.rozee.pk/product-manager-wealth-solution-karachi-jobs-1882613"
     },
     {
       "id": "rozee:1880543",
@@ -2258,6 +2258,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 26, 2026",
       "url": "https://www.rozee.pk/data-entry-fresher-dha-phase-5-lahore-jobs-1884707"
+    },
+    {
+      "id": "rozee:1872058",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1872058",
+      "title": "Anti-Fraud (Risk) Officer",
+      "company": "Device Now Private Ltd.",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "1 Year",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Aug 31, 2026",
+      "url": "https://www.rozee.pk/device-now-private-ltd-anti-fraud-officer-jobs-1872058"
     },
     {
       "id": "rozee:1883035",
@@ -2305,21 +2320,6 @@
       "url": "https://www.rozee.pk/sb-food-products-procurement-assistant-hyderabad-jobs-1872734"
     },
     {
-      "id": "rozee:1880977",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1880977",
-      "title": "ERP/Data Manager",
-      "company": "GenZ Talent",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 25, 2026",
-      "url": "https://www.rozee.pk/erpdata-manager-lahore-jobs-1880977"
-    },
-    {
       "id": "rozee:1882200",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2333,6 +2333,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 25, 2026",
       "url": "https://www.rozee.pk/hands-on-seo-internship-%e2%80%93-boost-your-career-in-digital-marketing-lahore-jobs-1882200"
+    },
+    {
+      "id": "rozee:1880977",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1880977",
+      "title": "ERP/Data Manager",
+      "company": "GenZ Talent",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 25, 2026",
+      "url": "https://www.rozee.pk/erpdata-manager-lahore-jobs-1880977"
     },
     {
       "id": "rozee:1881274",
@@ -2440,6 +2455,21 @@
       "url": "https://www.rozee.pk/data-entry-operator-supply-chain-lahore-jobs-1876788"
     },
     {
+      "id": "rozee:1873980",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1873980",
+      "title": "Audit Officer",
+      "company": "Six-B Food Industries",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Sep 10, 2026",
+      "url": "https://www.rozee.pk/six-b-food-industries-audit-officer-lahore-jobs-1873980"
+    },
+    {
       "id": "rozee:1886569",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2455,19 +2485,19 @@
       "url": "https://www.rozee.pk/data-migration-specialist-ms-excel-expert-lahore-jobs-1886569"
     },
     {
-      "id": "rozee:1873980",
+      "id": "rozee:1883835",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1873980",
-      "title": "Audit Officer",
-      "company": "Six-B Food Industries",
-      "location": "Lahore",
+      "sourceId": "1883835",
+      "title": "Helpdesk Facilitators-5",
+      "company": "Windows",
+      "location": "Kohat",
       "workMode": "unknown",
       "type": "Full-time",
       "experience": "2 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Sep 10, 2026",
-      "url": "https://www.rozee.pk/six-b-food-industries-audit-officer-lahore-jobs-1873980"
+      "contractType": "First Shift (Day)",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/helpdesk-facilitators-5-kohat-jobs-1883835"
     },
     {
       "id": "rozee:1872426",
@@ -2485,21 +2515,6 @@
       "url": "https://www.rozee.pk/solaris-engineering-pvt-ltd-sales-executive-metal-fabrication-jobs-1872426"
     },
     {
-      "id": "rozee:1883429",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1883429",
-      "title": "AR Specialist (US Medical Billing)",
-      "company": "Meds Nexus Private Limited",
-      "location": "Rawalpindi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/ar-specialist-us-medical-billing-rawalpindi-jobs-1883429"
-    },
-    {
       "id": "rozee:1876784",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2515,19 +2530,19 @@
       "url": "https://www.rozee.pk/data-entry-operator-lahore-jobs-1876784"
     },
     {
-      "id": "rozee:1883835",
+      "id": "rozee:1883429",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1883835",
-      "title": "Helpdesk Facilitators-5",
-      "company": "Windows",
-      "location": "Kohat",
+      "sourceId": "1883429",
+      "title": "AR Specialist (US Medical Billing)",
+      "company": "Meds Nexus Private Limited",
+      "location": "Rawalpindi",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "2 Years",
+      "experience": "5 Years",
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/helpdesk-facilitators-5-kohat-jobs-1883835"
+      "url": "https://www.rozee.pk/ar-specialist-us-medical-billing-rawalpindi-jobs-1883429"
     },
     {
       "id": "rozee:1874218",
@@ -2635,21 +2650,6 @@
       "url": "https://www.rozee.pk/devops-engineer-karachi-jobs-1880381"
     },
     {
-      "id": "rozee:1885122",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1885122",
-      "title": "Devops Engineer",
-      "company": "Incedo",
-      "location": "Hyderabad",
-      "workMode": "unknown",
-      "type": "Internship",
-      "experience": "3 Years",
-      "contractType": "Internship",
-      "postedDate": "Sep 26, 2026",
-      "url": "https://www.rozee.pk/devops-engineer-hyderabad-jobs-1885122"
-    },
-    {
       "id": "rozee:1884956",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2663,6 +2663,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Sep 26, 2026",
       "url": "https://www.rozee.pk/devops-hyderabad-jobs-1884956"
+    },
+    {
+      "id": "rozee:1885122",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1885122",
+      "title": "Devops Engineer",
+      "company": "Incedo",
+      "location": "Hyderabad",
+      "workMode": "unknown",
+      "type": "Internship",
+      "experience": "3 Years",
+      "contractType": "Internship",
+      "postedDate": "Sep 26, 2026",
+      "url": "https://www.rozee.pk/devops-engineer-hyderabad-jobs-1885122"
     },
     {
       "id": "rozee:1883502",
