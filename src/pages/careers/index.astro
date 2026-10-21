@@ -1,0 +1,46 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+
+const metadata = {
+  title: 'Careers at Launchbox',
+  description: 'Open roles at Launchbox, a coworking space in DHA Phase 5, Lahore. Full-time, on-site positions.',
+};
+
+const roles = [
+  {
+    title: 'HR Manager: Culture & Hiring',
+    meta: 'Full-time · On-site · DHA Phase 5, Lahore',
+    summary: 'Our first dedicated people hire: build the team, starting with sales and marketing, and build the culture.',
+    href: '/careers/hr-manager',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Careers"
+    title="Work at Launchbox"
+    subtitle="We're a coworking space in DHA Phase 5, Lahore. These are the roles we're hiring for right now."
+  />
+
+  <section class="px-4 pb-20 mx-auto max-w-3xl">
+    <ul class="space-y-4">
+      {
+        roles.map((r) => (
+          <li>
+            <a
+              href={r.href}
+              class="block rounded-2xl border border-gray-200 dark:border-slate-700 p-6 md:p-8 hover:border-primary transition"
+            >
+              <h2 class="text-2xl font-bold dark:text-white">{r.title}</h2>
+              <p class="mt-1 text-sm text-muted">{r.meta}</p>
+              <p class="mt-3 text-base">{r.summary}</p>
+              <span class="mt-4 inline-block font-semibold text-primary">View role and apply →</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

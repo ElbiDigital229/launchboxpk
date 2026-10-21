@@ -1,0 +1,243 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'HR Manager — Careers',
+  description:
+    'Launchbox is hiring a full-time, on-site HR Manager in DHA Phase 5, Lahore. Build the team and the culture of a growing coworking space. Apply online.',
+};
+
+// Google Apps Script web app that stores each application in the hiring sheet + CV folder.
+const APPLY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxtM0ffrBcT3KmCmTNwQkOBN3m9PKjcfHtLv7HnhNqqPehw8dvpLbCP8MSWKoXgxcNXHA/exec';
+
+const doList = [
+  ['Build the team', 'Hire our first sales and marketing team, then keep hiring as we grow. Write JDs, source (LinkedIn, referrals, job boards, universities), run the pipeline, offers, contracts and onboarding.'],
+  ['Build and protect the culture', 'We run on three pillars: speed, transparency and ownership. Turn them into everyday habits and make sure every new person lives them from day one.'],
+  ['Write it down', 'A team handbook, onboarding and clear ways of working, so the business never depends on one person\'s memory.'],
+  ['People operations', 'Performance reviews scored on our pillars, a short weekly team review, and employee records, contracts, leave and attendance in order.'],
+];
+const wantList = [
+  ['3+ years in HR or recruitment', 'Ideally at an agency, startup or tech company.'],
+  ['A track record of hiring sales or marketing people', 'You can show who you hired and why it worked.'],
+  ['Strong written English', "You'll write handbooks, job descriptions and policies."],
+  ['A builder', 'Comfortable starting from scratch, without an existing playbook. You reply fast, flag problems early and own results.'],
+  ['Nice to have', 'Setting up HR at a small company, Pakistani labour law and payroll, Google Workspace, Notion, an ATS or AI tools.'],
+];
+const getList = [
+  ['Real ownership', 'This is our first dedicated people hire. You build the function, not just maintain it.'],
+  ['Work directly with the founder', 'With a real say in how the company grows.'],
+  ['A modern workplace', 'Our office in DHA Phase 5, Lahore.'],
+  ['Competitive package', 'Based on your experience and skills.'],
+];
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 pt-12 md:pt-20 pb-8 mx-auto max-w-3xl">
+    <a href="/careers" class="block text-sm text-muted hover:underline">← All roles</a>
+    <p class="mt-6 inline-block rounded-full bg-primary px-4 py-1.5 text-xs font-bold tracking-widest text-white">
+      WE'RE HIRING
+    </p>
+    <h1 class="mt-4 text-4xl md:text-6xl font-bold tracking-tight dark:text-white">HR Manager</h1>
+    <p class="mt-2 text-2xl font-semibold dark:text-white">Culture &amp; Hiring</p>
+    <p class="mt-2 text-lg text-muted">Full-time · On-site · DHA Phase 5, Lahore · Reports to the founder</p>
+    <p class="mt-6 text-lg">
+      Launchbox is a coworking space in DHA Phase 5, Lahore, home to private cabins, dedicated desks and day passes for
+      startups, agencies and remote teams. We're growing, and this is our first dedicated people hire. You won't be
+      inheriting an HR department; you'll be building one.
+    </p>
+    <a href="#apply" class="btn-primary mt-8 inline-flex">Apply now ↓</a>
+  </section>
+
+  <section class="px-4 py-8 mx-auto max-w-3xl space-y-12">
+    {
+      [
+        ["What you'll do", doList],
+        ["Who we're looking for", wantList],
+        ["What you'll get", getList],
+      ].map(([h, list]) => (
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold dark:text-white">{h}</h2>
+          <ul class="mt-5 space-y-4">
+            {(list as string[][]).map(([t, d]) => (
+              <li class="flex gap-3">
+                <span class="mt-2 h-2 w-2 flex-none rounded-full bg-primary" />
+                <span>
+                  <strong class="dark:text-white">{t}.</strong> {d}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </section>
+
+  <section id="apply" class="px-4 py-12 md:py-16 mx-auto max-w-3xl scroll-mt-24">
+    <div class="rounded-2xl border border-gray-200 dark:border-slate-700 p-6 md:p-10">
+      <h2 class="text-2xl md:text-3xl font-bold dark:text-white">Apply for this role</h2>
+      <p class="mt-2 text-muted">Takes about 2 minutes. Shortlisted candidates are contacted within a week.</p>
+
+      <form id="apply-form" class="mt-8 space-y-5" novalidate>
+        <div class="grid gap-5 md:grid-cols-2">
+          <label class="block">
+            <span class="text-sm font-medium">Full name *</span>
+            <input name="name" required maxlength="100" class="lb-in" autocomplete="name" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium">Phone (WhatsApp) *</span>
+            <input name="phone" required type="tel" maxlength="20" class="lb-in" autocomplete="tel" placeholder="03XX XXXXXXX" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium">Email *</span>
+            <input name="email" required type="email" maxlength="120" class="lb-in" autocomplete="email" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium">Area you live in *</span>
+            <input name="area" required maxlength="80" class="lb-in" placeholder="e.g. DHA Phase 4" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium">Current or last job title *</span>
+            <input name="role" required maxlength="100" class="lb-in" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium">Years of HR / recruitment experience *</span>
+            <select name="experience" required class="lb-in">
+              <option value="">Select…</option>
+              <option>Less than 1 year</option>
+              <option>1–2 years</option>
+              <option>3–5 years</option>
+              <option>6–10 years</option>
+              <option>More than 10 years</option>
+            </select>
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium">Expected monthly salary (PKR) *</span>
+            <input name="salary" required maxlength="40" class="lb-in" inputmode="numeric" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium">When can you join? *</span>
+            <select name="notice" required class="lb-in">
+              <option value="">Select…</option>
+              <option>Immediately</option>
+              <option>Within 2 weeks</option>
+              <option>Within 1 month</option>
+              <option>More than 1 month</option>
+            </select>
+          </label>
+        </div>
+        <label class="block">
+          <span class="text-sm font-medium">Tell us about one hire you made that you're proud of, and why it worked (max 5 lines) *</span>
+          <textarea name="why" required maxlength="1000" rows="4" class="lb-in"></textarea>
+        </label>
+        <label class="block">
+          <span class="text-sm font-medium">CV (PDF or Word, max 5 MB) *</span>
+          <input name="cv" required type="file" accept=".pdf,.doc,.docx" class="lb-in lb-file" />
+        </label>
+        <label class="flex items-start gap-3 text-sm">
+          <input name="onsite" type="checkbox" required class="mt-1" />
+          <span>I understand this is a full-time, on-site role in DHA Phase 5, Lahore. *</span>
+        </label>
+        <!-- honeypot -->
+        <input name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+        <p id="apply-error" class="hidden rounded-lg bg-red-50 p-3 text-sm text-red-700"></p>
+        <button id="apply-btn" type="submit" class="btn-primary w-full md:w-auto">Submit application</button>
+      </form>
+
+      <div id="apply-done" class="hidden mt-8 rounded-xl bg-green-50 p-6 text-green-900">
+        <p class="text-lg font-bold">Application received. Thank you!</p>
+        <p class="mt-1">We review every application. If you're shortlisted, we'll contact you within a week.</p>
+      </div>
+    </div>
+  </section>
+
+  <style is:global>
+    .lb-in {
+      margin-top: 0.375rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      border: 1px solid rgb(209 213 219);
+      background: white;
+      color: rgb(17 24 39);
+      padding: 0.625rem 0.75rem;
+      font-size: 1rem;
+    }
+    .dark .lb-in {
+      border-color: rgb(51 65 85);
+      background: rgb(15 23 42);
+      color: white;
+    }
+    .lb-in:focus {
+      outline: 2px solid #1aa34a;
+      outline-offset: 1px;
+    }
+    .lb-file {
+      padding: 0.5rem;
+    }
+  </style>
+
+  <script is:inline define:vars={{ APPLY_ENDPOINT }}>
+    (function () {
+      const form = document.getElementById('apply-form');
+      if (!form || form.dataset.bound) return;
+      form.dataset.bound = '1';
+      const btn = document.getElementById('apply-btn');
+      const err = document.getElementById('apply-error');
+      const done = document.getElementById('apply-done');
+      const MAX = 5 * 1024 * 1024;
+
+      function fail(msg) {
+        err.textContent = msg;
+        err.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Submit application';
+      }
+      function readFile(file) {
+        return new Promise((res, rej) => {
+          const r = new FileReader();
+          r.onload = () => res(String(r.result).split(',')[1]);
+          r.onerror = rej;
+          r.readAsDataURL(file);
+        });
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        err.classList.add('hidden');
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        const fd = new FormData(form);
+        if (fd.get('website')) return;
+        const file = fd.get('cv');
+        if (!file || !file.size) return fail('Please attach your CV.');
+        if (file.size > MAX) return fail('Your CV is larger than 5 MB. Please upload a smaller file.');
+
+        btn.disabled = true;
+        btn.textContent = 'Submitting…';
+        try {
+          const payload = { job: 'HR Manager', source: location.search.slice(1) || 'direct' };
+          for (const [k, v] of fd.entries()) if (k !== 'cv' && k !== 'website') payload[k] = String(v).trim();
+          payload.cvName = file.name;
+          payload.cvType = file.type || 'application/octet-stream';
+          payload.cvData = await readFile(file);
+          const r = await fetch(APPLY_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+          });
+          const j = await r.json();
+          if (!j.ok) throw new Error(j.error || 'failed');
+          form.classList.add('hidden');
+          done.classList.remove('hidden');
+          if (window.fbq) window.fbq('track', 'SubmitApplication');
+          if (window.gtag) window.gtag('event', 'job_application', { job: 'HR Manager' });
+          done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (x) {
+          fail('Something went wrong sending your application. Please try again in a minute.');
+        }
+      });
+    })();
+  </script>
+</Layout>
