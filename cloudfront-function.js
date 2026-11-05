@@ -9,6 +9,12 @@ var REDIRECTS = {
 function handler(event) {
   var request = event.request;
   var uri = request.uri;
+  var host = request.headers.host ? request.headers.host.value : '';
+
+  // one canonical host: launchboxpk.com -> www.launchboxpk.com
+  if (host === 'launchboxpk.com') {
+    return redirect('https://www.launchboxpk.com' + uri);
+  }
 
   if (uri.length > 1 && uri.endsWith('/')) {
     return redirect(uri.slice(0, -1));

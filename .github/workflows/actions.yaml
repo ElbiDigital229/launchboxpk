@@ -21,8 +21,11 @@ jobs:
 
       # The site is pre-built static HTML in /site (source + builders live in Drive:
       # Work/Launchbox Coworking/Launchbox Website, exported with site/export_live.py).
-      - name: Sync site to S3
-        run: aws s3 sync site/ s3://launchboxpk.com --delete --cache-control "public, max-age=300, must-revalidate"
+      - name: Sync images (cache 30 days)
+        run: aws s3 sync site/ s3://launchboxpk.com --exclude "*" --include "*.webp" --include "*.jpg" --include "*.png" --include "*.ico" --include "*.svg" --cache-control "public, max-age=2592000"
+
+      - name: Sync pages and everything else (short cache)
+        run: aws s3 sync site/ s3://launchboxpk.com --delete --exclude "*.webp" --exclude "*.jpg" --exclude "*.png" --exclude "*.ico" --exclude "*.svg" --cache-control "public, max-age=300, must-revalidate"
 
       - name: Update CloudFront URL-rewrite function
         run: |
