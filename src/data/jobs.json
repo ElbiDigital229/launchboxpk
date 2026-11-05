@@ -1,11 +1,11 @@
 {
-  "fetchedAt": "2026-11-04T23:28:21.391Z",
+  "fetchedAt": "2026-11-05T06:06:09.020Z",
   "sources": [
     {
       "id": "rozee.pk",
       "label": "Rozee.pk",
       "count": 196,
-      "fetchedAt": "2026-11-04T23:28:21.391Z"
+      "fetchedAt": "2026-11-05T06:06:09.020Z"
     }
   ],
   "jobs": [
@@ -55,21 +55,6 @@
       "url": "https://www.rozee.pk/ms-power-apps-developer-c2-hyderabad-jobs-1939315"
     },
     {
-      "id": "rozee:1940862",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1940862",
-      "title": "MS Power Apps Developer -C2",
-      "company": "Capgemini",
-      "location": "Hyderabad",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 04, 2026",
-      "url": "https://www.rozee.pk/ms-power-apps-developer-c2-hyderabad-jobs-1940862"
-    },
-    {
       "id": "rozee:1875915",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -83,6 +68,21 @@
       "contractType": "Full Time/Permanent",
       "postedDate": "Nov 02, 2026",
       "url": "https://www.rozee.pk/boost-lifestyle-admin-and-hr-executive-jobs-1875915"
+    },
+    {
+      "id": "rozee:1940862",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1940862",
+      "title": "MS Power Apps Developer -C2",
+      "company": "Capgemini",
+      "location": "Hyderabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 04, 2026",
+      "url": "https://www.rozee.pk/ms-power-apps-developer-c2-hyderabad-jobs-1940862"
     },
     {
       "id": "rozee:1937953",
@@ -100,21 +100,6 @@
       "url": "https://www.rozee.pk/aspnet-core-developer-jobs-1937953"
     },
     {
-      "id": "rozee:1934936",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1934936",
-      "title": "Relationship Manager Priority Banking",
-      "company": "JS Bank",
-      "location": "Islamabad",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Oct 31, 2026",
-      "url": "https://www.rozee.pk/relationship-manager-priority-banking-islamabad-jobs-1934936"
-    },
-    {
       "id": "rozee:1941529",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -130,6 +115,21 @@
       "url": "https://www.rozee.pk/net-developer-hyderabad-jobs-1941529"
     },
     {
+      "id": "rozee:1934936",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1934936",
+      "title": "Relationship Manager Priority Banking",
+      "company": "JS Bank",
+      "location": "Islamabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/relationship-manager-priority-banking-islamabad-jobs-1934936"
+    },
+    {
       "id": "rozee:1898510",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -143,21 +143,6 @@
       "contractType": "Full Time/Permanent",
       "postedDate": "Oct 06, 2026",
       "url": "https://www.rozee.pk/ahs-developer-sales-executive-required-hyderabad-jobs-1898510"
-    },
-    {
-      "id": "rozee:1935411",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1935411",
-      "title": "Area Sales Manager (ASM) – Priority Sales",
-      "company": "BankIslami",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Oct 31, 2026",
-      "url": "https://www.rozee.pk/area-sales-manager-asm-%e2%80%93-priority-sales-jobs-1935411"
     },
     {
       "id": "rozee:1939763",
@@ -235,36 +220,6 @@
       "url": "https://www.rozee.pk/developer-l3-hyderabad-jobs-1938247"
     },
     {
-      "id": "rozee:1941829",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1941829",
-      "title": "Businesses developer and sales executive",
-      "company": "A Net Cyber Solutions",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 05, 2026",
-      "url": "https://www.rozee.pk/businesses-developer-and-sales-executive-karachi-jobs-1941829"
-    },
-    {
-      "id": "rozee:1935413",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1935413",
-      "title": "Senior Relationship Manager (SRM) – Priority Sales",
-      "company": "BankIslami",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Oct 31, 2026",
-      "url": "https://www.rozee.pk/senior-relationship-manager-srm-%e2%80%93-priority-sales-jobs-1935413"
-    },
-    {
       "id": "rozee:1935165",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -293,6 +248,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Nov 04, 2026",
       "url": "https://www.rozee.pk/senior-python-developer-lahore-jobs-1941517"
+    },
+    {
+      "id": "rozee:1941829",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1941829",
+      "title": "Businesses developer and sales executive",
+      "company": "A Net Cyber Solutions",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 05, 2026",
+      "url": "https://www.rozee.pk/businesses-developer-and-sales-executive-karachi-jobs-1941829"
     },
     {
       "id": "rozee:1940019",
@@ -340,49 +310,19 @@
       "url": "https://www.rozee.pk/ruby-on-rails-developer-jobs-1937763"
     },
     {
-      "id": "rozee:1939495",
+      "id": "rozee:1935411",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1939495",
-      "title": "Full Stack Developer-Pakistan",
-      "company": "D·engage",
-      "location": "Islamabad",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 03, 2026",
-      "url": "https://www.rozee.pk/full-stack-developer-pakistan-islamabad-jobs-1939495"
-    },
-    {
-      "id": "rozee:1937088",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1937088",
-      "title": "Business developer/ relationship manager",
-      "company": "Arcova",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 01, 2026",
-      "url": "https://www.rozee.pk/business-developer-relationship-manager-lahore-jobs-1937088"
-    },
-    {
-      "id": "rozee:1938546",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1938546",
-      "title": "Full Stack Web Developer",
-      "company": "Devnixo",
-      "location": "Lahore",
+      "sourceId": "1935411",
+      "title": "Area Sales Manager (ASM) – Priority Sales",
+      "company": "BankIslami",
+      "location": "All Cities",
       "workMode": "unknown",
       "type": "Full-time",
       "experience": "3 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Nov 02, 2026",
-      "url": "https://www.rozee.pk/full-stack-web-developer-lahore-jobs-1938546"
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/area-sales-manager-asm-%e2%80%93-priority-sales-jobs-1935411"
     },
     {
       "id": "rozee:1934742",
@@ -413,6 +353,81 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Oct 31, 2026",
       "url": "https://www.rozee.pk/junior-unity-developer-islamabad-jobs-1934737"
+    },
+    {
+      "id": "rozee:1942640",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1942640",
+      "title": "Sr. Full Stack Developer",
+      "company": "UST",
+      "location": "Hyderabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 05, 2026",
+      "url": "https://www.rozee.pk/sr-full-stack-developer-hyderabad-jobs-1942640"
+    },
+    {
+      "id": "rozee:1939495",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1939495",
+      "title": "Full Stack Developer-Pakistan",
+      "company": "D·engage",
+      "location": "Islamabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 03, 2026",
+      "url": "https://www.rozee.pk/full-stack-developer-pakistan-islamabad-jobs-1939495"
+    },
+    {
+      "id": "rozee:1938546",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1938546",
+      "title": "Full Stack Web Developer",
+      "company": "Devnixo",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 02, 2026",
+      "url": "https://www.rozee.pk/full-stack-web-developer-lahore-jobs-1938546"
+    },
+    {
+      "id": "rozee:1937088",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1937088",
+      "title": "Business developer/ relationship manager",
+      "company": "Arcova",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 01, 2026",
+      "url": "https://www.rozee.pk/business-developer-relationship-manager-lahore-jobs-1937088"
+    },
+    {
+      "id": "rozee:1935413",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1935413",
+      "title": "Senior Relationship Manager (SRM) – Priority Sales",
+      "company": "BankIslami",
+      "location": "All Cities",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/senior-relationship-manager-srm-%e2%80%93-priority-sales-jobs-1935413"
     },
     {
       "id": "rozee:1940171",
@@ -490,6 +505,21 @@
       "url": "https://www.rozee.pk/principal-full-stack-developer-jobs-1939302"
     },
     {
+      "id": "rozee:1875914",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1875914",
+      "title": "Sales Executive",
+      "company": "Boost Lifestyle",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Nov 02, 2026",
+      "url": "https://www.rozee.pk/boost-lifestyle-sales-executive-karachi-jobs-1875914"
+    },
+    {
       "id": "rozee:1942233",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -520,19 +550,19 @@
       "url": "https://www.rozee.pk/full-stack-developer-pakistan-jobs-1940061"
     },
     {
-      "id": "rozee:1940928",
+      "id": "rozee:1935756",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1940928",
-      "title": "Full Stack Developer-Pakistan",
-      "company": "Dengage",
-      "location": "Islamabad",
+      "sourceId": "1935756",
+      "title": "Senior MERN Stack Developer",
+      "company": "Cyngro",
+      "location": "Lahore",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "2 Years",
+      "experience": "3 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Nov 04, 2026",
-      "url": "https://www.rozee.pk/full-stack-developer-pakistan-islamabad-jobs-1940928"
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/senior-mern-stack-developer-lahore-jobs-1935756"
     },
     {
       "id": "rozee:1941242",
@@ -548,6 +578,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Nov 04, 2026",
       "url": "https://www.rozee.pk/mobile-application-developer-karachi-jobs-1941242"
+    },
+    {
+      "id": "rozee:1940928",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1940928",
+      "title": "Full Stack Developer-Pakistan",
+      "company": "Dengage",
+      "location": "Islamabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 04, 2026",
+      "url": "https://www.rozee.pk/full-stack-developer-pakistan-islamabad-jobs-1940928"
     },
     {
       "id": "rozee:1939749",
@@ -595,36 +640,6 @@
       "url": "https://www.rozee.pk/full-stack-developer-lahore-jobs-1935425"
     },
     {
-      "id": "rozee:1935756",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1935756",
-      "title": "Senior MERN Stack Developer",
-      "company": "Cyngro",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Oct 31, 2026",
-      "url": "https://www.rozee.pk/senior-mern-stack-developer-lahore-jobs-1935756"
-    },
-    {
-      "id": "rozee:1875914",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1875914",
-      "title": "Sales Executive",
-      "company": "Boost Lifestyle",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Nov 02, 2026",
-      "url": "https://www.rozee.pk/boost-lifestyle-sales-executive-karachi-jobs-1875914"
-    },
-    {
       "id": "rozee:1938245",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -653,21 +668,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Nov 02, 2026",
       "url": "https://www.rozee.pk/web-developer-intern-unpaid-internship-%e2%80%93-3-months-islamabad-jobs-1938668"
-    },
-    {
-      "id": "rozee:1902223",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1902223",
-      "title": "Staff Nurse",
-      "company": "Chughtai Healthcare",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Oct 09, 2026",
-      "url": "https://www.rozee.pk/chughtai-healthcare-staff-nurse-jobs-1902223"
     },
     {
       "id": "rozee:1938108",
@@ -715,19 +715,19 @@
       "url": "https://www.rozee.pk/full-stack-developer-mernmeannextjs-mian-chunnu-jobs-1939176"
     },
     {
-      "id": "rozee:1941084",
+      "id": "rozee:1902223",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1941084",
-      "title": "Backend Developer (Laravel)",
-      "company": "PayOn",
-      "location": "All Cities",
+      "sourceId": "1902223",
+      "title": "Staff Nurse",
+      "company": "Chughtai Healthcare",
+      "location": "Lahore",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 04, 2026",
-      "url": "https://www.rozee.pk/backend-developer-laravel-jobs-1941084"
+      "experience": "2 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Oct 09, 2026",
+      "url": "https://www.rozee.pk/chughtai-healthcare-staff-nurse-jobs-1902223"
     },
     {
       "id": "rozee:1941246",
@@ -745,19 +745,19 @@
       "url": "https://www.rozee.pk/aws-developer-jobs-1941246"
     },
     {
-      "id": "rozee:1938447",
+      "id": "rozee:1941084",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1938447",
-      "title": "Sr Developer, Application Development",
-      "company": "TransUnion",
-      "location": "Hyderabad",
+      "sourceId": "1941084",
+      "title": "Backend Developer (Laravel)",
+      "company": "PayOn",
+      "location": "All Cities",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "6 Years",
+      "experience": "3 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Nov 02, 2026",
-      "url": "https://www.rozee.pk/sr-developer-application-development-hyderabad-jobs-1938447"
+      "postedDate": "Nov 04, 2026",
+      "url": "https://www.rozee.pk/backend-developer-laravel-jobs-1941084"
     },
     {
       "id": "rozee:1940580",
@@ -910,21 +910,6 @@
       "url": "https://www.rozee.pk/mushaaf-it-level-1-it-helpdesk-support-engineer-jobs-1927657"
     },
     {
-      "id": "rozee:1939136",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1939136",
-      "title": "Biomedical sales engineer",
-      "company": "Statelife insurance corporation.",
-      "location": "Multiple Cities",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Nov 03, 2026",
-      "url": "https://www.rozee.pk/statelife-insurance-corporation-biomedical-sales-engineer-jobs-1939136"
-    },
-    {
       "id": "rozee:1897506",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -938,6 +923,21 @@
       "contractType": "Full Time/Permanent",
       "postedDate": "Oct 05, 2026",
       "url": "https://www.rozee.pk/potentia-engineering-sales-engineer-lahore-jobs-1897506"
+    },
+    {
+      "id": "rozee:1939136",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1939136",
+      "title": "Biomedical sales engineer",
+      "company": "Statelife insurance corporation.",
+      "location": "Multiple Cities",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Nov 03, 2026",
+      "url": "https://www.rozee.pk/statelife-insurance-corporation-biomedical-sales-engineer-jobs-1939136"
     },
     {
       "id": "rozee:1941794",
@@ -968,21 +968,6 @@
       "contractType": "Full Time/Permanent",
       "postedDate": "Oct 27, 2026",
       "url": "https://www.rozee.pk/professional-employers-pvt-ltd-optical-transmission-engineer-%e2%80%93-dwdm-otn-ms-otn-jobs-1928640"
-    },
-    {
-      "id": "rozee:1941636",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1941636",
-      "title": "Associate Mechanical Engineer",
-      "company": "SGC",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "Full Time/Permanent",
-      "postedDate": "Nov 04, 2026",
-      "url": "https://www.rozee.pk/sgc-associate-mechanical-engineer-jobs-1941636"
     },
     {
       "id": "rozee:1942521",
@@ -1028,6 +1013,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Nov 03, 2026",
       "url": "https://www.rozee.pk/software-sales-engineer-lahore-lahore-jobs-1939311"
+    },
+    {
+      "id": "rozee:1941636",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1941636",
+      "title": "Associate Mechanical Engineer",
+      "company": "SGC",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "Full Time/Permanent",
+      "postedDate": "Nov 04, 2026",
+      "url": "https://www.rozee.pk/sgc-associate-mechanical-engineer-jobs-1941636"
     },
     {
       "id": "rozee:1935855",
@@ -1210,21 +1210,6 @@
       "url": "https://www.rozee.pk/ai-automation-full-stack-product-engineer-jobs-1937370"
     },
     {
-      "id": "rozee:1938379",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1938379",
-      "title": "Lead Support Engineer",
-      "company": "Motive",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Internship",
-      "experience": "2 Years",
-      "contractType": "Internship",
-      "postedDate": "Nov 02, 2026",
-      "url": "https://www.rozee.pk/lead-support-engineer-jobs-1938379"
-    },
-    {
       "id": "rozee:1940695",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1255,34 +1240,34 @@
       "url": "https://www.rozee.pk/paklite-electrical-industries-electrical-mechanical-mechatronics-industrial-engineer-jobs-1835916"
     },
     {
-      "id": "rozee:1937724",
+      "id": "rozee:1938379",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1937724",
-      "title": "DevOps Engineer",
-      "company": "vidaXL",
-      "location": "Hyderabad",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 01, 2026",
-      "url": "https://www.rozee.pk/devops-engineer-hyderabad-jobs-1937724"
-    },
-    {
-      "id": "rozee:1937706",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1937706",
-      "title": "Software Engineer Trainee",
-      "company": "Incedo",
-      "location": "Hyderabad",
+      "sourceId": "1938379",
+      "title": "Lead Support Engineer",
+      "company": "Motive",
+      "location": "All Cities",
       "workMode": "unknown",
       "type": "Internship",
       "experience": "2 Years",
       "contractType": "Internship",
-      "postedDate": "Nov 01, 2026",
-      "url": "https://www.rozee.pk/software-engineer-trainee-hyderabad-jobs-1937706"
+      "postedDate": "Nov 02, 2026",
+      "url": "https://www.rozee.pk/lead-support-engineer-jobs-1938379"
+    },
+    {
+      "id": "rozee:1942430",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1942430",
+      "title": "Data Engineer",
+      "company": "SadaPay",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 05, 2026",
+      "url": "https://www.rozee.pk/data-engineer-karachi-jobs-1942430"
     },
     {
       "id": "rozee:1938302",
@@ -1315,19 +1300,34 @@
       "url": "https://www.rozee.pk/gcp-data-engineer-hyderabad-jobs-1938280"
     },
     {
-      "id": "rozee:1942430",
+      "id": "rozee:1937724",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1942430",
-      "title": "Data Engineer",
-      "company": "SadaPay",
-      "location": "Karachi",
+      "sourceId": "1937724",
+      "title": "DevOps Engineer",
+      "company": "vidaXL",
+      "location": "Hyderabad",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "3 Years",
+      "experience": "5 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Nov 05, 2026",
-      "url": "https://www.rozee.pk/data-engineer-karachi-jobs-1942430"
+      "postedDate": "Nov 01, 2026",
+      "url": "https://www.rozee.pk/devops-engineer-hyderabad-jobs-1937724"
+    },
+    {
+      "id": "rozee:1937706",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1937706",
+      "title": "Software Engineer Trainee",
+      "company": "Incedo",
+      "location": "Hyderabad",
+      "workMode": "unknown",
+      "type": "Internship",
+      "experience": "2 Years",
+      "contractType": "Internship",
+      "postedDate": "Nov 01, 2026",
+      "url": "https://www.rozee.pk/software-engineer-trainee-hyderabad-jobs-1937706"
     },
     {
       "id": "rozee:1936846",
@@ -1345,21 +1345,6 @@
       "url": "https://www.rozee.pk/civil-engineer-qaqc-design-estimation-lahore-jobs-1936846"
     },
     {
-      "id": "rozee:1938297",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1938297",
-      "title": "Mechanical Design Engineer",
-      "company": "SMEC",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "6 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 02, 2026",
-      "url": "https://www.rozee.pk/mechanical-design-engineer-jobs-1938297"
-    },
-    {
       "id": "rozee:1934921",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1373,6 +1358,21 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Oct 31, 2026",
       "url": "https://www.rozee.pk/lead-support-engineer-jobs-1934921"
+    },
+    {
+      "id": "rozee:1938297",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1938297",
+      "title": "Mechanical Design Engineer",
+      "company": "SMEC",
+      "location": "All Cities",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "6 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 02, 2026",
+      "url": "https://www.rozee.pk/mechanical-design-engineer-jobs-1938297"
     },
     {
       "id": "rozee:1941055",
@@ -1435,34 +1435,19 @@
       "url": "https://www.rozee.pk/civil-engineer-islamabad-jobs-1938135"
     },
     {
-      "id": "rozee:1940172",
+      "id": "rozee:1939440",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1940172",
-      "title": "Software Engineer",
-      "company": "Askari Bank",
+      "sourceId": "1939440",
+      "title": "Senior QA Engineer",
+      "company": "Altura",
       "location": "Islamabad",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "5 Years",
+      "experience": "3 Years",
       "contractType": "First Shift (Day)",
       "postedDate": "Nov 03, 2026",
-      "url": "https://www.rozee.pk/software-engineer-islamabad-jobs-1940172"
-    },
-    {
-      "id": "rozee:1940542",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1940542",
-      "title": "Engineer Telecom",
-      "company": "HR Business Solutions",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Contract",
-      "experience": "2 Years",
-      "contractType": "Contract",
-      "postedDate": "Nov 04, 2026",
-      "url": "https://www.rozee.pk/engineer-telecom-lahore-jobs-1940542"
+      "url": "https://www.rozee.pk/senior-qa-engineer-islamabad-jobs-1939440"
     },
     {
       "id": "rozee:1941514",
@@ -1480,19 +1465,34 @@
       "url": "https://www.rozee.pk/service-engineer-lahore-jobs-1941514"
     },
     {
-      "id": "rozee:1939440",
+      "id": "rozee:1942665",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1939440",
-      "title": "Senior QA Engineer",
-      "company": "Altura",
-      "location": "Islamabad",
+      "sourceId": "1942665",
+      "title": "Senior Data Engineer",
+      "company": "Backbase",
+      "location": "Hyderabad",
       "workMode": "unknown",
       "type": "Full-time",
       "experience": "3 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Nov 03, 2026",
-      "url": "https://www.rozee.pk/senior-qa-engineer-islamabad-jobs-1939440"
+      "postedDate": "Nov 05, 2026",
+      "url": "https://www.rozee.pk/senior-data-engineer-hyderabad-jobs-1942665"
+    },
+    {
+      "id": "rozee:1942646",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1942646",
+      "title": "Senior Telecommunications Engineer",
+      "company": "Worley",
+      "location": "Hyderabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "6 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 05, 2026",
+      "url": "https://www.rozee.pk/senior-telecommunications-engineer-hyderabad-jobs-1942646"
     },
     {
       "id": "rozee:1934862",
@@ -1540,6 +1540,21 @@
       "url": "https://www.rozee.pk/product-designer-karachi-jobs-1936904"
     },
     {
+      "id": "rozee:1942526",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1942526",
+      "title": "Senior Product Designer",
+      "company": "PakWheels",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 05, 2026",
+      "url": "https://www.rozee.pk/senior-product-designer-lahore-jobs-1942526"
+    },
+    {
       "id": "rozee:1940518",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1568,21 +1583,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Oct 31, 2026",
       "url": "https://www.rozee.pk/product-designer-karachi-jobs-1935252"
-    },
-    {
-      "id": "rozee:1942526",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1942526",
-      "title": "Senior Product Designer",
-      "company": "PakWheels",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 05, 2026",
-      "url": "https://www.rozee.pk/senior-product-designer-lahore-jobs-1942526"
     },
     {
       "id": "rozee:1942413",
@@ -1810,6 +1810,21 @@
       "url": "https://www.rozee.pk/graphic-designer-for-packaging-lahore-jobs-1938810"
     },
     {
+      "id": "rozee:1935476",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1935476",
+      "title": "Job Application Form – Graphic Designer",
+      "company": "Nexwys",
+      "location": "Pak Pattan Sharif",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/job-application-form-%e2%80%93-graphic-designer-pak-pattan-sharif-jobs-1935476"
+    },
+    {
       "id": "rozee:1928717",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1825,19 +1840,19 @@
       "url": "https://www.rozee.pk/kasha-nutrition-graphic-designer-jobs-1928717"
     },
     {
-      "id": "rozee:1935476",
+      "id": "rozee:1941291",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1935476",
-      "title": "Job Application Form – Graphic Designer",
-      "company": "Nexwys",
-      "location": "Pak Pattan Sharif",
+      "sourceId": "1941291",
+      "title": "Graphic Designer",
+      "company": "CrewBizz",
+      "location": "Lahore",
       "workMode": "unknown",
       "type": "Full-time",
       "experience": "2 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Oct 31, 2026",
-      "url": "https://www.rozee.pk/job-application-form-%e2%80%93-graphic-designer-pak-pattan-sharif-jobs-1935476"
+      "postedDate": "Nov 04, 2026",
+      "url": "https://www.rozee.pk/graphic-designer-lahore-jobs-1941291"
     },
     {
       "id": "rozee:1939371",
@@ -1870,21 +1885,6 @@
       "url": "https://www.rozee.pk/graphic-designer-lahore-jobs-1941728"
     },
     {
-      "id": "rozee:1941291",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1941291",
-      "title": "Graphic Designer",
-      "company": "CrewBizz",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 04, 2026",
-      "url": "https://www.rozee.pk/graphic-designer-lahore-jobs-1941291"
-    },
-    {
       "id": "rozee:1937644",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -1915,34 +1915,34 @@
       "url": "https://www.rozee.pk/graphic-designer-karachi-jobs-1936678"
     },
     {
-      "id": "rozee:1940556",
+      "id": "rozee:1942193",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1940556",
-      "title": "Graphic Designer",
-      "company": "Business Line Global",
-      "location": "Lahore",
+      "sourceId": "1942193",
+      "title": "Graphic Designer for Games and Social Media",
+      "company": "imedia5.com",
+      "location": "Rawalpindi",
       "workMode": "unknown",
       "type": "Full-time",
       "experience": "2 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Nov 04, 2026",
-      "url": "https://www.rozee.pk/graphic-designer-lahore-jobs-1940556"
+      "postedDate": "Nov 05, 2026",
+      "url": "https://www.rozee.pk/graphic-designer-for-games-and-social-media-rawalpindi-jobs-1942193"
     },
     {
-      "id": "rozee:1940525",
+      "id": "rozee:1942622",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1940525",
-      "title": "Event Interior Designer",
-      "company": "The Catalyst Group",
-      "location": "Lahore",
+      "sourceId": "1942622",
+      "title": "Instrumentation Designer Level II",
+      "company": "Worley",
+      "location": "Hyderabad",
       "workMode": "unknown",
-      "type": "Internship",
-      "experience": "2 Years",
-      "contractType": "Internship",
-      "postedDate": "Nov 04, 2026",
-      "url": "https://www.rozee.pk/event-interior-designer-lahore-jobs-1940525"
+      "type": "Full-time",
+      "experience": "6 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 05, 2026",
+      "url": "https://www.rozee.pk/instrumentation-designer-level-ii-hyderabad-jobs-1942622"
     },
     {
       "id": "rozee:1942421",
@@ -2020,19 +2020,19 @@
       "url": "https://www.rozee.pk/product-manager-tj-1934670-lahore-jobs-1935117"
     },
     {
-      "id": "rozee:1937700",
+      "id": "rozee:1935873",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1937700",
-      "title": "Staff Product Manager, Compute Platform",
-      "company": "DigitalOcean",
-      "location": "Hyderabad",
+      "sourceId": "1935873",
+      "title": "Product Manager",
+      "company": "Wilson's pharmagroup (wpg)",
+      "location": "Islamabad",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "6 Years",
+      "experience": "5 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Nov 01, 2026",
-      "url": "https://www.rozee.pk/staff-product-manager-compute-platform-hyderabad-jobs-1937700"
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/product-manager-islamabad-jobs-1935873"
     },
     {
       "id": "rozee:1942500",
@@ -2050,19 +2050,19 @@
       "url": "https://www.rozee.pk/product-manager-%e2%80%93-ai-agentic-products-lahore-jobs-1942500"
     },
     {
-      "id": "rozee:1935873",
+      "id": "rozee:1937700",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1935873",
-      "title": "Product Manager",
-      "company": "Wilson's pharmagroup (wpg)",
-      "location": "Islamabad",
+      "sourceId": "1937700",
+      "title": "Staff Product Manager, Compute Platform",
+      "company": "DigitalOcean",
+      "location": "Hyderabad",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "5 Years",
+      "experience": "6 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Oct 31, 2026",
-      "url": "https://www.rozee.pk/product-manager-islamabad-jobs-1935873"
+      "postedDate": "Nov 01, 2026",
+      "url": "https://www.rozee.pk/staff-product-manager-compute-platform-hyderabad-jobs-1937700"
     },
     {
       "id": "rozee:1940486",
@@ -2455,21 +2455,6 @@
       "url": "https://www.rozee.pk/senior-data-analyst-jobs-1940058"
     },
     {
-      "id": "rozee:1941688",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1941688",
-      "title": "Junior Client Relationship & Data Entry Executive",
-      "company": "Zakiah Marbles",
-      "location": "All Cities",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 05, 2026",
-      "url": "https://www.rozee.pk/junior-client-relationship-data-entry-executive-jobs-1941688"
-    },
-    {
       "id": "rozee:1908451",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2483,6 +2468,21 @@
       "contractType": "Full Time/Permanent",
       "postedDate": "Oct 14, 2026",
       "url": "https://www.rozee.pk/faisal-movers-senior-data-analyst-jobs-1908451"
+    },
+    {
+      "id": "rozee:1941688",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1941688",
+      "title": "Junior Client Relationship & Data Entry Executive",
+      "company": "Zakiah Marbles",
+      "location": "All Cities",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 05, 2026",
+      "url": "https://www.rozee.pk/junior-client-relationship-data-entry-executive-jobs-1941688"
     },
     {
       "id": "rozee:1939799",
@@ -2515,21 +2515,6 @@
       "url": "https://www.rozee.pk/amazon-pl-brand-manager-onsite-lahore-jobs-1939658"
     },
     {
-      "id": "rozee:1936490",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1936490",
-      "title": "Accounts officer",
-      "company": "Mian Corporation",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 01, 2026",
-      "url": "https://www.rozee.pk/accounts-officer-lahore-jobs-1936490"
-    },
-    {
       "id": "rozee:1916215",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
@@ -2558,66 +2543,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Nov 04, 2026",
       "url": "https://www.rozee.pk/acquisition-growth-analyst-jobs-1941566"
-    },
-    {
-      "id": "rozee:1934732",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1934732",
-      "title": "Accounts officer",
-      "company": "Mian Corporation",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Oct 31, 2026",
-      "url": "https://www.rozee.pk/accounts-officer-lahore-jobs-1934732"
-    },
-    {
-      "id": "rozee:1936626",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1936626",
-      "title": "Team Lead PMO – FTTH",
-      "company": "HRPSP - Your Strategic HR Partner",
-      "location": "Islamabad",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 01, 2026",
-      "url": "https://www.rozee.pk/team-lead-pmo-%e2%80%93-ftth-islamabad-jobs-1936626"
-    },
-    {
-      "id": "rozee:1937968",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1937968",
-      "title": "Data Entry Operator",
-      "company": "ABS International",
-      "location": "Karachi",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "5 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Nov 02, 2026",
-      "url": "https://www.rozee.pk/data-entry-operator-karachi-jobs-1937968"
-    },
-    {
-      "id": "rozee:1934728",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1934728",
-      "title": "Admin & Data Entry Assistant - B.Com",
-      "company": "Maxobiz",
-      "location": "Lahore",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "2 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Oct 31, 2026",
-      "url": "https://www.rozee.pk/admin-data-entry-assistant-bcom-lahore-jobs-1934728"
     },
     {
       "id": "rozee:1930521",
@@ -2650,19 +2575,94 @@
       "url": "https://www.rozee.pk/marklix-senior-product-manager-for-data-annotation-project-lahore-jobs-1927604"
     },
     {
-      "id": "rozee:1937981",
+      "id": "rozee:1936490",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1937981",
-      "title": "Sales Operations Executive",
-      "company": "NASA Chemicals Pvt Ltd",
-      "location": "Karachi",
+      "sourceId": "1936490",
+      "title": "Accounts officer",
+      "company": "Mian Corporation",
+      "location": "Lahore",
       "workMode": "unknown",
       "type": "Full-time",
       "experience": "2 Years",
       "contractType": "First Shift (Day)",
+      "postedDate": "Nov 01, 2026",
+      "url": "https://www.rozee.pk/accounts-officer-lahore-jobs-1936490"
+    },
+    {
+      "id": "rozee:1934732",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1934732",
+      "title": "Accounts officer",
+      "company": "Mian Corporation",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/accounts-officer-lahore-jobs-1934732"
+    },
+    {
+      "id": "rozee:1936626",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1936626",
+      "title": "Team Lead PMO – FTTH",
+      "company": "HRPSP - Your Strategic HR Partner",
+      "location": "Islamabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Nov 01, 2026",
+      "url": "https://www.rozee.pk/team-lead-pmo-%e2%80%93-ftth-islamabad-jobs-1936626"
+    },
+    {
+      "id": "rozee:1934728",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1934728",
+      "title": "Admin & Data Entry Assistant - B.Com",
+      "company": "Maxobiz",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "2 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/admin-data-entry-assistant-bcom-lahore-jobs-1934728"
+    },
+    {
+      "id": "rozee:1937968",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1937968",
+      "title": "Data Entry Operator",
+      "company": "ABS International",
+      "location": "Karachi",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
       "postedDate": "Nov 02, 2026",
-      "url": "https://www.rozee.pk/sales-operations-executive-karachi-jobs-1937981"
+      "url": "https://www.rozee.pk/data-entry-operator-karachi-jobs-1937968"
+    },
+    {
+      "id": "rozee:1935653",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1935653",
+      "title": "Performance Marketer",
+      "company": "SJ Holdings Private Limited",
+      "location": "Lahore",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "5 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/performance-marketer-lahore-jobs-1935653"
     },
     {
       "id": "rozee:1935351",
@@ -2830,19 +2830,19 @@
       "url": "https://www.rozee.pk/devops-engineer-islamabad-jobs-1940529"
     },
     {
-      "id": "rozee:1939732",
+      "id": "rozee:1936800",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1939732",
-      "title": "Azure DevOps Consultant",
-      "company": "Ashlar",
-      "location": "All Cities",
+      "sourceId": "1936800",
+      "title": "Network & DevOps Engineer",
+      "company": "SwipBox",
+      "location": "Islamabad",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "5 Years",
+      "experience": "3 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Nov 03, 2026",
-      "url": "https://www.rozee.pk/azure-devops-consultant-jobs-1939732"
+      "postedDate": "Nov 01, 2026",
+      "url": "https://www.rozee.pk/network-devops-engineer-islamabad-jobs-1936800"
     },
     {
       "id": "rozee:1938366",
@@ -2860,19 +2860,19 @@
       "url": "https://www.rozee.pk/azure-devops-engineer-jobs-1938366"
     },
     {
-      "id": "rozee:1936800",
+      "id": "rozee:1939732",
       "source": "rozee.pk",
       "sourceLabel": "Rozee.pk",
-      "sourceId": "1936800",
-      "title": "Network & DevOps Engineer",
-      "company": "SwipBox",
-      "location": "Islamabad",
+      "sourceId": "1939732",
+      "title": "Azure DevOps Consultant",
+      "company": "Ashlar",
+      "location": "All Cities",
       "workMode": "unknown",
       "type": "Full-time",
-      "experience": "3 Years",
+      "experience": "5 Years",
       "contractType": "First Shift (Day)",
-      "postedDate": "Nov 01, 2026",
-      "url": "https://www.rozee.pk/network-devops-engineer-islamabad-jobs-1936800"
+      "postedDate": "Nov 03, 2026",
+      "url": "https://www.rozee.pk/azure-devops-consultant-jobs-1939732"
     },
     {
       "id": "rozee:1935820",
@@ -2888,6 +2888,21 @@
       "contractType": "Contract",
       "postedDate": "Oct 31, 2026",
       "url": "https://www.rozee.pk/devops-engineer-jhelum-jobs-1935820"
+    },
+    {
+      "id": "rozee:1935160",
+      "source": "rozee.pk",
+      "sourceLabel": "Rozee.pk",
+      "sourceId": "1935160",
+      "title": "Sr. AWS DevOps Engineer- Kubernetes Expertise",
+      "company": "Cloudelligent",
+      "location": "Islamabad",
+      "workMode": "unknown",
+      "type": "Full-time",
+      "experience": "3 Years",
+      "contractType": "First Shift (Day)",
+      "postedDate": "Oct 31, 2026",
+      "url": "https://www.rozee.pk/sr-aws-devops-engineer-kubernetes-expertise-islamabad-jobs-1935160"
     },
     {
       "id": "rozee:1940650",
@@ -2918,21 +2933,6 @@
       "contractType": "First Shift (Day)",
       "postedDate": "Oct 31, 2026",
       "url": "https://www.rozee.pk/sr-aws-devops-engineer-kubernetes-expertise-karachi-jobs-1935178"
-    },
-    {
-      "id": "rozee:1935160",
-      "source": "rozee.pk",
-      "sourceLabel": "Rozee.pk",
-      "sourceId": "1935160",
-      "title": "Sr. AWS DevOps Engineer- Kubernetes Expertise",
-      "company": "Cloudelligent",
-      "location": "Islamabad",
-      "workMode": "unknown",
-      "type": "Full-time",
-      "experience": "3 Years",
-      "contractType": "First Shift (Day)",
-      "postedDate": "Oct 31, 2026",
-      "url": "https://www.rozee.pk/sr-aws-devops-engineer-kubernetes-expertise-islamabad-jobs-1935160"
     },
     {
       "id": "rozee:1937010",
