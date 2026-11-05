@@ -459,11 +459,7 @@ fbq('init','1023886808844947');fbq('track','PageView');})();</script>
       const form = e.target, btn = form.querySelector('button'), note = form.querySelector('.form-note');
       const f = new FormData(form);
       const name = [f.get('first'), f.get('last')].filter(Boolean).join(' ');
-      const plan = f.get('plan'), wa = 'https://wa.me/923070555515?text=' + encodeURIComponent('Hi Launchbox, I would like to book a tour.
-
-Name: ' + name + '
-Phone: ' + f.get('phone') + '
-Interested in: ' + plan);
+      const plan = f.get('plan'), wa = 'https://wa.me/923070555515?text=' + encodeURIComponent('Hi Launchbox, I would like to book a tour.\n\nName: ' + name + '\nPhone: ' + f.get('phone') + '\nInterested in: ' + plan);
       btn.disabled = true; btn.textContent = 'Sending…'; note.hidden = true;
       try {
         const r = await fetch('/api/enquiry', { method: 'POST', headers: { 'Content-Type': 'application/json' },
