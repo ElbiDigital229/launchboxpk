@@ -4,31 +4,13 @@ on:
   push:
     branches:
       - main
-  # Also re-deploy after Fetch jobs commits a refreshed jobs.json.
-  # Pushes from the default GITHUB_TOKEN don't fire push triggers (anti-loop),
-  # so we chain explicitly here.
-  workflow_run:
-    workflows: ['Fetch jobs']
-    types: [completed]
-    branches: [main]
   workflow_dispatch: {}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # When triggered by Fetch jobs, only deploy if that run actually succeeded.
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci
-      - run: npm run build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -37,11 +19,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Sync hashed assets (long cache, immutable)
-        run: aws s3 sync dist/_astro s3://launchboxpk.com/_astro --cache-control "public, max-age=31536000, immutable"
-
-      - name: Sync everything else (short cache)
-        run: aws s3 sync dist/ s3://launchboxpk.com --delete --exclude "_astro/*" --cache-control "public, max-age=300, must-revalidate"
+      # The site is pre-built static HTML in /site (source + builders live in Drive:
+      # Work/Launchbox Coworking/Launchbox Website, exported with site/export_live.py).
+      - name: Sync site to S3
+        run: aws s3 sync site/ s3://launchboxpk.com --delete --cache-control "public, max-age=300, must-revalidate"
 
       - name: Update CloudFront URL-rewrite function
         run: |
@@ -49,7 +30,7 @@ jobs:
           ETAG=$(aws cloudfront describe-function --name "$FUNCTION_NAME" --query 'ETag' --output text)
           aws cloudfront update-function \
             --name "$FUNCTION_NAME" \
-            --function-config '{"Comment":"Rewrite clean URLs to <path>/index.html for Astro dist","Runtime":"cloudfront-js-2.0"}' \
+            --function-config '{"Comment":"301s for removed pages + clean URLs to <path>/index.html","Runtime":"cloudfront-js-2.0"}' \
             --function-code fileb://cloudfront-function.js \
             --if-match "$ETAG"
           ETAG=$(aws cloudfront describe-function --name "$FUNCTION_NAME" --query 'ETag' --output text)

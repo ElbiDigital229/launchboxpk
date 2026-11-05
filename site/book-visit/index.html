@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="icon" href="/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Launchbox">
+<meta property="og:title" content="Book a visit | Launchbox">
+<meta property="og:url" content="https://www.launchboxpk.com/book-visit">
+<meta property="og:image" content="https://www.launchboxpk.com/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<script>(function(){var h=location.hostname;window.__lbLive=(h==='www.launchboxpk.com'||h==='launchboxpk.com');
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+if(!window.__lbLive)return;
+var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-G1KP223X6B';document.head.appendChild(s);
+gtag('js',new Date());gtag('config','G-G1KP223X6B');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1023886808844947');fbq('track','PageView');})();</script><title>Book a visit | Launchbox</title>
+<meta http-equiv="refresh" content="0; url=/contact"><link rel="canonical" href="/contact">
+<meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="font-family:-apple-system,system-ui,sans-serif;padding:40px">Booking moved to <a href="/contact">our contact page</a>.<script>
+(function () {
+  if (window.__lbAnalyticsBound) return; window.__lbAnalyticsBound = true;
+  var FB_MAP = { whatsapp_click: { ev: 'Lead', label: 'WhatsApp' }, book_visit_click: { ev: 'Lead', label: 'Book a visit' },
+                 mailto_click: { ev: 'Contact', label: 'Email' }, phone_click: { ev: 'Contact', label: 'Phone' } };
+  function track(name, params) {
+    window.gtag('event', name, params || {});
+    var fb = FB_MAP[name];
+    if (fb && typeof window.fbq === 'function') {
+      window.fbq('track', fb.ev, { content_name: fb.label, content_category: (params && params.page_path) || location.pathname },
+        { eventID: 'lb-' + Date.now() + '-' + Math.random().toString(36).slice(2) });
+    }
+  }
+  window.lbTrack = track;
+  function classify(a) {
+    var href = a.getAttribute('href') || '', text = (a.textContent || '').trim().slice(0, 80);
+    if (href.indexOf('tel:') === 0) return { name: 'phone_click', params: { link_url: href, link_text: text } };
+    if (href.indexOf('mailto:') === 0) return { name: 'mailto_click', params: { link_url: href, link_text: text } };
+    if (/wa\.me|api\.whatsapp\.com|whatsapp\.com\/send/i.test(href)) return { name: 'whatsapp_click', params: { link_url: href, link_text: text, page_path: location.pathname } };
+    if (/(^|\/)book-visit(\/|\?|#|$)/i.test(href)) return { name: 'book_visit_click', params: { link_url: href, link_text: text, page_path: location.pathname } };
+    return null;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null; if (!a) return;
+    var ev = classify(a); if (ev) track(ev.name, ev.params);
+  }, true);
+})();
+</script>
+</body></html>
