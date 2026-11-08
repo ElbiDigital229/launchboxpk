@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Remote Work Readiness Test | Launchbox</title>
-<meta name="description" content="Take the Launchbox Remote Work Readiness Test. 8 quick questions, about 2 minutes. We only enroll people who qualify.">
+<meta name="description" content="Take the Launchbox Remote Work Readiness Test. 9 quick questions, about 2 minutes. We only enroll people who qualify.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://www.launchboxpk.com/readiness-test">
 <link rel="icon" href="/favicon.png">
 <meta property="og:title" content="Remote Work Readiness Test | Launchbox">
-<meta property="og:description" content="8 quick questions, about 2 minutes. We only enroll people who qualify.">
+<meta property="og:description" content="9 quick questions, about 2 minutes. We only enroll people who qualify.">
 <meta property="og:image" content="https://www.launchboxpk.com/img-home-why.webp">
 <script>(function(){var h=location.hostname;window.__lbLive=(h==='www.launchboxpk.com'||h==='launchboxpk.com');
 window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
@@ -77,7 +77,7 @@ input:focus{outline:none;border-color:var(--lime)}
   <section id="intro">
     <h1>Remote Work<br><span>Readiness Test</span></h1>
     <p class="lead">A few quick questions about your work, your goals and your setup. We only enroll people who are ready to land remote work, and we use your score to decide.</p>
-    <div class="meta"><span><b>8</b> questions</span><span><b>~2</b> minutes</span><span>Score out of <b>100</b></span></div>
+    <div class="meta"><span><b>9</b> questions</span><span><b>~2</b> minutes</span><span>Score out of <b>100</b></span></div>
     <div class="card" style="margin-top:26px">
       <h3>First, who are you?</h3>
       <p>We’ll send your result and next steps on WhatsApp.</p>
@@ -101,6 +101,23 @@ input:focus{outline:none;border-color:var(--lime)}
     <div class="nav"><button class="btn ghost" id="back">←</button><button class="btn" id="next" disabled>Next</button></div>
   </section>
 
+  <!-- PROFILE -->
+  <section id="profile" hidden>
+    <div class="progress"><i style="width:100%"></i></div>
+    <p class="step">Last step</p>
+    <h2 class="q">Show us your profile</h2>
+    <p class="hint">Add at least one. Candidates with a profile or CV get reviewed first.</p>
+    <label class="f" for="linkedin">LinkedIn profile URL</label>
+    <input id="linkedin" type="url" inputmode="url" placeholder="linkedin.com/in/yourname">
+    <label class="f" for="upwork">Upwork / Fiverr profile URL</label>
+    <input id="upwork" type="url" inputmode="url" placeholder="upwork.com/freelancers/...">
+    <label class="f" for="cv">CV link (Google Drive, Dropbox etc.)</label>
+    <input id="cv" type="url" inputmode="url" placeholder="Make sure the link is set to “anyone can view”">
+    <p class="hint" style="margin-top:-4px">No link? You can send your CV as a PDF on WhatsApp after the test.</p>
+    <p class="err" id="perr"></p>
+    <div class="nav"><button class="btn ghost" id="pback">←</button><button class="btn" id="pnext">See my score</button></div>
+  </section>
+
   <!-- RESULT -->
   <section id="result" hidden>
     <p class="step">Your readiness score</p>
@@ -110,7 +127,7 @@ input:focus{outline:none;border-color:var(--lime)}
     <div class="bars" id="bars"></div>
     <div class="card">
       <h3 id="ctaTitle">We’ve got your result</h3>
-      <p id="ctaText">Our team will message you on WhatsApp about the next intake. Want a faster reply? Message us now.</p>
+      <p id="ctaText">Our team will message you on WhatsApp about the next intake. Want a faster reply, or to send your CV as a PDF? Message us now.</p>
       <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a>
     </div>
   </section>
@@ -127,6 +144,8 @@ const QUESTIONS = [
     opts:["Not earning yet","Under PKR 50,000","PKR 50,000 – 100,000","PKR 100,000 – 200,000","Over PKR 200,000"] },
   { key:"tz", cat:"Availability", q:"Which time zones are you OK working in?", hint:"Pick all that apply.", type:"multi",
     opts:["US hours (evening/night in Pakistan)","UK / Europe hours (afternoon/evening)","Middle East hours (daytime)","Australia hours (early morning)","Only normal Pakistan office hours"] },
+  { key:"search", q:"How are you looking for jobs right now?", hint:"Pick all that apply.", type:"multi",
+    opts:["LinkedIn","Indeed","Rozee.pk or other Pakistani job sites","Upwork","Fiverr","Referrals from friends or family","Facebook / WhatsApp groups","Applying on company websites","I’m not actively looking yet"] },
   { key:"challenge", q:"What’s your biggest challenge in finding a remote job?", hint:"Pick all that apply.", type:"multi",
     opts:["I don’t know where to find real remote jobs","I apply but don’t hear back","My CV / LinkedIn isn’t strong enough","I get nervous in interviews","My English needs work","I don’t have the right skills yet","I don’t have a good laptop or internet"] },
   { key:"english", cat:"English", q:"A foreign client writes: “Can you send the report by EOD?” Which reply is best?", type:"single",
@@ -145,7 +164,7 @@ function tzPoints(sel){ // more flexibility = more points
   const o = QUESTIONS[3].opts; const has = k => sel.includes(k);
   if (has(0)) return 4; if (has(1)) return 3; if (has(2)||has(3)) return 2; return 0;
 }
-function show(s){ ["intro","quiz","result"].forEach(x => $(x).hidden = x!==s); window.scrollTo(0,0); }
+function show(s){ ["intro","quiz","profile","result"].forEach(x => $(x).hidden = x!==s); window.scrollTo(0,0); }
 function answered(k){ const a = ans[k]; return Array.isArray(a) ? a.length>0 : a!==null; }
 
 function render(){
@@ -196,8 +215,9 @@ function finish(){
   const summary = [
     `REMOTE WORK READINESS TEST: ${score}/100 (${v.textContent})`,
     `Field: ${A("industry")}`, `Worked remotely: ${A("remote")}`, `Earning now: ${A("earning")}`,
-    `Time zones OK: ${A("tz")}`, `Biggest challenge: ${A("challenge")}`,
-    `English check: ${A("english")}`, `Setup: ${A("setup")}`, `Commitment: ${A("commit")}`
+    `Time zones OK: ${A("tz")}`, `Looking via: ${A("search")}`, `Biggest challenge: ${A("challenge")}`,
+    `English check: ${A("english")}`, `Setup: ${A("setup")}`, `Commitment: ${A("commit")}`,
+    `LinkedIn: ${url("linkedin")||"-"}`, `Upwork/Fiverr: ${url("upwork")||"-"}`, `CV: ${url("cv")||"- (may send on WhatsApp)"}`
   ].join("\n");
 
   // save the lead (same backend as the contact form: DynamoDB + email to contact@)
@@ -207,7 +227,7 @@ function finish(){
   try{ if(window.fbq) fbq('track','Lead',{content_name:'Readiness Test', value:score}); }catch(e){}
   ev('readiness_test_complete',{score});
 
-  const waText = `Hi Launchbox! I just took the Remote Work Readiness Test.\nName: ${$("name").value.trim()}\nScore: ${score}/100\nField: ${A("industry")}`;
+  const waText = `Hi Launchbox! I just took the Remote Work Readiness Test.\nName: ${$("name").value.trim()}\nScore: ${score}/100\nField: ${A("industry")}\n(I'll attach my CV here.)`;
   $("wa").href = `https://wa.me/${WA}?text=${encodeURIComponent(waText)}`;
   $("wa").onclick = () => { try{ if(window.fbq) fbq('track','Contact',{content_name:'Readiness Test WhatsApp'}); }catch(e){} ev('whatsapp_click',{page_path:'/readiness-test'}); };
   show("result");
@@ -219,7 +239,16 @@ $("start").onclick = () => {
   if (digits.length<10 || digits.length>15){ $("err").textContent="Please enter a valid WhatsApp number, e.g. 0300 1234567."; return; }
   $("err").textContent=""; i=0; show("quiz"); render(); ev('readiness_test_start');
 };
-$("next").onclick = () => { if (i<QUESTIONS.length-1){ i++; render(); } else finish(); };
+$("next").onclick = () => { if (i<QUESTIONS.length-1){ i++; render(); } else show("profile"); };
+const url = id => { let v=$(id).value.trim(); if(!v) return ""; if(!/^https?:\/\//i.test(v)) v="https://"+v; return v; };
+const okUrl = v => !v || /^https?:\/\/[^\s.]+\.[^\s]+$/i.test(v);
+$("pback").onclick = () => { i=QUESTIONS.length-1; show("quiz"); render(); };
+$("pnext").onclick = () => {
+  const L=url("linkedin"), U=url("upwork"), C=url("cv");
+  if (![L,U,C].every(okUrl)){ $("perr").textContent="One of the links doesn’t look right. Please check it."; return; }
+  if (!L && !U && !C && !$("pnext").dataset.warned){ $("perr").textContent="No profile added. Tap again to continue without one, or add a link above."; $("pnext").dataset.warned="1"; return; }
+  $("perr").textContent=""; ev('readiness_profile', {linkedin:!!L, upwork:!!U, cv:!!C}); finish();
+};
 $("back").onclick = () => { if (i>0){ i--; render(); } else show("intro"); };
 </script>
 </body>
