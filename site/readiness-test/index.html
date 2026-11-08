@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Remote Work Readiness Test | Launchbox</title>
-<meta name="description" content="Take the Launchbox Remote Work Readiness Test. 6 questions, about 2 minutes. We only enroll people who qualify.">
+<meta name="description" content="Take the Launchbox Remote Work Readiness Test. 8 quick questions, about 2 minutes. We only enroll people who qualify.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://www.launchboxpk.com/readiness-test">
 <link rel="icon" href="/favicon.png">
 <meta property="og:title" content="Remote Work Readiness Test | Launchbox">
-<meta property="og:description" content="6 questions, about 2 minutes. We only enroll people who qualify.">
+<meta property="og:description" content="8 quick questions, about 2 minutes. We only enroll people who qualify.">
 <meta property="og:image" content="https://www.launchboxpk.com/img-home-why.webp">
 <script>(function(){var h=location.hostname;window.__lbLive=(h==='www.launchboxpk.com'||h==='launchboxpk.com');
 window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
@@ -26,7 +26,7 @@ fbq('init','1023886808844947');fbq('track','PageView');})();</script>
 body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
 .wrap{max-width:620px;margin:0 auto;padding:28px 20px 60px}
 .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.brand{font-weight:800;letter-spacing:.16em;font-size:15px}
+.brand{font-weight:800;letter-spacing:.16em;font-size:15px;color:var(--ink);text-decoration:none}
 .tag{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--lime)}
 h1{font-size:clamp(34px,8vw,48px);line-height:1.04;font-weight:800;letter-spacing:-.02em;text-transform:uppercase}
 h1 span{color:var(--lime)}
@@ -41,15 +41,19 @@ h1 span{color:var(--lime)}
 .step{color:var(--dim);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
 .q{font-size:clamp(22px,5.4vw,27px);font-weight:700;line-height:1.3;margin-bottom:8px}
 .hint{color:var(--mute);font-size:15px;line-height:1.5;margin-bottom:20px}
-.quote{background:var(--card);border-left:3px solid var(--lime);padding:14px 16px;border-radius:8px;color:var(--mute);font-size:15px;line-height:1.5;margin-bottom:18px}
 .opts{display:grid;gap:10px;margin-bottom:24px}
-.opt{text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:16px 16px;font:600 16px/1.4 Manrope,sans-serif;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
+.opt{text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:16px;font:600 16px/1.4 Manrope,sans-serif;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
 .opt:hover{border-color:#36604a}
 .opt .dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--dim);flex:none;margin-top:1px}
+.opt.sq .dot{border-radius:5px}
 .opt.on{border-color:var(--lime);background:#16361f}
 .opt.on .dot{border-color:var(--lime);background:var(--lime);box-shadow:inset 0 0 0 4px #16361f}
 .nav{display:flex;gap:10px}
 .nav .btn.ghost{width:auto;padding:18px 22px}
+label.f{display:block;font-size:14px;font-weight:700;color:var(--mute);margin:4px 0 8px}
+input{width:100%;background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:16px 14px;font:600 17px Manrope,sans-serif;margin-bottom:16px}
+input:focus{outline:none;border-color:var(--lime)}
+.err{color:var(--bad);font-size:14px;font-weight:600;margin:-8px 0 14px;min-height:1px}
 .score{display:flex;align-items:baseline;gap:8px;margin:8px 0 6px}
 .score b{font-size:84px;font-weight:800;line-height:1;color:var(--lime);letter-spacing:-.04em}
 .score span{font-size:22px;color:var(--dim);font-weight:700}
@@ -62,22 +66,29 @@ h1 span{color:var(--lime)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:22px}
 .card h3{font-size:19px;margin-bottom:6px}
 .card p{color:var(--mute);font-size:15px;line-height:1.5;margin-bottom:16px}
-input,select{width:100%;background:var(--bg);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:15px 14px;font:600 16px Manrope,sans-serif;margin-bottom:12px}
-input:focus,select:focus{outline:none;border-color:var(--lime)}
-.foot{color:var(--dim);font-size:13px;text-align:center;margin-top:34px;line-height:1.6}
 [hidden]{display:none!important}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <div class="top"><span class="brand">LAUNCHBOX</span><span class="tag">REMOTE CAREERS</span></div>
+  <div class="top"><a class="brand" href="/">LAUNCHBOX</a><span class="tag">REMOTE CAREERS</span></div>
 
-  <!-- INTRO -->
+  <!-- INTRO + CONTACT -->
   <section id="intro">
     <h1>Remote Work<br><span>Readiness Test</span></h1>
-    <p class="lead">Six quick questions on your English, skills, setup and availability. Answer honestly: we only enroll people who are ready to land remote work, and we use your score to decide.</p>
-    <div class="meta"><span><b>6</b> questions</span><span><b>~2</b> minutes</span><span>Score out of <b>100</b></span></div>
-    <div style="margin-top:30px"><button class="btn" id="start">Start the test →</button></div>
+    <p class="lead">A few quick questions about your work, your goals and your setup. We only enroll people who are ready to land remote work, and we use your score to decide.</p>
+    <div class="meta"><span><b>8</b> questions</span><span><b>~2</b> minutes</span><span>Score out of <b>100</b></span></div>
+    <div class="card" style="margin-top:26px">
+      <h3>First, who are you?</h3>
+      <p>We’ll send your result and next steps on WhatsApp.</p>
+      <label class="f" for="name">Full name</label>
+      <input id="name" autocomplete="name" placeholder="e.g. Ayesha Khan">
+      <label class="f" for="phone">WhatsApp number</label>
+      <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="03xx xxxxxxx">
+      <input id="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      <p class="err" id="err"></p>
+      <button class="btn" id="start">Start the test →</button>
+    </div>
   </section>
 
   <!-- QUESTIONS -->
@@ -86,7 +97,6 @@ input:focus,select:focus{outline:none;border-color:var(--lime)}
     <p class="step" id="step"></p>
     <h2 class="q" id="q"></h2>
     <p class="hint" id="hint"></p>
-    <div class="quote" id="quote" hidden></div>
     <div class="opts" id="opts"></div>
     <div class="nav"><button class="btn ghost" id="back">←</button><button class="btn" id="next" disabled>Next</button></div>
   </section>
@@ -98,106 +108,119 @@ input:focus,select:focus{outline:none;border-color:var(--lime)}
     <span class="verdict" id="verdict"></span>
     <p class="lead" id="verdictText"></p>
     <div class="bars" id="bars"></div>
-
     <div class="card">
-      <h3 id="ctaTitle">Claim your seat</h3>
-      <p id="ctaText">Send us your result and our team will contact you about the next intake.</p>
-      <input id="name" placeholder="Your full name" autocomplete="name">
-      <select id="role">
-        <option value="">What kind of remote work do you want?</option>
-        <option>Customer support</option><option>Virtual assistant / admin</option><option>Sales &amp; lead generation</option>
-        <option>Design &amp; video</option><option>Marketing &amp; social media</option><option>Development / IT</option><option>Not sure yet</option>
-      </select>
-      <button class="btn" id="send" disabled>Send my result on WhatsApp</button>
+      <h3 id="ctaTitle">We’ve got your result</h3>
+      <p id="ctaText">Our team will message you on WhatsApp about the next intake. Want a faster reply? Message us now.</p>
+      <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a>
     </div>
-    <div style="margin-top:12px"><button class="btn ghost" id="retake">Retake the test</button></div>
   </section>
 </main>
 
 <script>
-// Each option carries points (0-max). Category is used for the breakdown bars.
+// type: single | multi. pts: points per option (null = not scored). cat: breakdown bar.
 const QUESTIONS = [
-  { cat:"English", q:"A foreign client writes: “Can you send the report by EOD?” Which reply is best?",
-    opts:[["Ok sir I will try.",1],["Sure, I’ll send it by 6 pm your time today.",4],["What is EOD?",0],["Yes report done soon inshallah",1]], max:4 },
-  { cat:"English", q:"How comfortable are you on a video call in English with someone you’ve never met?",
-    opts:[["Very comfortable, I do it often",4],["Comfortable, with a bit of preparation",3],["Nervous, but I can manage",1],["I avoid speaking English",0]], max:4 },
-  { cat:"Skills", q:"Which best describes your skills today?",
-    opts:[["I have a clear skill and real work samples or clients",4],["I have a skill but little or no paid work yet",3],["I’ve done a course but haven’t practised much",1],["I don’t have a specific skill yet",0]], max:4 },
-  { cat:"Setup", q:"What is your work setup?",
-    hint:"Remote clients expect you online when you say you will be.",
-    opts:[["My own laptop, reliable internet and backup power",4],["Laptop and internet, but no backup in power cuts",2],["I share a laptop or only have a phone",1],["No laptop yet",0]], max:4 },
-  { cat:"Availability", q:"How many hours a day can you give to remote work?",
-    opts:[["6+ hours, including evening hours for US/UK clients",4],["4–6 hours a day",3],["2–3 hours a day",1],["Less than 2 hours",0]], max:4 },
-  { cat:"Commitment", q:"If you qualify, can you attend the full training and do the practice work?",
-    opts:[["Yes, I’m ready to start right away",4],["Yes, in the next month",3],["Maybe, depends on my schedule",1],["Just exploring for now",0]], max:4 },
+  { key:"industry", q:"Which field do you work in, or want to work in?", type:"single",
+    opts:["Customer support","Virtual assistant / admin","Sales & lead generation","Marketing & social media","Design & video","Development / IT","Accounting & finance","Other / not sure yet"] },
+  { key:"remote", cat:"Experience", q:"Have you worked remotely before?", type:"single",
+    opts:["Yes, for foreign clients or companies","Yes, remotely for Pakistani companies","Some freelance projects (Upwork, Fiverr etc.)","No, never"], pts:[4,3,2,0] },
+  { key:"earning", q:"Roughly how much do you earn per month right now?", hint:"This stays private. It helps us place you in the right track.", type:"single",
+    opts:["Not earning yet","Under PKR 50,000","PKR 50,000 – 100,000","PKR 100,000 – 200,000","Over PKR 200,000"] },
+  { key:"tz", cat:"Availability", q:"Which time zones are you OK working in?", hint:"Pick all that apply.", type:"multi",
+    opts:["US hours (evening/night in Pakistan)","UK / Europe hours (afternoon/evening)","Middle East hours (daytime)","Australia hours (early morning)","Only normal Pakistan office hours"] },
+  { key:"challenge", q:"What’s your biggest challenge in finding a remote job?", hint:"Pick all that apply.", type:"multi",
+    opts:["I don’t know where to find real remote jobs","I apply but don’t hear back","My CV / LinkedIn isn’t strong enough","I get nervous in interviews","My English needs work","I don’t have the right skills yet","I don’t have a good laptop or internet"] },
+  { key:"english", cat:"English", q:"A foreign client writes: “Can you send the report by EOD?” Which reply is best?", type:"single",
+    opts:["Ok sir I will try.","Sure, I’ll send it by 6 pm your time today.","What is EOD?","Yes report done soon inshallah"], pts:[1,4,0,1] },
+  { key:"setup", cat:"Setup", q:"What is your work setup?", hint:"Remote clients expect you online when you say you will be.", type:"single",
+    opts:["My own laptop, reliable internet and backup power","Laptop and internet, but no backup in power cuts","I share a laptop or only have a phone","No laptop yet"], pts:[4,2,1,0] },
+  { key:"commit", cat:"Commitment", q:"If you qualify, can you attend the full training and do the practice work?", type:"single",
+    opts:["Yes, I’m ready to start right away","Yes, in the next month","Maybe, depends on my schedule","Just exploring for now"], pts:[4,3,1,0] },
 ];
 const WA = "923070555515";
-let i = 0; const answers = new Array(QUESTIONS.length).fill(null);
 const $ = id => document.getElementById(id);
+let i = 0; const ans = QUESTIONS.map(Q => Q.type==="multi" ? [] : null);
+const ev = (n,p) => { try{ gtag('event',n,p||{}); }catch(e){} };
 
-function show(sec){ ["intro","quiz","result"].forEach(s => $(s).hidden = s!==sec); window.scrollTo(0,0); }
+function tzPoints(sel){ // more flexibility = more points
+  const o = QUESTIONS[3].opts; const has = k => sel.includes(k);
+  if (has(0)) return 4; if (has(1)) return 3; if (has(2)||has(3)) return 2; return 0;
+}
+function show(s){ ["intro","quiz","result"].forEach(x => $(x).hidden = x!==s); window.scrollTo(0,0); }
+function answered(k){ const a = ans[k]; return Array.isArray(a) ? a.length>0 : a!==null; }
 
 function render(){
   const Q = QUESTIONS[i];
   $("bar").style.width = (i/QUESTIONS.length*100)+"%";
-  $("step").textContent = `Question ${i+1} of ${QUESTIONS.length} · ${Q.cat}`;
-  $("q").textContent = Q.q;
-  $("hint").textContent = Q.hint || ""; $("hint").hidden = !Q.hint;
+  $("step").textContent = `Question ${i+1} of ${QUESTIONS.length}`;
+  $("q").textContent = Q.q; $("hint").textContent = Q.hint||""; $("hint").hidden = !Q.hint;
   $("opts").innerHTML = "";
-  Q.opts.forEach(([label], k) => {
+  Q.opts.forEach((label,k) => {
+    const on = Q.type==="multi" ? ans[i].includes(k) : ans[i]===k;
     const b = document.createElement("button");
-    b.className = "opt" + (answers[i]===k ? " on" : "");
-    b.innerHTML = `<span class="dot"></span><span></span>`; b.lastChild.textContent = label;
-    b.onclick = () => { answers[i]=k; render(); };
+    b.className = "opt" + (Q.type==="multi"?" sq":"") + (on?" on":"");
+    b.innerHTML = '<span class="dot"></span><span></span>'; b.lastChild.textContent = label;
+    b.onclick = () => {
+      if (Q.type==="multi"){ const a=ans[i]; const p=a.indexOf(k); p>=0 ? a.splice(p,1) : a.push(k); }
+      else ans[i]=k;
+      render();
+    };
     $("opts").appendChild(b);
   });
-  $("next").disabled = answers[i]===null;
+  $("next").disabled = !answered(i);
   $("next").textContent = i===QUESTIONS.length-1 ? "See my score" : "Next";
-  $("back").style.visibility = i===0 ? "hidden" : "visible";
+  $("back").style.visibility = "visible";
 }
 
-function results(){
+function finish(){
   let got=0, max=0; const cats={};
-  QUESTIONS.forEach((Q,k)=>{ const p=Q.opts[answers[k]][1]; got+=p; max+=Q.max;
-    cats[Q.cat]=cats[Q.cat]||[0,0]; cats[Q.cat][0]+=p; cats[Q.cat][1]+=Q.max; });
+  QUESTIONS.forEach((Q,k) => {
+    let p=null;
+    if (Q.key==="tz") p = tzPoints(ans[k]);
+    else if (Q.pts) p = Q.pts[ans[k]];
+    if (p===null) return;
+    got+=p; max+=4; cats[Q.cat]=Math.round(p/4*100);
+  });
   const score = Math.round(got/max*100);
   $("total").textContent = score;
   const v=$("verdict");
-  if(score>=70){ v.className="verdict"; v.textContent="Likely to qualify";
-    $("verdictText").textContent="You look ready. Send us your result to book a short call. If it goes well, we’ll offer you a seat in the next intake.";
-    $("ctaTitle").textContent="Book your qualifying call"; }
-  else if(score>=45){ v.className="verdict mid"; v.textContent="Close: needs a call";
-    $("verdictText").textContent="You’re close. A short call will tell us whether the programme is right for you now. Send your result and we’ll be in touch.";
-    $("ctaTitle").textContent="Request a qualifying call"; }
+  if (score>=70){ v.className="verdict"; v.textContent="Likely to qualify";
+    $("verdictText").textContent="You look ready. Our team will contact you on WhatsApp to book a short qualifying call."; }
+  else if (score>=45){ v.className="verdict mid"; v.textContent="Close: needs a call";
+    $("verdictText").textContent="You’re close. A short call will tell us whether the programme is right for you now. We’ll be in touch on WhatsApp."; }
   else { v.className="verdict low"; v.textContent="Not ready yet";
-    $("verdictText").textContent="Right now you’d struggle to land remote work. Send us your result anyway, and we’ll tell you what to work on first so you can retake the test.";
-    $("ctaTitle").textContent="Get your next steps"; }
-  $("bars").innerHTML = Object.entries(cats).map(([c,[g,m]])=>
-    `<div class="bar"><label><span>${c}</span><span>${Math.round(g/m*100)}%</span></label><div><i style="width:${g/m*100}%"></i></div></div>`).join("");
-  window.__score = score; window.__cats = cats;
-  try{ if(window.fbq) fbq('track','CompleteRegistration',{content_name:'Readiness Test',value:score}); }catch(e){}
-  try{ if(window.gtag) gtag('event','readiness_test_complete',{score}); }catch(e){}
+    $("verdictText").textContent="Right now you’d struggle to land remote work. We’ll message you with what to work on first, so you can retake the test."; }
+  $("bars").innerHTML = Object.entries(cats).map(([c,p]) =>
+    `<div class="bar"><label><span>${c}</span><span>${p}%</span></label><div><i style="width:${p}%"></i></div></div>`).join("");
+
+  const A = k => { const Q=QUESTIONS.find(x=>x.key===k); const a=ans[QUESTIONS.indexOf(Q)]; return Array.isArray(a) ? a.map(n=>Q.opts[n]).join("; ") : Q.opts[a]; };
+  const summary = [
+    `REMOTE WORK READINESS TEST: ${score}/100 (${v.textContent})`,
+    `Field: ${A("industry")}`, `Worked remotely: ${A("remote")}`, `Earning now: ${A("earning")}`,
+    `Time zones OK: ${A("tz")}`, `Biggest challenge: ${A("challenge")}`,
+    `English check: ${A("english")}`, `Setup: ${A("setup")}`, `Commitment: ${A("commit")}`
+  ].join("\n");
+
+  // save the lead (same backend as the contact form: DynamoDB + email to contact@)
+  fetch("/api/enquiry", { method:"POST", headers:{"content-type":"application/json"},
+    body: JSON.stringify({ name:$("name").value.trim(), phone:$("phone").value.trim(), plan:"Not sure yet",
+      message: summary, page: "/readiness-test", website: $("website").value }) }).catch(()=>{});
+  try{ if(window.fbq) fbq('track','Lead',{content_name:'Readiness Test', value:score}); }catch(e){}
+  ev('readiness_test_complete',{score});
+
+  const waText = `Hi Launchbox! I just took the Remote Work Readiness Test.\nName: ${$("name").value.trim()}\nScore: ${score}/100\nField: ${A("industry")}`;
+  $("wa").href = `https://wa.me/${WA}?text=${encodeURIComponent(waText)}`;
+  $("wa").onclick = () => { try{ if(window.fbq) fbq('track','Contact',{content_name:'Readiness Test WhatsApp'}); }catch(e){} ev('whatsapp_click',{page_path:'/readiness-test'}); };
   show("result");
 }
 
-function checkForm(){ $("send").disabled = !($("name").value.trim() && $("role").value); }
-$("name").oninput = checkForm; $("role").onchange = checkForm;
-
-$("start").onclick = () => { i=0; show("quiz"); render(); try{gtag('event','readiness_test_start')}catch(e){} };
-$("next").onclick = () => { if(i<QUESTIONS.length-1){ i++; render(); } else results(); };
-$("back").onclick = () => { if(i>0){ i--; render(); } };
-$("retake").onclick = () => { answers.fill(null); i=0; show("quiz"); render(); };
-$("send").onclick = () => {
-  const lines = [
-    `Hi Launchbox! I took the Remote Work Readiness Test.`,
-    `Name: ${$("name").value.trim()}`,
-    `Score: ${window.__score}/100`,
-    `Interested in: ${$("role").value}`,
-    ...Object.entries(window.__cats).map(([c,[g,m]])=>`${c}: ${Math.round(g/m*100)}%`)
-  ];
-  try{ if(window.fbq) fbq('track','Lead',{content_name:'Readiness Test result sent'}); }catch(e){}
-  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank");
+$("start").onclick = () => {
+  const name=$("name").value.trim(), digits=$("phone").value.replace(/\D/g,"");
+  if (name.length<2){ $("err").textContent="Please enter your name."; return; }
+  if (digits.length<10 || digits.length>15){ $("err").textContent="Please enter a valid WhatsApp number, e.g. 0300 1234567."; return; }
+  $("err").textContent=""; i=0; show("quiz"); render(); ev('readiness_test_start');
 };
+$("next").onclick = () => { if (i<QUESTIONS.length-1){ i++; render(); } else finish(); };
+$("back").onclick = () => { if (i>0){ i--; render(); } else show("intro"); };
 </script>
 </body>
 </html>
