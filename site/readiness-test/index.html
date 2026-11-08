@@ -125,9 +125,19 @@ input:focus{outline:none;border-color:var(--lime)}
     <span class="verdict" id="verdict"></span>
     <p class="lead" id="verdictText"></p>
     <div class="bars" id="bars"></div>
-    <div class="card">
-      <h3 id="ctaTitle">We’ve got your result</h3>
-      <p id="ctaText">Our team will message you on WhatsApp about the next intake. Want a faster reply, or to send your CV as a PDF? Message us now.</p>
+    <div class="card" id="consentCard">
+      <h3>About the program</h3>
+      <p>Launchbox Remote Careers is an outreach program that trains people for remote jobs and helps place them with remote employers and clients. <b style="color:#fff">It is a paid training and placement program.</b></p>
+      <p>If you agree, one of our career consultants will contact you on WhatsApp to explain the fees, schedule and next steps. There’s no obligation to join.</p>
+      <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;margin:6px 0 18px;font-size:15px;line-height:1.45;color:#fff;font-weight:600">
+        <input type="checkbox" id="agree" style="width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--lime)">
+        <span>I understand this is a paid training and placement program, and I agree to be contacted by a Launchbox consultant.</span></label>
+      <button class="btn" id="yes" disabled>Yes, have a consultant contact me</button>
+      <button class="btn ghost" id="no" style="margin-top:10px">No thanks</button>
+    </div>
+    <div class="card" id="doneCard" hidden>
+      <h3 id="doneTitle">Thank you!</h3>
+      <p id="doneText">A consultant will message you on WhatsApp soon. Want a faster reply, or to send your CV as a PDF? Message us now.</p>
       <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a>
     </div>
   </section>
@@ -203,11 +213,11 @@ function finish(){
   $("total").textContent = score;
   const v=$("verdict");
   if (score>=70){ v.className="verdict"; v.textContent="Likely to qualify";
-    $("verdictText").textContent="You look ready. Our team will contact you on WhatsApp to book a short qualifying call."; }
+    $("verdictText").textContent="You look ready for remote work. You qualify for a consultation."; }
   else if (score>=45){ v.className="verdict mid"; v.textContent="Close: needs a call";
-    $("verdictText").textContent="You’re close. A short call will tell us whether the programme is right for you now. We’ll be in touch on WhatsApp."; }
+    $("verdictText").textContent="You’re close. A short call with a consultant will tell us whether the program is right for you now."; }
   else { v.className="verdict low"; v.textContent="Not ready yet";
-    $("verdictText").textContent="Right now you’d struggle to land remote work. We’ll message you with what to work on first, so you can retake the test."; }
+    $("verdictText").textContent="Right now you’d struggle to land remote work. A consultant can tell you what to work on first, so you can retake the test."; }
   $("bars").innerHTML = Object.entries(cats).map(([c,p]) =>
     `<div class="bar"><label><span>${c}</span><span>${p}%</span></label><div><i style="width:${p}%"></i></div></div>`).join("");
 
@@ -220,18 +230,36 @@ function finish(){
     `LinkedIn: ${url("linkedin")||"-"}`, `Upwork/Fiverr: ${url("upwork")||"-"}`, `CV: ${url("cv")||"- (may send on WhatsApp)"}`
   ].join("\n");
 
-  // save the lead (same backend as the contact form: DynamoDB + email to contact@)
-  fetch("/api/enquiry", { method:"POST", headers:{"content-type":"application/json"},
-    body: JSON.stringify({ name:$("name").value.trim(), phone:$("phone").value.trim(), plan:"Not sure yet",
-      message: summary, page: "/readiness-test", website: $("website").value }) }).catch(()=>{});
-  try{ if(window.fbq) fbq('track','Lead',{content_name:'Readiness Test', value:score}); }catch(e){}
-  ev('readiness_test_complete',{score});
-
+  window.__summary = summary; window.__score = score;
   const waText = `Hi Launchbox! I just took the Remote Work Readiness Test.\nName: ${$("name").value.trim()}\nScore: ${score}/100\nField: ${A("industry")}\n(I'll attach my CV here.)`;
   $("wa").href = `https://wa.me/${WA}?text=${encodeURIComponent(waText)}`;
   $("wa").onclick = () => { try{ if(window.fbq) fbq('track','Contact',{content_name:'Readiness Test WhatsApp'}); }catch(e){} ev('whatsapp_click',{page_path:'/readiness-test'}); };
   show("result");
 }
+
+let saved=false;
+function save(consent){
+  if (saved) return; saved=true;
+  const body = JSON.stringify({ name:$("name").value.trim(), phone:$("phone").value.trim(), plan:"Not sure yet",
+    message: `CONSENT TO CONTACT (paid training & placement): ${consent}\n` + window.__summary, page:"/readiness-test", website:$("website").value });
+  if (consent==="No answer (left the page)") { try{ navigator.sendBeacon("/api/enquiry", new Blob([body],{type:"application/json"})); }catch(e){} return; }
+  fetch("/api/enquiry",{method:"POST",headers:{"content-type":"application/json"},body,keepalive:true}).catch(()=>{});
+}
+$("agree").onchange = () => { $("yes").disabled = !$("agree").checked; };
+$("yes").onclick = () => {
+  save("YES");
+  try{ if(window.fbq) fbq('track','Lead',{content_name:'Readiness Test - consented', value:window.__score}); }catch(e){}
+  ev('readiness_consent',{consent:'yes', score:window.__score});
+  $("consentCard").hidden=true; $("doneCard").hidden=false;
+};
+$("no").onclick = () => {
+  save("NO");
+  ev('readiness_consent',{consent:'no'});
+  $("consentCard").hidden=true; $("doneCard").hidden=false;
+  $("doneTitle").textContent="No problem";
+  $("doneText").textContent="We won’t contact you about the program. If you change your mind, message us on WhatsApp any time.";
+};
+addEventListener("pagehide", () => { if (!$("result").hidden) save("No answer (left the page)"); });
 
 $("start").onclick = () => {
   const name=$("name").value.trim(), digits=$("phone").value.replace(/\D/g,"");
