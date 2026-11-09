@@ -1,7 +1,6 @@
 // Viewer-request function for www.launchboxpk.com (static site in /site).
 // 301s for pages removed in the Nov 2026 redesign, then clean-URL rewrite to <path>/index.html.
 var REDIRECTS = {
-  '/jobs': '/careers',
   '/cv-optimizer': '/',
   '/rss.xml': '/blog',
 };
@@ -23,7 +22,7 @@ function handler(event) {
   if (REDIRECTS[uri]) return redirect(REDIRECTS[uri]);
   // old blog pagination (/blog/2) and category pages (/category/remote-work)
   if (/^\/blog\/\d+$/.test(uri) || /^\/category(\/|$)/.test(uri)) return redirect('/blog');
-  if (/^\/cv-optimizer\//.test(uri) || /^\/jobs\//.test(uri)) return redirect(uri.indexOf('/jobs') === 0 ? '/careers' : '/');
+  if (/^\/cv-optimizer\//.test(uri)) return redirect('/');
 
   if (uri === '/') {
     request.uri = '/index.html';

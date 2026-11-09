@@ -1,0 +1,29 @@
+name: Jobs feed
+
+# Hourly: fetch remote jobs from Arbeitnow and upload them as /jobs/data.json
+# for www.launchboxpk.com/jobs. The deploy workflow excludes this file from --delete.
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch: {}
+
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build feed
+        run: node scripts/jobs-feed.mjs /tmp/data.json
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Upload
+        run: |
+          aws s3 cp /tmp/data.json s3://launchboxpk.com/jobs/data.json --content-type application/json --cache-control "public, max-age=600"
+          aws cloudfront create-invalidation --distribution-id E4FC18X0B6JRG --paths "/jobs/data.json"
