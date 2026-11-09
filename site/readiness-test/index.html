@@ -126,13 +126,18 @@ input:focus{outline:none;border-color:var(--lime)}
     <p class="lead" id="verdictText"></p>
     <div class="bars" id="bars"></div>
     <div class="card" id="consentCard">
-      <h3>About the program</h3>
-      <p>Launchbox Remote Careers is an outreach program that trains people for remote jobs and helps place them with remote employers and clients. <b style="color:#fff">It is a paid training and placement program.</b></p>
-      <p>If you agree, one of our career consultants will contact you on WhatsApp to explain the fees, schedule and next steps. There’s no obligation to join.</p>
+      <h3>Choose your plan</h3>
+      <p>Launchbox Remote Careers is a <b style="color:#fff">paid</b> training and placement program. Pick how much help you want:</p>
+      <div class="opts" id="plans" style="margin-bottom:18px">
+        <button class="opt plan" data-plan="Guide me" data-price="PKR 500"><span class="dot"></span><span><b style="display:block;font-size:17px">Guide me: I’ll do it myself</b><span style="display:block;color:var(--lime);font-weight:800;margin:4px 0 6px">PKR 500</span><span style="color:var(--mute);font-weight:500;font-size:15px">A consultant reviews your CV and LinkedIn and gives you clear recommendations, where to apply and interview tips. You apply and follow them yourself.</span></span></button>
+        <button class="opt plan" data-plan="Do it for me" data-price="PKR 9,500"><span class="dot"></span><span><b style="display:block;font-size:17px">Do it for me: hands-on help</b><span style="display:block;margin:4px 0 6px;font-weight:800"><s style="color:var(--dim);font-weight:600">PKR 19,000</s> <span style="color:var(--lime)">PKR 9,500</span> <span style="background:var(--lime);color:var(--bg);font-size:12px;padding:2px 7px;border-radius:6px;margin-left:4px">50% OFF</span></span><span style="color:var(--mute);font-weight:500;font-size:15px">We fix your CV and LinkedIn for you, find and apply to remote jobs with you, and prepare you for interviews.</span></span></button>
+        <button class="opt plan" data-plan="Not sure yet" data-price=""><span class="dot"></span><span><b style="display:block;font-size:17px">Not sure yet: help me decide</b><span style="color:var(--mute);font-weight:500;font-size:15px">A consultant will recommend the right plan for you.</span></span></button>
+      </div>
       <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;margin:6px 0 18px;font-size:15px;line-height:1.45;color:#fff;font-weight:600">
         <input type="checkbox" id="agree" style="width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--lime)">
-        <span>I understand this is a paid training and placement program, and I agree to be contacted by a Launchbox consultant.</span></label>
-      <button class="btn" id="yes" disabled>Yes, have a consultant contact me</button>
+        <span id="agreeText">I understand this is a paid program, and I agree to be contacted by a Launchbox consultant on WhatsApp.</span></label>
+      <button class="btn" id="yes" disabled>Choose a plan above</button>
+      <p style="color:var(--dim);font-size:13px;margin:10px 0 0;text-align:center">No payment now. A consultant confirms everything with you first, with no obligation to join.</p>
       <button class="btn ghost" id="no" style="margin-top:10px">No thanks</button>
     </div>
     <div class="card" id="doneCard" hidden>
@@ -241,15 +246,29 @@ let saved=false;
 function save(consent){
   if (saved) return; saved=true;
   const body = JSON.stringify({ name:$("name").value.trim(), phone:$("phone").value.trim(), plan:"Not sure yet",
-    message: `CONSENT TO CONTACT (paid training & placement): ${consent}\n` + window.__summary, page:"/readiness-test", website:$("website").value });
+    message: `CONSENT TO CONTACT (paid training & placement): ${consent}\nPLAN: ${plan||"(none picked)"}${price?" - "+price:""}\n` + window.__summary, page:"/readiness-test", website:$("website").value });
   if (consent==="No answer (left the page)") { try{ navigator.sendBeacon("/api/enquiry", new Blob([body],{type:"application/json"})); }catch(e){} return; }
   fetch("/api/enquiry",{method:"POST",headers:{"content-type":"application/json"},body,keepalive:true}).catch(()=>{});
 }
-$("agree").onchange = () => { $("yes").disabled = !$("agree").checked; };
+let plan="", price="";
+function syncYes(){
+  $("yes").disabled = !(plan && $("agree").checked);
+  $("yes").textContent = !plan ? "Choose a plan above" : (plan==="Not sure yet" ? "Yes, help me choose" : `Yes, I want “${plan}”`);
+  $("agreeText").textContent = plan && price
+    ? `I understand “${plan}” is a paid plan (${price}), and I agree to be contacted by a Launchbox consultant on WhatsApp.`
+    : "I understand this is a paid program (PKR 500 or PKR 9,500), and I agree to be contacted by a Launchbox consultant on WhatsApp.";
+}
+document.querySelectorAll(".plan").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".plan").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+  plan=b.dataset.plan; price=b.dataset.price; syncYes(); ev('readiness_plan',{plan});
+  const waText = `Hi Launchbox! I just took the Remote Work Readiness Test.\nName: ${$("name").value.trim()}\nScore: ${window.__score}/100\nPlan: ${plan}${price?" ("+price+")":""}\n(I'll attach my CV here.)`;
+  $("wa").href = `https://wa.me/${WA}?text=${encodeURIComponent(waText)}`;
+});
+$("agree").onchange = syncYes;
 $("yes").onclick = () => {
   save("YES");
-  try{ if(window.fbq) fbq('track','Lead',{content_name:'Readiness Test - consented', value:window.__score}); }catch(e){}
-  ev('readiness_consent',{consent:'yes', score:window.__score});
+  try{ if(window.fbq) fbq('track','Lead',{content_name:'Readiness Test - '+plan, value:window.__score}); }catch(e){}
+  ev('readiness_consent',{consent:'yes', score:window.__score, plan});
   $("consentCard").hidden=true; $("doneCard").hidden=false;
 };
 $("no").onclick = () => {
