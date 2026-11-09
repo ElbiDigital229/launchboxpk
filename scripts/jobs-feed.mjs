@@ -1,4 +1,4 @@
-// Builds the feed for www.launchboxpk.com/jobs: remote jobs from the free Arbeitnow API
+// Builds the feed for www.launchboxpk.com/job-portal: remote jobs from the free Arbeitnow API
 // (German job board), written to one JSON file the page loads. Run hourly by
 // .github/workflows/jobs-feed.yaml, so visitors never call Arbeitnow themselves.
 import { writeFileSync } from 'node:fs';

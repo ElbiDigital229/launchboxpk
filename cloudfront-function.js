@@ -1,6 +1,7 @@
 // Viewer-request function for www.launchboxpk.com (static site in /site).
 // 301s for pages removed in the Nov 2026 redesign, then clean-URL rewrite to <path>/index.html.
 var REDIRECTS = {
+  '/jobs': '/job-portal',
   '/cv-optimizer': '/',
   '/rss.xml': '/blog',
 };

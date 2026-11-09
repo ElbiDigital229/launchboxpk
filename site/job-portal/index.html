@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Remote Jobs from Germany | Launchbox</title>
 <meta name="description" content="Live remote jobs from German companies, filtered for people working from Pakistan. Free, updated hourly. From Launchbox coworking, DHA Phase 5, Lahore.">
-<link rel="canonical" href="https://www.launchboxpk.com/jobs">
+<link rel="canonical" href="https://www.launchboxpk.com/job-portal">
 <link rel="icon" href="/favicon.png">
 <meta property="og:title" content="Remote Jobs from Germany | Launchbox">
 <meta property="og:description" content="Live remote jobs from German companies, filtered for people working from Pakistan. Free, updated hourly.">
@@ -259,9 +259,9 @@ function prep(j) {
     hay: (j.title + " " + j.company_name + " " + (j.tags || []).join(" ") + " " + ad.text.slice(0, 600)).toLowerCase() };
 }
 
-/* ---------- fetching: our hourly copy first (/jobs/data.json), Arbeitnow directly only as a fallback ---------- */
+/* ---------- fetching: our hourly copy first (/job-portal/data.json), Arbeitnow directly only as a fallback ---------- */
 async function fetchFeed() {
-  const r = await fetch("/jobs/data.json", { cache: "no-cache" });
+  const r = await fetch("/job-portal/data.json", { cache: "no-cache" });
   if (!r.ok) throw new Error("no feed");
   const d = await r.json(); if (!d.jobs?.length) throw new Error("empty feed");
   return d;
@@ -389,7 +389,7 @@ $("signup").addEventListener("submit", async e => {
   if (!name) return err("Please add your name.");
   if (phone.replace(/\D/g, "").length < 10) return err("Please add your WhatsApp number, e.g. 0300 1234567.");
   $("su-go").disabled = true; $("su-go").textContent = "Sending…";
-  const body = { name, phone, plan: "Not sure yet", page: "/jobs", website: $("su-website").value,
+  const body = { name, phone, plan: "Not sure yet", page: "/job-portal", website: $("su-website").value,
     message: `JOB ALERTS SIGN-UP (remote jobs on WhatsApp)\nWork: ${role}\nOn page ${activeS}s, opened ${adsOpened} ads\nFilters: ${JSON.stringify(prefs)}${$("q").value ? `, search "${$("q").value}"` : ""}\nSource: ${location.search.slice(1) || "direct"}` };
   try {
     const r = await fetch("/api/enquiry", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
