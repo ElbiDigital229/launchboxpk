@@ -25,6 +25,12 @@ function handler(event) {
   if (/^\/blog\/\d+$/.test(uri) || /^\/category(\/|$)/.test(uri)) return redirect('/blog');
   if (/^\/cv-optimizer\//.test(uri)) return redirect('/');
 
+  // Job portal is a single-page app: every /job-portal/... page loads its index.html
+  if (/^\/job-portal(\/|$)/.test(uri) && !/\.[a-z0-9]+$/i.test(uri)) {
+    request.uri = '/job-portal/index.html';
+    return request;
+  }
+
   if (uri === '/') {
     request.uri = '/index.html';
     return request;
