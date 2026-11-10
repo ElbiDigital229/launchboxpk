@@ -1,1 +1,0 @@
-import{d as t,o as s,n as a,A as n,t as r,k as i,a1 as o}from"./index-M6zeUqIt.js";const f=t({__name:"Avatar",props:{name:{},size:{}},setup(e){return(l,m)=>(s(),a("div",{class:n(["flex shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary font-semibold select-none",e.size==="lg"?"h-14 w-14 text-lg":"h-8 w-8 text-xs"])},r(i(o)(e.name)),3))}});export{f as _};
