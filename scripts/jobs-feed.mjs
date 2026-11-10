@@ -2,6 +2,10 @@
 // (German job board), written to one JSON file the page loads. Run hourly by
 // .github/workflows/jobs-feed.yaml, so visitors never call Arbeitnow themselves.
 import { writeFileSync } from 'node:fs';
+import { salary } from './salary.mjs';
+
+const plain = (h) => (h || '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/<[^>]+>/g, ' ')
+  .replace(/&nbsp;/g, ' ').replace(/&#?\w+;/g, ' ').replace(/\s+/g, ' ');
 
 const API = 'https://www.arbeitnow.com/api/job-board-api';
 const MAX_AD = 12000; // cap very long ads to keep the file small
@@ -24,10 +28,10 @@ const jobs = all
   .filter((j) => j.remote || (j.tags || []).some((t) => REMOTE.test(t)) || REMOTE.test(j.location || ''))
   .filter((j) => !seen.has(j.slug) && seen.add(j.slug))
   .map(({ slug, title, company_name, location, remote, url, tags, job_types, created_at, description }) =>
-    ({ slug, title, company_name, location, remote, url, tags, job_types, created_at, description: (description || '').slice(0, MAX_AD) }));
+    ({ slug, title, company_name, location, remote, url, tags, job_types, created_at, description: (description || '').slice(0, MAX_AD), salary: salary(plain(description)) }));
 
 // Fail loudly: an empty feed must not replace a good one.
 if (jobs.length < 20) throw new Error(`only ${jobs.length} remote jobs out of ${all.length}; not publishing`);
 
 writeFileSync(process.argv[2] || 'jobs-data.json', JSON.stringify({ fetchedAt: Date.now(), scanned: all.length, jobs }));
-console.log(`${jobs.length} remote jobs out of ${all.length} scanned`);
+console.log(`${jobs.length} remote jobs out of ${all.length} scanned; ${jobs.filter((j) => j.salary).length} with a salary`);
