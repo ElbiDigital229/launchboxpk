@@ -130,7 +130,7 @@ input:focus{outline:none;border-color:var(--lime)}
       <p>Launchbox Remote Careers is a <b style="color:#fff">paid</b> training and placement program. Pick how much help you want:</p>
       <div class="opts" id="plans" style="margin-bottom:18px">
         <button class="opt plan" data-plan="Guide me" data-price="PKR 500"><span class="dot"></span><span><b style="display:block;font-size:17px">Guide me: I’ll do it myself</b><span style="display:block;color:var(--lime);font-weight:800;margin:4px 0 6px">PKR 500</span><span style="color:var(--mute);font-weight:500;font-size:15px">A consultant reviews your CV and LinkedIn and gives you clear recommendations, where to apply and interview tips. You apply and follow them yourself.</span></span></button>
-        <button class="opt plan" data-plan="Do it for me" data-price="PKR 9,500"><span class="dot"></span><span><b style="display:block;font-size:17px">Do it for me: hands-on help</b><span style="display:block;margin:4px 0 6px;font-weight:800"><s style="color:var(--dim);font-weight:600">PKR 19,000</s> <span style="color:var(--lime)">PKR 9,500</span> <span style="background:var(--lime);color:var(--bg);font-size:12px;padding:2px 7px;border-radius:6px;margin-left:4px">50% OFF</span></span><span style="color:var(--mute);font-weight:500;font-size:15px">We fix your CV and LinkedIn for you, find and apply to remote jobs with you, and prepare you for interviews.</span></span></button>
+        <button class="opt plan" data-plan="Do it for me" data-price="PKR 29,500 + 20% of first month’s pay if placed"><span class="dot"></span><span><b style="display:block;font-size:17px">Do it for me: hands-on help</b><span style="display:block;margin:4px 0 6px;font-weight:800;color:var(--lime)">PKR 29,500 <span style="color:var(--mute);font-weight:600;font-size:14px">+ 20% of your first month’s pay, only if you’re placed</span></span><span style="color:var(--mute);font-weight:500;font-size:15px">We fix your CV and LinkedIn for you, find and apply to remote jobs with you, and prepare you for interviews. 50% of the fee back if you get no interview within a month.</span></span></button>
         <button class="opt plan" data-plan="Not sure yet" data-price=""><span class="dot"></span><span><b style="display:block;font-size:17px">Not sure yet: help me decide</b><span style="color:var(--mute);font-weight:500;font-size:15px">A consultant will recommend the right plan for you.</span></span></button>
       </div>
       <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;margin:6px 0 18px;font-size:15px;line-height:1.45;color:#fff;font-weight:600">
@@ -256,7 +256,7 @@ function syncYes(){
   $("yes").textContent = !plan ? "Choose a plan above" : (plan==="Not sure yet" ? "Yes, help me choose" : `Yes, I want “${plan}”`);
   $("agreeText").textContent = plan && price
     ? `I understand “${plan}” is a paid plan (${price}), and I agree to be contacted by a Launchbox consultant on WhatsApp.`
-    : "I understand this is a paid program (PKR 500 or PKR 9,500), and I agree to be contacted by a Launchbox consultant on WhatsApp.";
+    : "I understand this is a paid program (PKR 500 or PKR 29,500), and I agree to be contacted by a Launchbox consultant on WhatsApp.";
 }
 document.querySelectorAll(".plan").forEach(b => b.onclick = () => {
   document.querySelectorAll(".plan").forEach(x=>x.classList.remove("on")); b.classList.add("on");
