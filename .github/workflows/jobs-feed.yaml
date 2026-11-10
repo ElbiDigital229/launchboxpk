@@ -1,7 +1,7 @@
 name: Jobs feed
 
-# Hourly: fetch remote jobs from Arbeitnow and upload them as /job-portal/jobs.json,
-# the job board candidates see after signing in at www.launchboxpk.com/job-portal. The deploy workflow excludes this file from --delete.
+# Hourly: build the jobs board candidates see after signing in at www.launchboxpk.com/job-portal
+# (Arbeitnow + public company job boards, see scripts/companies.mjs) and upload /job-portal/jobs*.json. The deploy workflow excludes this file from --delete.
 on:
   schedule:
     - cron: '17 * * * *'
@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 20
       - name: Build feed
-        run: node scripts/jobs-feed.mjs /tmp/jobs.json
+        run: node scripts/jobs-feed.mjs /tmp/jobs
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -25,5 +25,5 @@ jobs:
           aws-region: us-east-1
       - name: Upload
         run: |
-          aws s3 cp /tmp/jobs.json s3://launchboxpk.com/job-portal/jobs.json --content-type application/json --cache-control "public, max-age=600"
-          aws cloudfront create-invalidation --distribution-id E4FC18X0B6JRG --paths "/job-portal/jobs.json"
+          aws s3 cp /tmp/jobs s3://launchboxpk.com/job-portal/ --recursive --content-type application/json --cache-control "public, max-age=600"
+          aws cloudfront create-invalidation --distribution-id E4FC18X0B6JRG --paths "/job-portal/jobs*"
